@@ -1,0 +1,4222 @@
+# depslib dependency file v1.0
+1586773986 source:d:\creative\programming\projects\c++ projects\chess\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+
+1586442765 d:\creative\programming\projects\c++ projects\chess\move_functions.h
+
+1586437769 source:d:\creative\programming\projects\c++ projects\chess\move_functions.cpp
+
+1586568374 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.0\main.cpp
+	<iostream>
+	<stdio.h>
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"move_functions.h"
+
+1586442765 d:\creative\programming\projects\c++ projects\chess backups\chess v1.0\move_functions.h
+
+1586437769 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.0\move_functions.cpp
+
+1586738875 source:d:\creative\programming\projects\c++ projects\chess v1.1\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586738711 d:\creative\programming\projects\c++ projects\chess v1.1\global constants.h
+
+1586738803 d:\creative\programming\projects\c++ projects\chess v1.1\external declaration of global variables.h
+
+1586738729 d:\creative\programming\projects\c++ projects\chess v1.1\move functions.h
+
+1586741280 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.2\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+
+1586738711 d:\creative\programming\projects\c++ projects\chess backups\chess v1.2\global constants.h
+
+1586738729 d:\creative\programming\projects\c++ projects\chess backups\chess v1.2\move functions.h
+
+1586738875 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.2\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586738803 d:\creative\programming\projects\c++ projects\chess backups\chess v1.2\external declaration of global variables.h
+
+1586738875 source:d:\creative\programming\projects\c++ projects\chess v1.2\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\chess v1.2\global constants.h
+
+1586772844 d:\creative\programming\projects\c++ projects\chess v1.2\external declaration of global variables.h
+
+1586738729 d:\creative\programming\projects\c++ projects\chess v1.2\move functions.h
+
+1586772610 d:\creative\programming\projects\c++ projects\chess\global constants.h
+
+1586773749 d:\creative\programming\projects\c++ projects\chess\move functions.h
+
+1586773746 d:\creative\programming\projects\c++ projects\chess\checks.h
+
+1586773800 source:d:\creative\programming\projects\c++ projects\chess\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772844 d:\creative\programming\projects\c++ projects\chess\external declaration of global variables.h
+
+1587053887 source:d:\creative\programming\projects\c++ projects\chess v1.3\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\chess v1.3\global constants.h
+
+1587041571 d:\creative\programming\projects\c++ projects\chess v1.3\external declaration of global variables.h
+
+1587048764 source:d:\creative\programming\projects\c++ projects\chess v1.3\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+
+1587042954 d:\creative\programming\projects\c++ projects\chess v1.3\move functions.h
+
+1587053790 source:d:\creative\programming\projects\c++ projects\chess v1.3\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+
+1587048794 d:\creative\programming\projects\c++ projects\chess v1.3\checks.h
+
+1587053887 source:d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\global constants.h
+
+1587041571 d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\external declaration of global variables.h
+
+1587042954 d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\move functions.h
+
+1587054021 source:d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+
+1587048794 d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\checks.h
+
+1587048764 source:d:\creative\programming\projects\c++ projects\chess v1.3 Чшах тоже работает\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+
+1587068371 source:d:\creative\programming\projects\c++ projects\testing\chess v1.4\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.4\global constants.h
+
+1587068692 d:\creative\programming\projects\c++ projects\testing\chess v1.4\external declaration of global variables.h
+
+1587068331 d:\creative\programming\projects\c++ projects\testing\chess v1.4\move functions.h
+
+1587068681 source:d:\creative\programming\projects\c++ projects\testing\chess v1.4\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587064687 d:\creative\programming\projects\c++ projects\testing\chess v1.4\checks.h
+
+1587068661 source:d:\creative\programming\projects\c++ projects\testing\chess v1.4\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587068480 d:\creative\programming\projects\c++ projects\testing\chess v1.4\secondary functions.h
+
+1587068552 source:d:\creative\programming\projects\c++ projects\testing\chess v1.4\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1587070043 source:d:\creative\programming\projects\c++ projects\testing\chess v1.5\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.5\global constants.h
+
+1587068692 d:\creative\programming\projects\c++ projects\testing\chess v1.5\external declaration of global variables.h
+
+1587080492 d:\creative\programming\projects\c++ projects\testing\chess v1.5\move functions.h
+
+1587080355 source:d:\creative\programming\projects\c++ projects\testing\chess v1.5\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587064687 d:\creative\programming\projects\c++ projects\testing\chess v1.5\checks.h
+
+1587068480 d:\creative\programming\projects\c++ projects\testing\chess v1.5\secondary functions.h
+
+1587068552 source:d:\creative\programming\projects\c++ projects\testing\chess v1.5\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1587080357 source:d:\creative\programming\projects\c++ projects\testing\chess v1.5\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587081446 source:d:\creative\programming\projects\c++ projects\testing\chess v1.6\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.6\global constants.h
+
+1587068692 d:\creative\programming\projects\c++ projects\testing\chess v1.6\external declaration of global variables.h
+
+1587080492 d:\creative\programming\projects\c++ projects\testing\chess v1.6\move functions.h
+
+1587081369 source:d:\creative\programming\projects\c++ projects\testing\chess v1.6\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587081335 d:\creative\programming\projects\c++ projects\testing\chess v1.6\checks.h
+
+1587068480 d:\creative\programming\projects\c++ projects\testing\chess v1.6\secondary functions.h
+
+1587081851 source:d:\creative\programming\projects\c++ projects\testing\chess v1.6\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587080441 source:d:\creative\programming\projects\c++ projects\testing\chess v1.6\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1587329289 source:d:\creative\programming\projects\c++ projects\testing\chess v1.7\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.7\global constants.h
+
+1587068692 d:\creative\programming\projects\c++ projects\testing\chess v1.7\external declaration of global variables.h
+
+1587329690 d:\creative\programming\projects\c++ projects\testing\chess v1.7\move functions.h
+
+1587081369 source:d:\creative\programming\projects\c++ projects\testing\chess v1.7\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587329285 d:\creative\programming\projects\c++ projects\testing\chess v1.7\checks.h
+
+1587068480 d:\creative\programming\projects\c++ projects\testing\chess v1.7\secondary functions.h
+
+1587082612 source:d:\creative\programming\projects\c++ projects\testing\chess v1.7\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587080441 source:d:\creative\programming\projects\c++ projects\testing\chess v1.7\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1587929328 source:d:\creative\programming\projects\c++ projects\testing\chess v1.8\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.8\global constants.h
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess v1.8\external declaration of global variables.h
+
+1587929323 d:\creative\programming\projects\c++ projects\testing\chess v1.8\move functions.h
+
+1588192656 source:d:\creative\programming\projects\c++ projects\testing\chess v1.8\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587329285 d:\creative\programming\projects\c++ projects\testing\chess v1.8\checks.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess v1.8\secondary functions.h
+
+1588193507 source:d:\creative\programming\projects\c++ projects\testing\chess v1.8\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess v1.8\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588209822 source:d:\creative\programming\projects\c++ projects\testing\chess v1.9\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.9\global constants.h
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess v1.9\external declaration of global variables.h
+
+1588209795 d:\creative\programming\projects\c++ projects\testing\chess v1.9\move functions.h
+
+1588195437 source:d:\creative\programming\projects\c++ projects\testing\chess v1.9\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588208201 d:\creative\programming\projects\c++ projects\testing\chess v1.9\checks.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess v1.9\secondary functions.h
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess v1.9\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588211811 source:d:\creative\programming\projects\c++ projects\testing\chess v1.9\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588363613 source:d:\creative\programming\projects\c++ projects\testing\chess v1.10\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.10\global constants.h
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess v1.10\external declaration of global variables.h
+
+1588361050 d:\creative\programming\projects\c++ projects\testing\chess v1.10\move functions.h
+
+1588195437 source:d:\creative\programming\projects\c++ projects\testing\chess v1.10\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588208201 d:\creative\programming\projects\c++ projects\testing\chess v1.10\checks.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess v1.10\secondary functions.h
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess v1.10\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588366235 source:d:\creative\programming\projects\c++ projects\testing\chess v1.10\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1587336790 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\global constants.h
+
+1587068692 d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\external declaration of global variables.h
+
+1587329690 d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\move functions.h
+
+1587336943 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587329285 d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\checks.h
+
+1587068480 d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\secondary functions.h
+
+1587336907 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\move functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587080441 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.8\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588366354 source:d:\creative\programming\projects\c++ projects\testing\chess v1.10\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.10\move functions at mat.h
+
+1588423849 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\global constants.h
+
+1588361050 d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\move functions.h
+
+1588423882 d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\checks.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\secondary functions.h
+
+1588423592 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\external declaration of global variables.h
+
+1588423902 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\move functions at mat.h
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588423783 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Ч копи€\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588423783 source:d:\creative\programming\projects\c++ projects\testing\chess 1\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess 1\global constants.h
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess 1\external declaration of global variables.h
+
+1588361050 d:\creative\programming\projects\c++ projects\testing\chess 1\move functions.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess 1\secondary functions.h
+
+1588423882 d:\creative\programming\projects\c++ projects\testing\chess 1\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess 1\move functions at mat.h
+
+1588423849 source:d:\creative\programming\projects\c++ projects\testing\chess 1\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588424451 source:d:\creative\programming\projects\c++ projects\testing\chess 1\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588423902 source:d:\creative\programming\projects\c++ projects\testing\chess 1\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess 1\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588423849 source:d:\creative\programming\projects\c++ projects\testing\chess v1.11\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.11\global constants.h
+
+1588550626 d:\creative\programming\projects\c++ projects\testing\chess v1.11\move functions.h
+
+1588423882 d:\creative\programming\projects\c++ projects\testing\chess v1.11\checks.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess v1.11\secondary functions.h
+
+1588424451 source:d:\creative\programming\projects\c++ projects\testing\chess v1.11\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess v1.11\external declaration of global variables.h
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess v1.11\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588550796 source:d:\creative\programming\projects\c++ projects\testing\chess v1.11\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.11\move functions at mat.h
+
+1588550845 source:d:\creative\programming\projects\c++ projects\testing\chess v1.11\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1588590110 source:d:\creative\programming\projects\c++ projects\testing\chess v1.12\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.12\global constants.h
+
+1588551700 d:\creative\programming\projects\c++ projects\testing\chess v1.12\move functions.h
+
+1588552785 d:\creative\programming\projects\c++ projects\testing\chess v1.12\checks.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess v1.12\secondary functions.h
+
+1588589911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.12\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess v1.12\external declaration of global variables.h
+
+1588553173 source:d:\creative\programming\projects\c++ projects\testing\chess v1.12\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.12\move functions at mat.h
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess v1.12\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588552944 source:d:\creative\programming\projects\c++ projects\testing\chess v1.12\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588598965 source:d:\creative\programming\projects\c++ projects\testing\chess v1.13\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess v1.13\global constants.h
+
+1588599152 d:\creative\programming\projects\c++ projects\testing\chess v1.13\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588551700 d:\creative\programming\projects\c++ projects\testing\chess v1.13\move functions.h
+
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess v1.13\secondary functions.h
+
+1588552785 d:\creative\programming\projects\c++ projects\testing\chess v1.13\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.13\move functions at mat.h
+
+1588600220 source:d:\creative\programming\projects\c++ projects\testing\chess v1.13\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588589911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.13\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess v1.13\secondary functions.cpp
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+
+1588599645 source:d:\creative\programming\projects\c++ projects\testing\chess v1.13\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1588707061 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588633627 d:\creative\programming\projects\c++ projects\testing\chess v1.14\global constants.h
+
+1588707250 d:\creative\programming\projects\c++ projects\testing\chess v1.14\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588551700 d:\creative\programming\projects\c++ projects\testing\chess v1.14\move functions.h
+
+1588708673 d:\creative\programming\projects\c++ projects\testing\chess v1.14\secondary functions.h
+
+1588707054 d:\creative\programming\projects\c++ projects\testing\chess v1.14\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.14\move functions at mat.h
+
+1588589911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588706564 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1588639978 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588708686 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"coordinate processing functions.h"
+
+1588630882 d:\creative\programming\projects\c++ projects\testing\chess v1.14\object drawing functions.h
+
+1588631123 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\object drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"object drawing functions.h"
+
+1588964683 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588633627 d:\creative\programming\projects\c++ projects\testing\chess v1.15\global constants.h
+
+1588971100 d:\creative\programming\projects\c++ projects\testing\chess v1.15\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588803847 d:\creative\programming\projects\c++ projects\testing\chess v1.15\move functions.h
+
+1588803252 d:\creative\programming\projects\c++ projects\testing\chess v1.15\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588964064 d:\creative\programming\projects\c++ projects\testing\chess v1.15\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.15\move functions at mat.h
+
+1588589911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588813740 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"object drawing functions.h"
+
+1588813957 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+
+1588778636 d:\creative\programming\projects\c++ projects\testing\chess v1.15\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588803260 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589233189 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1589226574 d:\creative\programming\projects\c++ projects\testing\chess v1.16\global constants.h
+
+1589234874 d:\creative\programming\projects\c++ projects\testing\chess v1.16\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588803847 d:\creative\programming\projects\c++ projects\testing\chess v1.16\move functions.h
+
+1588803252 d:\creative\programming\projects\c++ projects\testing\chess v1.16\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589227050 d:\creative\programming\projects\c++ projects\testing\chess v1.16\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.16\move functions at mat.h
+
+1589234706 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+
+1588984532 d:\creative\programming\projects\c++ projects\testing\chess v1.16\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588977352 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589237548 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"game objects drawing functions.h"
+
+1589031071 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"backlight functions.h"
+
+1589233238 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588633000 d:\creative\programming\projects\c++ projects\testing\chess v1.16\coordinate processing functions.h
+
+1589236085 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+
+1588633131 source:d:\creative\programming\projects\c++ projects\testing\chess v1.14\coordinate processing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+
+1588633000 d:\creative\programming\projects\c++ projects\testing\chess v1.14\coordinate processing functions.h
+
+1588633131 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\coordinate processing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+
+1588964030 source:d:\creative\programming\projects\c++ projects\testing\chess v1.15\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"coordinate processing functions.h"
+
+1588633000 d:\creative\programming\projects\c++ projects\testing\chess v1.15\coordinate processing functions.h
+
+1589325461 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1589226574 d:\creative\programming\projects\c++ projects\testing\chess v1.17\global constants.h
+
+1589325714 d:\creative\programming\projects\c++ projects\testing\chess v1.17\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1588803847 d:\creative\programming\projects\c++ projects\testing\chess v1.17\move functions.h
+
+1589325616 d:\creative\programming\projects\c++ projects\testing\chess v1.17\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589325490 d:\creative\programming\projects\c++ projects\testing\chess v1.17\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.17\move functions at mat.h
+
+1589325502 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589325727 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+
+1588984532 d:\creative\programming\projects\c++ projects\testing\chess v1.17\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589236107 d:\creative\programming\projects\c++ projects\testing\chess v1.17\coordinate processing functions.h
+
+1588977352 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589237548 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"game objects drawing functions.h"
+
+1589325749 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589031071 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"backlight functions.h"
+
+1588633131 source:c:\users\computer\desktop\chess v1.15\coordinate processing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+
+1588633627 c:\users\computer\desktop\chess v1.15\global constants.h
+
+1588776601 c:\users\computer\desktop\chess v1.15\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588589911 source:c:\users\computer\desktop\chess v1.15\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588711379 c:\users\computer\desktop\chess v1.15\move functions.h
+
+1588796505 c:\users\computer\desktop\chess v1.15\checks.h
+
+1588778973 c:\users\computer\desktop\chess v1.15\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588790641 source:c:\users\computer\desktop\chess v1.15\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+
+1588778636 c:\users\computer\desktop\chess v1.15\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588778981 source:c:\users\computer\desktop\chess v1.15\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588802962 source:c:\users\computer\desktop\chess v1.15\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"coordinate processing functions.h"
+
+1588633000 c:\users\computer\desktop\chess v1.15\coordinate processing functions.h
+
+1588802962 source:c:\users\computer\desktop\chess v1.15\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"object drawing functions.h"
+
+1588362039 c:\users\computer\desktop\chess v1.15\move functions at mat.h
+
+1588803025 source:c:\users\computer\desktop\chess v1.15\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588803025 source:c:\users\computer\desktop\chess v1.16\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588633627 c:\users\computer\desktop\chess v1.16\global constants.h
+
+1588776601 c:\users\computer\desktop\chess v1.16\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588711379 c:\users\computer\desktop\chess v1.16\move functions.h
+
+1588803252 c:\users\computer\desktop\chess v1.16\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588796505 c:\users\computer\desktop\chess v1.16\checks.h
+
+1588362039 c:\users\computer\desktop\chess v1.16\move functions at mat.h
+
+1588633131 source:c:\users\computer\desktop\chess v1.16\coordinate processing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+
+1588802962 source:c:\users\computer\desktop\chess v1.16\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"coordinate processing functions.h"
+
+1588778636 c:\users\computer\desktop\chess v1.16\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588633000 c:\users\computer\desktop\chess v1.16\coordinate processing functions.h
+
+1588589911 source:c:\users\computer\desktop\chess v1.16\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588803082 source:c:\users\computer\desktop\chess v1.16\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"object drawing functions.h"
+
+1588790641 source:c:\users\computer\desktop\chess v1.16\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+
+1588964683 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588633627 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\global constants.h
+
+1588813770 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588803847 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\move functions.h
+
+1588803252 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588964064 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\move functions at mat.h
+
+1588633131 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\coordinate processing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+
+1588589911 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588813740 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"object drawing functions.h"
+
+1588778636 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1588813957 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+
+1588803260 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1588964442 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"coordinate processing functions.h"
+
+1588633000 d:\creative\programming\projects\c++ projects\chess backups\chess v1.15\coordinate processing functions.h
+
+1589030562 d:\creative\programming\projects\c++ projects\testing\chess v1.16\backlight functions.h
+
+1589226677 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589226677 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589226574 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\global constants.h
+
+1589234874 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+
+1588803252 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589233189 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588803847 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\move functions.h
+
+1589227050 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\checks.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\move functions at mat.h
+
+1589236085 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+
+1589236115 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+
+1588984532 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\object drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589236107 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\coordinate processing functions.h
+
+1589030562 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\backlight functions.h
+
+1588977352 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589037517 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"object drawing functions.h"
+
+1589031071 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\object drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"object drawing functions.h"
+	"backlight functions.h"
+
+1589233238 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589030562 d:\creative\programming\projects\c++ projects\testing\chess v1.17\backlight functions.h
+
+1589226319 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"game objects drawing functions.h"
+
+1589226342 d:\creative\programming\projects\c++ projects\testing\chess v1.16\game objects drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589226749 source:d:\creative\programming\projects\c++ projects\testing\chess v1.16\game objects drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"game objects drawing functions.h"
+	"backlight functions.h"
+
+1589226367 d:\creative\programming\projects\c++ projects\testing\chess v1.16\drawing functions.h
+
+1589226319 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"game objects drawing functions.h"
+
+1589226342 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\game objects drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589226749 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\game objects drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"game objects drawing functions.h"
+	"backlight functions.h"
+
+1589226367 d:\creative\programming\projects\c++ projects\chess backups\chess v1.16\drawing functions.h
+
+1589226677 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589226749 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\game objects drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"game objects drawing functions.h"
+	"backlight functions.h"
+
+1589226342 d:\creative\programming\projects\c++ projects\testing\chess v1.17\game objects drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589242925 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\button class.cpp
+
+1589325654 source:d:\creative\programming\projects\c++ projects\testing\chess v1.17\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"game objects drawing functions.h"
+	"checks.h"
+	"button class.h"
+
+1589244378 d:\creative\programming\projects\c++ projects\testing\chess v1.17\drawing functions.h
+
+1589325878 d:\creative\programming\projects\c++ projects\testing\chess v1.17\button class.h
+	<SFML/Graphics.hpp>
+
+1589397167 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589226574 d:\creative\programming\projects\c++ projects\testing\chess v1.18\global constants.h
+
+1589397111 d:\creative\programming\projects\c++ projects\testing\chess v1.18\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589394911 d:\creative\programming\projects\c++ projects\testing\chess v1.18\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\testing\chess v1.18\checks.h
+
+1589328594 d:\creative\programming\projects\c++ projects\testing\chess v1.18\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.18\backlight functions.h
+
+1589326720 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588803847 d:\creative\programming\projects\c++ projects\testing\chess v1.18\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.18\move functions at mat.h
+
+1589398602 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589397969 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589397908 d:\creative\programming\projects\c++ projects\testing\chess v1.18\game objects drawing functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589397927 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\game objects drawing functions.cpp
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+	<windows.h>
+	<cmath>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"game objects drawing functions.h"
+	"backlight functions.h"
+
+1589398563 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+
+1589397890 d:\creative\programming\projects\c++ projects\testing\chess v1.18\drawing functions.h
+
+1589236107 d:\creative\programming\projects\c++ projects\testing\chess v1.18\coordinate processing functions.h
+
+1588977352 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589397726 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"animation functions.h"
+
+1589330386 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589394911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589397763 d:\creative\programming\projects\c++ projects\testing\chess v1.18\animation functions.h
+
+1589398178 source:d:\creative\programming\projects\c++ projects\testing\chess v1.18\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589398178 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589226574 d:\creative\programming\projects\c++ projects\testing\chess v1.19\global constants.h
+
+1589405017 d:\creative\programming\projects\c++ projects\testing\chess v1.19\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589394911 d:\creative\programming\projects\c++ projects\testing\chess v1.19\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\testing\chess v1.19\checks.h
+
+1589410356 d:\creative\programming\projects\c++ projects\testing\chess v1.19\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589406003 d:\creative\programming\projects\c++ projects\testing\chess v1.19\drawing functions.h
+
+1589397763 d:\creative\programming\projects\c++ projects\testing\chess v1.19\animation functions.h
+
+1589397167 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.19\backlight functions.h
+
+1589394911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589398746 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588803847 d:\creative\programming\projects\c++ projects\testing\chess v1.19\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.19\move functions at mat.h
+
+1588977352 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589410178 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+	"animation functions.h"
+
+1589330386 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589406513 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589406097 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589408039 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"handling functions.h"
+
+1589406495 d:\creative\programming\projects\c++ projects\testing\chess v1.19\coordinate processing functions.h
+
+1589406032 d:\creative\programming\projects\c++ projects\testing\chess v1.19\main functions.h
+
+1589406795 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\main functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"main functions.h"
+	"button class.h"
+
+1589410369 source:d:\creative\programming\projects\c++ projects\testing\chess v1.19\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+
+1589406032 d:\creative\programming\projects\c++ projects\testing\chess v1.19\handling functions.h
+
+1589508735 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589644470 d:\creative\programming\projects\c++ projects\testing\chess v1.20\global constants.h
+
+1589644737 d:\creative\programming\projects\c++ projects\testing\chess v1.20\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+
+1589394911 d:\creative\programming\projects\c++ projects\testing\chess v1.20\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\testing\chess v1.20\checks.h
+
+1589645369 d:\creative\programming\projects\c++ projects\testing\chess v1.20\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589416644 d:\creative\programming\projects\c++ projects\testing\chess v1.20\drawing functions.h
+
+1589397763 d:\creative\programming\projects\c++ projects\testing\chess v1.20\animation functions.h
+
+1589397167 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.20\backlight functions.h
+
+1589394911 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589398746 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588803847 d:\creative\programming\projects\c++ projects\testing\chess v1.20\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.20\move functions at mat.h
+
+1589406513 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589644019 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589644063 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+
+1589406495 d:\creative\programming\projects\c++ projects\testing\chess v1.20\coordinate processing functions.h
+
+1589406032 d:\creative\programming\projects\c++ projects\testing\chess v1.20\handling functions.h
+
+1589644721 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"handling functions.h"
+
+1588977352 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589410396 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589509872 source:d:\creative\programming\projects\c++ projects\testing\chess v1.20\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+
+1589748813 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589644470 d:\creative\programming\projects\c++ projects\testing\chess v1.21\global constants.h
+
+1589749108 d:\creative\programming\projects\c++ projects\testing\chess v1.21\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"chess pieces class.h"
+
+1589678186 d:\creative\programming\projects\c++ projects\testing\chess v1.21\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\testing\chess v1.21\checks.h
+
+1589749055 d:\creative\programming\projects\c++ projects\testing\chess v1.21\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"chess pieces class.h"
+
+1589416644 d:\creative\programming\projects\c++ projects\testing\chess v1.21\drawing functions.h
+
+1589748690 d:\creative\programming\projects\c++ projects\testing\chess v1.21\animation functions.h
+
+1589745473 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.21\backlight functions.h
+
+1589747160 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589398746 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.21\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.21\move functions at mat.h
+
+1589406513 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589748957 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589745413 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+	<iostream>
+
+1589406495 d:\creative\programming\projects\c++ projects\testing\chess v1.21\coordinate processing functions.h
+
+1589651573 d:\creative\programming\projects\c++ projects\testing\chess v1.21\handling functions.h
+
+1589749084 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"chess pieces class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1588977352 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589651089 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589746311 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589508735 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589226574 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\global constants.h
+
+1589509788 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589394911 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\checks.h
+
+1589411862 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589416644 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\drawing functions.h
+
+1589397763 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\animation functions.h
+
+1589397167 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\backlight functions.h
+
+1589394911 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589398746 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1588803847 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\move functions at mat.h
+
+1589406513 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589509340 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589509382 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+
+1589406495 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\coordinate processing functions.h
+
+1589406032 d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\handling functions.h
+
+1588977352 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589410396 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589509202 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<cstring>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+
+1589509788 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.20\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"handling functions.h"
+
+1589898535 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589771695 d:\creative\programming\projects\c++ projects\testing\chess v1.22\global constants.h
+
+1589898016 d:\creative\programming\projects\c++ projects\testing\chess v1.22\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"drawn objects class.h"
+
+1589678186 d:\creative\programming\projects\c++ projects\testing\chess v1.22\button class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.22\checks.h
+
+1589898100 d:\creative\programming\projects\c++ projects\testing\chess v1.22\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"drawn objects class.h"
+
+1589898223 d:\creative\programming\projects\c++ projects\testing\chess v1.22\drawing functions.h
+
+1589750325 d:\creative\programming\projects\c++ projects\testing\chess v1.22\animation functions.h
+
+1589780207 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.22\backlight functions.h
+
+1589747160 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589780115 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.22\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.22\move functions at mat.h
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589898251 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589779954 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.22\coordinate processing functions.h
+
+1589766611 d:\creative\programming\projects\c++ projects\testing\chess v1.22\handling functions.h
+
+1589898018 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"drawn objects class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1589668806 d:\creative\programming\projects\c++ projects\testing\chess v1.22\connector.hpp
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589780162 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589898480 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589668796 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589508735 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589644470 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\global constants.h
+
+1589649519 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+
+1589394911 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\checks.h
+
+1589649553 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589416644 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\drawing functions.h
+
+1589397763 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\animation functions.h
+
+1589397167 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\backlight functions.h
+
+1589394911 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589398746 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\move functions at mat.h
+
+1589652712 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589406513 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589655159 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+	<iostream>
+
+1589406495 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\coordinate processing functions.h
+
+1589651573 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\handling functions.h
+
+1588977352 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589651089 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589654903 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589652741 d:\creative\programming\projects\c++ projects\chess backups\chess v1.22\connector.hpp
+
+1589668796 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589668806 d:\creative\programming\projects\c++ projects\testing\chess v1.21\connector.hpp
+
+1589681507 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589644470 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\global constants.h
+
+1589681617 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+
+1589678186 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\button class.h
+	<SFML/Graphics.hpp>
+
+1589398753 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\checks.h
+
+1589649553 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+
+1589416644 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\drawing functions.h
+
+1589397763 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\animation functions.h
+
+1589745473 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\backlight functions.h
+
+1589680306 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589398746 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\move functions at mat.h
+
+1589668796 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589406513 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589681486 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+
+1589746200 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1589406495 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\coordinate processing functions.h
+
+1589651573 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\handling functions.h
+
+1589668806 d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\connector.hpp
+
+1588977352 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589651089 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589746311 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589745413 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.21\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+	<iostream>
+
+1589749025 source:d:\creative\programming\projects\c++ projects\testing\chess v1.21\chess pieces class.cpp
+	<SFML/Graphics.hpp>
+	"chess pieces class.h"
+
+1589748976 d:\creative\programming\projects\c++ projects\testing\chess v1.21\chess pieces class.h
+	<SFML/Graphics.hpp>
+
+1589750275 d:\creative\programming\projects\c++ projects\testing\chess v1.22\chess pieces class.h
+	<SFML/Graphics.hpp>
+
+1589750255 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\chess pieces class.cpp
+	<SFML/Graphics.hpp>
+	"chess pieces class.h"
+
+1589750275 d:\creative\programming\projects\c++ projects\testing\chess v1.22\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589752096 source:d:\creative\programming\projects\c++ projects\testing\chess v1.22\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1589908749 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1589771695 d:\creative\programming\projects\c++ projects\testing\chess v1.23\global constants.h
+
+1589946404 d:\creative\programming\projects\c++ projects\testing\chess v1.23\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+
+1589987549 d:\creative\programming\projects\c++ projects\testing\chess v1.23\button class.h
+	<SFML/Graphics.hpp>
+
+1589750275 d:\creative\programming\projects\c++ projects\testing\chess v1.23\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.23\checks.h
+
+1589988955 d:\creative\programming\projects\c++ projects\testing\chess v1.23\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"drawn objects class.h"
+
+1589944503 d:\creative\programming\projects\c++ projects\testing\chess v1.23\drawing functions.h
+
+1589750325 d:\creative\programming\projects\c++ projects\testing\chess v1.23\animation functions.h
+
+1589780207 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.23\backlight functions.h
+
+1589987615 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589927222 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.23\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.23\move functions at mat.h
+
+1589668796 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589752096 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1589988782 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"button class.h"
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.23\coordinate processing functions.h
+
+1589987760 d:\creative\programming\projects\c++ projects\testing\chess v1.23\handling functions.h
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1589780162 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1589945406 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"inscription class.h"
+
+1589988696 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1589668806 d:\creative\programming\projects\c++ projects\testing\chess v1.23\connector.hpp
+
+1589988956 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589913013 d:\creative\programming\projects\c++ projects\testing\chess v1.23\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589913329 source:d:\creative\programming\projects\c++ projects\testing\chess v1.23\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1589908749 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590072261 d:\creative\programming\projects\c++ projects\testing\chess v1.24\global constants.h
+
+1590074019 d:\creative\programming\projects\c++ projects\testing\chess v1.24\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\testing\chess v1.24\button class.h
+	<SFML/Graphics.hpp>
+
+1589750275 d:\creative\programming\projects\c++ projects\testing\chess v1.24\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589913013 d:\creative\programming\projects\c++ projects\testing\chess v1.24\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.24\checks.h
+
+1590027671 d:\creative\programming\projects\c++ projects\testing\chess v1.24\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn objects class.h"
+
+1590073831 d:\creative\programming\projects\c++ projects\testing\chess v1.24\drawing functions.h
+
+1589750325 d:\creative\programming\projects\c++ projects\testing\chess v1.24\animation functions.h
+
+1589780207 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.24\backlight functions.h
+
+1589927222 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.24\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.24\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.24\coordinate processing functions.h
+
+1590023649 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590073846 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"inscription class.h"
+
+1589752096 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1590075267 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590074329 d:\creative\programming\projects\c++ projects\testing\chess v1.24\handling functions.h
+
+1589913329 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1590074004 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1590023644 d:\creative\programming\projects\c++ projects\testing\chess v1.24\connector.hpp
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590067054 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590075050 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589908749 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590205439 d:\creative\programming\projects\c++ projects\testing\chess v1.25\global constants.h
+
+1590205683 d:\creative\programming\projects\c++ projects\testing\chess v1.25\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\testing\chess v1.25\button class.h
+	<SFML/Graphics.hpp>
+
+1590201068 d:\creative\programming\projects\c++ projects\testing\chess v1.25\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589913013 d:\creative\programming\projects\c++ projects\testing\chess v1.25\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.25\checks.h
+
+1590204924 d:\creative\programming\projects\c++ projects\testing\chess v1.25\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn objects class.h"
+
+1590205598 d:\creative\programming\projects\c++ projects\testing\chess v1.25\drawing functions.h
+
+1589750325 d:\creative\programming\projects\c++ projects\testing\chess v1.25\animation functions.h
+
+1589780207 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.25\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589927222 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.25\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.25\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.25\coordinate processing functions.h
+
+1590023649 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590206004 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"inscription class.h"
+
+1590201150 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1590205560 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590205398 d:\creative\programming\projects\c++ projects\testing\chess v1.25\handling functions.h
+
+1589913329 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590067054 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590205672 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1590023644 d:\creative\programming\projects\c++ projects\testing\chess v1.25\connector.hpp
+
+1590206849 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1590027208 d:\creative\programming\projects\c++ projects\testing\chess v1.25\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\testing\chess v1.25\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1590266286 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590205439 d:\creative\programming\projects\c++ projects\testing\chess v1.26\global constants.h
+
+1590563058 d:\creative\programming\projects\c++ projects\testing\chess v1.26\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\testing\chess v1.26\button class.h
+	<SFML/Graphics.hpp>
+
+1590027208 d:\creative\programming\projects\c++ projects\testing\chess v1.26\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590201068 d:\creative\programming\projects\c++ projects\testing\chess v1.26\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589913013 d:\creative\programming\projects\c++ projects\testing\chess v1.26\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.26\checks.h
+
+1590505541 d:\creative\programming\projects\c++ projects\testing\chess v1.26\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn object class.h"
+
+1590205598 d:\creative\programming\projects\c++ projects\testing\chess v1.26\drawing functions.h
+
+1590261814 d:\creative\programming\projects\c++ projects\testing\chess v1.26\animation functions.h
+
+1590259711 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.26\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590506058 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.26\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.26\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.26\coordinate processing functions.h
+
+1590023649 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590563361 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"label class.h"
+
+1590201150 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1589913329 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1590563060 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1590262664 d:\creative\programming\projects\c++ projects\testing\chess v1.26\handling functions.h
+
+1590023644 d:\creative\programming\projects\c++ projects\testing\chess v1.26\connector.hpp
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590504519 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1590506493 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590563414 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1589908749 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590011343 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\global constants.h
+
+1590011459 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\button class.h
+	<SFML/Graphics.hpp>
+
+1590027208 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589750275 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589913013 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\checks.h
+
+1590027671 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn objects class.h"
+
+1590007451 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\drawing functions.h
+
+1589750325 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\animation functions.h
+
+1589780207 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589927222 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\coordinate processing functions.h
+
+1590023649 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590011965 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"inscription class.h"
+
+1589752096 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1590027683 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590011704 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\handling functions.h
+
+1590023644 d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\connector.hpp
+
+1589913329 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1590023958 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1589780197 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1590067054 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590067087 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.24\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1590027208 d:\creative\programming\projects\c++ projects\testing\chess v1.24\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590006366 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\testing\chess v1.24\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1589908749 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590205439 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\global constants.h
+
+1590208561 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn objects class.h"
+	"inscription class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\button class.h
+	<SFML/Graphics.hpp>
+
+1590027208 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590201068 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1589913013 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\checks.h
+
+1590204924 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn objects class.h"
+
+1590205598 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\drawing functions.h
+
+1589750325 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\animation functions.h
+
+1589780207 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1589927222 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\coordinate processing functions.h
+
+1590023649 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590201150 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1590205560 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590205398 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\handling functions.h
+
+1590023644 d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\connector.hpp
+
+1589913329 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1589780197 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590067054 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\chess backups\chess v1.26\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1590266286 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590205439 d:\creative\programming\projects\c++ projects\testing\chess v1.27\global constants.h
+
+1590579941 d:\creative\programming\projects\c++ projects\testing\chess v1.27\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\testing\chess v1.27\button class.h
+	<SFML/Graphics.hpp>
+
+1590027208 d:\creative\programming\projects\c++ projects\testing\chess v1.27\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590261810 d:\creative\programming\projects\c++ projects\testing\chess v1.27\drawn objects class.h
+	<SFML/Graphics.hpp>
+
+1590262117 d:\creative\programming\projects\c++ projects\testing\chess v1.27\inscription class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.27\checks.h
+
+1590602278 d:\creative\programming\projects\c++ projects\testing\chess v1.27\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn object class.h"
+
+1590205598 d:\creative\programming\projects\c++ projects\testing\chess v1.27\drawing functions.h
+
+1590261814 d:\creative\programming\projects\c++ projects\testing\chess v1.27\animation functions.h
+
+1590259711 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.27\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590506058 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.27\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.27\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.27\coordinate processing functions.h
+
+1590563946 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590565077 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"label class.h"
+
+1590201150 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\drawn objects class.cpp
+	<SFML/Graphics.hpp>
+	"drawn objects class.h"
+
+1590596674 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590262664 d:\creative\programming\projects\c++ projects\testing\chess v1.27\handling functions.h
+
+1590023644 d:\creative\programming\projects\c++ projects\testing\chess v1.27\connector.hpp
+
+1589913329 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\inscription class.cpp
+	<SFML/Graphics.hpp>
+	"inscription class.h"
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590504519 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1590606833 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<string>
+	<fstream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1590602826 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1590261810 d:\creative\programming\projects\c++ projects\testing\chess v1.27\drawn object class.h
+	<SFML/Graphics.hpp>
+
+1590262019 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\drawn object class.cpp
+	<SFML/Graphics.hpp>
+	"drawn object class.h"
+
+1590262117 d:\creative\programming\projects\c++ projects\testing\chess v1.27\label class.h
+	<SFML/Graphics.hpp>
+
+1590262210 source:d:\creative\programming\projects\c++ projects\testing\chess v1.27\label class.cpp
+	<SFML/Graphics.hpp>
+	"label class.h"
+
+1590261810 d:\creative\programming\projects\c++ projects\testing\chess v1.26\drawn object class.h
+	<SFML/Graphics.hpp>
+
+1590262117 d:\creative\programming\projects\c++ projects\testing\chess v1.26\label class.h
+	<SFML/Graphics.hpp>
+
+1590262019 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\drawn object class.cpp
+	<SFML/Graphics.hpp>
+	"drawn object class.h"
+
+1590262210 source:d:\creative\programming\projects\c++ projects\testing\chess v1.26\label class.cpp
+	<SFML/Graphics.hpp>
+	"label class.h"
+
+1590266286 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590205439 d:\creative\programming\projects\c++ projects\testing\chess v1.28\global constants.h
+
+1590620884 d:\creative\programming\projects\c++ projects\testing\chess v1.28\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\testing\chess v1.28\button class.h
+	<SFML/Graphics.hpp>
+
+1590027208 d:\creative\programming\projects\c++ projects\testing\chess v1.28\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590261810 d:\creative\programming\projects\c++ projects\testing\chess v1.28\drawn object class.h
+	<SFML/Graphics.hpp>
+
+1590262117 d:\creative\programming\projects\c++ projects\testing\chess v1.28\label class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\testing\chess v1.28\checks.h
+
+1590619389 d:\creative\programming\projects\c++ projects\testing\chess v1.28\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn object class.h"
+
+1590205598 d:\creative\programming\projects\c++ projects\testing\chess v1.28\drawing functions.h
+
+1590261814 d:\creative\programming\projects\c++ projects\testing\chess v1.28\animation functions.h
+
+1590259711 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\testing\chess v1.28\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590506058 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\testing\chess v1.28\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.28\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\testing\chess v1.28\coordinate processing functions.h
+
+1590563946 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590262019 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\drawn object class.cpp
+	<SFML/Graphics.hpp>
+	"drawn object class.h"
+
+1590262210 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\label class.cpp
+	<SFML/Graphics.hpp>
+	"label class.h"
+
+1589780197 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590504519 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+
+1590622373 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"label class.h"
+
+1590623079 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590262664 d:\creative\programming\projects\c++ projects\testing\chess v1.28\handling functions.h
+
+1590023644 d:\creative\programming\projects\c++ projects\testing\chess v1.28\connector.hpp
+
+1590620884 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1590621913 source:d:\creative\programming\projects\c++ projects\testing\chess v1.28\secondary functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	<string>
+	<fstream>
+	<cstring>
+	<string>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"animation functions.h"
+	"connector.hpp"
+
+1590266286 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\animation functions.cpp
+	<SFML/Graphics.hpp>
+	<windows.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"animation functions.h"
+
+1590205439 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\global constants.h
+
+1590620884 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\external declaration of global variables.h
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+
+1590006334 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\button class.h
+	<SFML/Graphics.hpp>
+
+1590027208 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\radio button class.h
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590261810 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\drawn object class.h
+	<SFML/Graphics.hpp>
+
+1590262117 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\label class.h
+	<SFML/Graphics.hpp>
+
+1589765443 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\checks.h
+
+1590619389 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\secondary functions.h
+	<SFML/Graphics/Sprite.hpp>
+	"global constants.h"
+	"drawn object class.h"
+
+1590205598 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\drawing functions.h
+
+1590261814 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\animation functions.h
+
+1590259711 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\backlight functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+	"backlight functions.h"
+
+1589397167 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\backlight functions.h
+
+1590006366 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\button class.cpp
+	<SFML/Graphics.hpp>
+	"button class.h"
+
+1590506058 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\checks.cpp
+	<stdio.h>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions at mat.h"
+	"coordinate processing functions.h"
+
+1589650904 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\move functions.h
+
+1588362039 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\move functions at mat.h
+
+1589758314 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\coordinate processing functions.h
+
+1590563946 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\connector.cpp
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1589758306 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\coordinate processing functions.cpp
+	<SFML/Graphics.hpp>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590622373 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\drawing functions.cpp
+	"global constants.h"
+	"external declaration of global variables.h"
+	"drawing functions.h"
+	"backlight functions.h"
+	"checks.h"
+	"button class.h"
+	"label class.h"
+
+1590262019 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\drawn object class.cpp
+	<SFML/Graphics.hpp>
+	"drawn object class.h"
+
+1590623079 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\handling functions.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<iostream>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"secondary functions.h"
+	"checks.h"
+	"move functions.h"
+	"coordinate processing functions.h"
+	"handling functions.h"
+	"connector.hpp"
+	"button class.h"
+
+1590262664 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\handling functions.h
+
+1590023644 d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\connector.hpp
+
+1590262210 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\label class.cpp
+	<SFML/Graphics.hpp>
+	"label class.h"
+
+1590620884 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\main.cpp
+	<SFML/Graphics.hpp>
+	<stdio.h>
+	<string>
+	<windows.h>
+	"global constants.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"drawing functions.h"
+	"coordinate processing functions.h"
+	"backlight functions.h"
+	"button class.h"
+	"radio button class.h"
+	"drawn object class.h"
+	"label class.h"
+	"handling functions.h"
+	"connector.hpp"
+
+1589780197 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\move functions at mat.cpp
+	<stdio.h>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+
+1590504519 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\move functions.cpp
+	<stdio.h>
+	<cstring>
+	<cstdlib>
+	"global constants.h"
+	"external declaration of global variables.h"
+	"move functions.h"
+	"checks.h"
+	"secondary functions.h"
+	"move functions at mat.h"
+
+1590027355 source:d:\creative\programming\projects\c++ projects\chess backups\ukrainian versions\chess v1.28\radio button class.cpp
+	<SFML/Graphics.hpp>
+	"radio button class.h"
+

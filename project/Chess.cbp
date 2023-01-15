@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Chess" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Chess" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Chess" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="animation functions.cpp" />
+		<Unit filename="animation functions.h" />
+		<Unit filename="backlight functions.cpp" />
+		<Unit filename="backlight functions.h" />
+		<Unit filename="button class.cpp" />
+		<Unit filename="button class.h" />
+		<Unit filename="checks.cpp" />
+		<Unit filename="checks.h" />
+		<Unit filename="connector.cpp" />
+		<Unit filename="connector.hpp" />
+		<Unit filename="coordinate processing functions.cpp" />
+		<Unit filename="coordinate processing functions.h" />
+		<Unit filename="drawing functions.cpp" />
+		<Unit filename="drawing functions.h" />
+		<Unit filename="drawn object class.cpp" />
+		<Unit filename="drawn object class.h" />
+		<Unit filename="external declaration of global variables.h" />
+		<Unit filename="global constants.h" />
+		<Unit filename="handling functions.cpp" />
+		<Unit filename="handling functions.h" />
+		<Unit filename="label class.cpp" />
+		<Unit filename="label class.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="move functions at mat.cpp" />
+		<Unit filename="move functions at mat.h" />
+		<Unit filename="move functions.cpp" />
+		<Unit filename="move functions.h" />
+		<Unit filename="radio button class.cpp" />
+		<Unit filename="radio button class.h" />
+		<Unit filename="secondary functions.cpp" />
+		<Unit filename="secondary functions.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

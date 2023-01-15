@@ -1,0 +1,7 @@
+#ifndef COORDINATE_PROCESSING_FUNCTIONS_H_INCLUDED
+#define COORDINATE_PROCESSING_FUNCTIONS_H_INCLUDED
+
+void RecodeMouseCoordinatesToChecssboardCoordinates(void);
+void ChangeWSC(void);
+
+#endif // COORDINATE_PROCESSING_FUNCTIONS_H_INCLUDED
