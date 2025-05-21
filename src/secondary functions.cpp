@@ -389,7 +389,7 @@ void CreateChessPieces(AppState& appState)
     WQ = {80, 80, 80, 80};
     WKi = {0, 80, 80, 80};
 
-    ChessPieces_texture.loadFromFile("Images\\Chess pieces.png");
+    ChessPieces_texture.loadFromFile("Images/Chess pieces.png");
 
     BlackPawn_sprite.Create(ChessPieces_texture, BP);
     BlackRook_sprite.Create(ChessPieces_texture, BR);
@@ -436,7 +436,7 @@ void CreateSmallChessPieces(AppState& appState)
     SWQ = {50, 50, 50, 50};
     SWKi = {0, 50, 50, 50};
 
-    SmallChessPieces_texture.loadFromFile("Images\\Small chess pieces.png");
+    SmallChessPieces_texture.loadFromFile("Images/Small chess pieces.png");
 
     SmallBlackPawn_sprite.Create(SmallChessPieces_texture, SBP);
     SmallBlackRook_sprite.Create(SmallChessPieces_texture, SBR);
@@ -469,7 +469,7 @@ void CreateBacklight(AppState& appState)
     YS = {80, 80, 80, 80};
     RS = {160, 80, 80, 80};
 
-    Backlight_texture.loadFromFile("Images\\Backlight.png");
+    Backlight_texture.loadFromFile("Images/Backlight.png");
 
     DarkCircle_sprite.Create(Backlight_texture, DC);
     LightCircle_sprite.Create(Backlight_texture, LC);
@@ -489,7 +489,7 @@ void CreateChessboards(AppState& appState)
     OC = {0, 0, 800, 800};
     IC = {800, 0, 800, 800};
 
-    Chessboards_texture.loadFromFile("Images\\Chessboards.png");
+    Chessboards_texture.loadFromFile("Images/Chessboards.png");
 
     OrdinaryChessboard_sprite.Create(Chessboards_texture, OC);
     InvertedChessboard_sprite.Create(Chessboards_texture, IC);
@@ -509,16 +509,16 @@ void CreateScreensAndWindows(AppState& appState)
     auto& BackgroundDimmer_texture = appState.BackgroundDimmer_texture;
     auto& BackgroundDimmer = appState.BackgroundDimmer;
 
-    Backgrounds_texture.loadFromFile("Images\\Backgrounds.jpg");
-    Windows_texture.loadFromFile("Images\\Windows.png");
-    MainMenuScreen_guiElements_texture.loadFromFile("Images\\MainMenuScreen_guiElements.png");
-    ChessGameScreen_guiElements_texture.loadFromFile("Images\\ChessGameScreen_guiElements.png");
-    PawnTransformationWindow_guiElements_texture.loadFromFile("Images\\PawnTransformationWindow_guiElements.png");
-    GameOverWindow_guiElements_texture.loadFromFile("Images\\GameOverWindow_guiElements.png");
-    GamePauseWindow_guiElements_texture.loadFromFile("Images\\GamePauseWindow_guiElements.png");
-    OptionsWindow_guiElements_texture.loadFromFile("Images\\OptionsWindow_guiElements.png");
-    GameSaveWindow_guiElements_texture.loadFromFile("Images\\GameSaveWindow_guiElements.png");
-    BackgroundDimmer_texture.loadFromFile("Images\\Background dimmer.png");
+    Backgrounds_texture.loadFromFile("Images/Backgrounds.jpg");
+    Windows_texture.loadFromFile("Images/Windows.png");
+    MainMenuScreen_guiElements_texture.loadFromFile("Images/MainMenuScreen_guiElements.png");
+    ChessGameScreen_guiElements_texture.loadFromFile("Images/ChessGameScreen_guiElements.png");
+    PawnTransformationWindow_guiElements_texture.loadFromFile("Images/PawnTransformationWindow_guiElements.png");
+    GameOverWindow_guiElements_texture.loadFromFile("Images/GameOverWindow_guiElements.png");
+    GamePauseWindow_guiElements_texture.loadFromFile("Images/GamePauseWindow_guiElements.png");
+    OptionsWindow_guiElements_texture.loadFromFile("Images/OptionsWindow_guiElements.png");
+    GameSaveWindow_guiElements_texture.loadFromFile("Images/GameSaveWindow_guiElements.png");
+    BackgroundDimmer_texture.loadFromFile("Images/Background dimmer.png");
 
     CreateMainMenuScreen(appState);
     CreateChessGameScreen(appState);
