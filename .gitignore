@@ -1,2 +1,6 @@
-project/bin/
-project/obj/
+build
+out
+.cache
+.idea
+.vs
+.vscode
