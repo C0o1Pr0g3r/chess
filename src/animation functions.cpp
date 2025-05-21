@@ -1,14 +1,24 @@
 #include <SFML/Graphics.hpp>
 // #include <windows.h>
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "checks.h"
 #include "secondary functions.h"
 #include "drawing functions.h"
 #include "animation functions.h"
+#include "app-state.h"
 
-void FigureMovementAnimation(int ox, int oy, int nx, int ny)
+void FigureMovementAnimation(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& FigureByOldCoordinates = appState.FigureByOldCoordinates;
+    auto& pAS = appState.pAS;
+    auto& FigureByNewCoordinates = appState.FigureByNewCoordinates;
+    auto& board = appState.board;
+    auto& AnimatedRookStartingPosition = appState.AnimatedRookStartingPosition;
+    auto& AnimatedRookFinalPosition = appState.AnimatedRookFinalPosition;
+    auto& AnimatedRook = appState.AnimatedRook;
+    auto& pRAS = appState.pRAS;
+    auto& window = appState.window;
+
     Vector2f FigureStartingPosition, FigureFinalPosition, FigureCurrentPosition, FigureDistance, FigureStep,
     RookStartingPosition, RookFinalPosition, RookCurrentPosition, RookDistance, RookStep;
     int rox, rnx, ry;
@@ -19,13 +29,13 @@ void FigureMovementAnimation(int ox, int oy, int nx, int ny)
     const int animationTime = 300000;
 
     remainingTime = animationTime;
-    IsCastling = IsCastlingNow(ox, oy, nx, ny);
+    IsCastling = IsCastlingNow(appState, ox, oy, nx, ny);
 
     FigureStartingPosition = {static_cast<float>(ox * CFDCP), static_cast<float>(oy * CFDCP)};
     FigureFinalPosition = {static_cast<float>(nx * CFDCP), static_cast<float>(ny * CFDCP)};
     FigureCurrentPosition = FigureStartingPosition;
     FigureDistance = FigureFinalPosition - FigureStartingPosition;
-    DetermineAnimatedSprite(FigureByOldCoordinates, &pAS);
+    DetermineAnimatedSprite(appState, FigureByOldCoordinates, &pAS);
     board[ny][nx] = FigureByNewCoordinates;
 
     if (IsCastling)
@@ -37,7 +47,7 @@ void FigureMovementAnimation(int ox, int oy, int nx, int ny)
         rox = AnimatedRookStartingPosition.x;
         rnx = AnimatedRookFinalPosition.x;
         ry = oy;
-        DetermineAnimatedSprite(AnimatedRook, &pRAS);
+        DetermineAnimatedSprite(appState, AnimatedRook, &pRAS);
         board[ry][rnx] = 0;
     }
 
@@ -49,16 +59,16 @@ void FigureMovementAnimation(int ox, int oy, int nx, int ny)
         FigureStep = FigureDistance * timeCoefficient;
         remainingTime -= elapsedTime;
         window.clear();
-        DrawStaticChessGameObjects();
-        DrawFigures();
-        DrawAnimatedSprite(FigureCurrentPosition, pAS);
+        DrawStaticChessGameObjects(appState);
+        DrawFigures(appState);
+        DrawAnimatedSprite(appState, FigureCurrentPosition, pAS);
         FigureCurrentPosition.x += FigureStep.x;
         FigureCurrentPosition.y += FigureStep.y;
 
         if (IsCastling)
         {
             RookStep = RookDistance * timeCoefficient;;
-            DrawAnimatedSprite(RookCurrentPosition, pRAS);
+            DrawAnimatedSprite(appState, RookCurrentPosition, pRAS);
             RookCurrentPosition.x += RookStep.x;
             RookCurrentPosition.y += RookStep.y;
         }
@@ -77,8 +87,10 @@ void FigureMovementAnimation(int ox, int oy, int nx, int ny)
         board[ry][rnx] = AnimatedRook | MOVE;
 }
 
-void DrawAnimatedSprite(Vector2f coord, DrawnObject * ps)
+void DrawAnimatedSprite(AppState& appState, Vector2f coord, DrawnObject * ps)
 {
+    auto& window = appState.window;
+
     ps->SetPosition(coord);
     ps->Draw(window);
 }

@@ -2,31 +2,37 @@
 #include <cstring>
 #include <cstdlib>
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "move functions.h"
 #include "checks.h"
 #include "secondary functions.h"
 #include "move functions at mat.h"
+#include "app-state.h"
 
-bool moveFigure(int ox, int oy, int nx, int ny)
+bool moveFigure(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& board = appState.board;
+
     bool status = false;
 
     switch (FIGURE_TYPE(board[oy][ox]))
     {
-        case FIGURE_TYPE(PAWN): status = movePawn(ox, oy, nx, ny); if (status) TransformationColorDefinition(nx, ny); break;
-        case FIGURE_TYPE(ROOK): status = moveRook(ox, oy, nx, ny); break;
-        case FIGURE_TYPE(BISHOP): status = moveBishop(ox, oy, nx, ny); break;
-        case FIGURE_TYPE(KNIGHT): status = moveKnight(ox, oy, nx, ny); break;
-        case FIGURE_TYPE(QUEEN): status = moveQueen(ox, oy, nx, ny); break;
-        case FIGURE_TYPE(KING): status = moveKing(ox, oy, nx, ny); break;
+        case FIGURE_TYPE(PAWN): status = movePawn(appState, ox, oy, nx, ny); if (status) TransformationColorDefinition(appState, nx, ny); break;
+        case FIGURE_TYPE(ROOK): status = moveRook(appState, ox, oy, nx, ny); break;
+        case FIGURE_TYPE(BISHOP): status = moveBishop(appState, ox, oy, nx, ny); break;
+        case FIGURE_TYPE(KNIGHT): status = moveKnight(appState, ox, oy, nx, ny); break;
+        case FIGURE_TYPE(QUEEN): status = moveQueen(appState, ox, oy, nx, ny); break;
+        case FIGURE_TYPE(KING): status = moveKing(appState, ox, oy, nx, ny); break;
     }
 
     return status;
 }
 
-bool FigureMovementPvP(int ox, int oy, int nx, int ny)
+bool FigureMovementPvP(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& WhoseMove = appState.WhoseMove;
+    auto& board = appState.board;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+
     bool IsFigureMovementAllowed;
     bool IsMoveMade = false;
     char FigureType[10];
@@ -35,18 +41,18 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
     {
         if (FIGURE_COLOR(board[ny][nx]) != BLACK)
         {
-            IsFigureMovementAllowed = IsAllowedMF(ox, oy, nx, ny);
+            IsFigureMovementAllowed = IsAllowedMF(appState, ox, oy, nx, ny);
             if (IsFigureMovementAllowed)
             {
-                IsMoveMade = moveFigure(ox, oy, nx, ny);
+                IsMoveMade = moveFigure(appState, ox, oy, nx, ny);
                 if (IsMoveMade)
                 {
                     PieceIsChoose = false;
                     WhoseMove = false;
-                    if (CheckingKingOnShah(WHITE))
+                    if (CheckingKingOnShah(appState, WHITE))
                     {
                         printf("Поставлен шах белому королю\n");
-                        if (CheckingKingOnMat(WHITE))
+                        if (CheckingKingOnMat(appState, WHITE))
                             printf("Поставлен мат белому королю\n");
                     }
                     printf("\n\nХод белых\n\n");
@@ -54,21 +60,21 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
                 else
                 {
                     PieceIsChoose = false;
-                    WhichFigureIsSelected(ox, oy, FigureType);
+                    WhichFigureIsSelected(appState, ox, oy, FigureType);
                     printf("Вы не сделали шаг \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
-                WhichFigureIsSelected(ox, oy, FigureType);
+                WhichFigureIsSelected(appState, ox, oy, FigureType);
                 printf("Вы не сделали шаг \"%s\"\n", FigureType);
             }
         }
         else
         {
             //PieceIsChoose = false;
-            WhichFigureIsSelected(ox, oy, FigureType);
+            WhichFigureIsSelected(appState, ox, oy, FigureType);
             printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
         }
     }
@@ -76,18 +82,18 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
     {
         if (FIGURE_COLOR(board[ny][nx]) != WHITE)
         {
-            IsFigureMovementAllowed = IsAllowedMF(ox, oy, nx, ny);
+            IsFigureMovementAllowed = IsAllowedMF(appState, ox, oy, nx, ny);
             if (IsFigureMovementAllowed)
             {
-                IsMoveMade = moveFigure(ox, oy, nx, ny);
+                IsMoveMade = moveFigure(appState, ox, oy, nx, ny);
                 if (IsMoveMade)
                 {
                     PieceIsChoose = false;
                     WhoseMove = true;
-                    if (CheckingKingOnShah(BLACK))
+                    if (CheckingKingOnShah(appState, BLACK))
                     {
                         printf("Поставлен шах черному королю\n");
-                        if(CheckingKingOnMat(BLACK))
+                        if(CheckingKingOnMat(appState, BLACK))
                             printf("Поставлен мат черному королю\n");
                     }
                     printf("\n\nХод черных\n\n");
@@ -95,21 +101,21 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
                 else
                 {
                     PieceIsChoose = false;
-                    WhichFigureIsSelected(ox, oy, FigureType);
+                    WhichFigureIsSelected(appState, ox, oy, FigureType);
                     printf("Вы не сделали шаг фигурой \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
-                WhichFigureIsSelected(ox, oy, FigureType);
+                WhichFigureIsSelected(appState, ox, oy, FigureType);
                 printf("Вы не сделали шаг \"%s\"\n", FigureType);
             }
         }
         else
         {
             //PieceIsChoose = false;
-            WhichFigureIsSelected(ox, oy, FigureType);
+            WhichFigureIsSelected(appState, ox, oy, FigureType);
             printf("Вы сняли фокус с белой фигуры \"%s\"\n", FigureType);
         }
     }
@@ -117,8 +123,15 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
     return IsMoveMade;
 }
 
-bool FigureMovementPvEPlayer(int ox, int oy, int nx, int ny)
+bool FigureMovementPvEPlayer(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& WhoseMove = appState.WhoseMove;
+    auto& PlayerMove = appState.PlayerMove;
+    auto& board = appState.board;
+    auto& PlayerColor = appState.PlayerColor;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& EnvironmentColor = appState.EnvironmentColor;
+
     bool IsFigureMovementAllowed;
     bool IsMoveMade = false;
     char FigureType[10];
@@ -127,18 +140,18 @@ bool FigureMovementPvEPlayer(int ox, int oy, int nx, int ny)
     {
         if (FIGURE_COLOR(board[ny][nx]) != PlayerColor)
         {
-            IsFigureMovementAllowed = IsAllowedMF(ox, oy, nx, ny);
+            IsFigureMovementAllowed = IsAllowedMF(appState, ox, oy, nx, ny);
             if (IsFigureMovementAllowed)
             {
-                IsMoveMade = moveFigure(ox, oy, nx, ny);
+                IsMoveMade = moveFigure(appState, ox, oy, nx, ny);
                 if (IsMoveMade)
                 {
                     PieceIsChoose = false;
                     WhoseMove = !PlayerMove;
-                    if (CheckingKingOnShah(EnvironmentColor))
+                    if (CheckingKingOnShah(appState, EnvironmentColor))
                     {
                         printf("Поставлен шах белому королю\n");
-                        if (CheckingKingOnMat(EnvironmentColor))
+                        if (CheckingKingOnMat(appState, EnvironmentColor))
                             printf("Поставлен мат белому королю\n");
                     }
                     printf("\n\nХод белых\n\n");
@@ -146,21 +159,21 @@ bool FigureMovementPvEPlayer(int ox, int oy, int nx, int ny)
                 else
                 {
                     PieceIsChoose = false;
-                    WhichFigureIsSelected(ox, oy, FigureType);
+                    WhichFigureIsSelected(appState, ox, oy, FigureType);
                     printf("Вы не сделали шаг \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
-                WhichFigureIsSelected(ox, oy, FigureType);
+                WhichFigureIsSelected(appState, ox, oy, FigureType);
                 printf("Вы не сделали шаг \"%s\"\n", FigureType);
             }
         }
         else
         {
             PieceIsChoose = false;
-            WhichFigureIsSelected(ox, oy, FigureType);
+            WhichFigureIsSelected(appState, ox, oy, FigureType);
             printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
         }
     }
@@ -168,8 +181,15 @@ bool FigureMovementPvEPlayer(int ox, int oy, int nx, int ny)
     return IsMoveMade;
 }
 
-bool FigureMovementPvEEnvironment(int ox, int oy, int nx, int ny)
+bool FigureMovementPvEEnvironment(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& WhoseMove = appState.WhoseMove;
+    auto& EnvironmentMove = appState.EnvironmentMove;
+    auto& board = appState.board;
+    auto& EnvironmentColor = appState.EnvironmentColor;
+    auto& PlayerColor = appState.PlayerColor;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+
     bool IsFigureMovementAllowed;
     bool IsMoveMade = false;
     char FigureType[10];
@@ -178,17 +198,17 @@ bool FigureMovementPvEEnvironment(int ox, int oy, int nx, int ny)
     {
         if (FIGURE_COLOR(board[ny][nx]) != EnvironmentColor)
         {
-            IsFigureMovementAllowed = IsAllowedMF(ox, oy, nx, ny);
+            IsFigureMovementAllowed = IsAllowedMF(appState, ox, oy, nx, ny);
             if (IsFigureMovementAllowed)
             {
-                IsMoveMade = moveFigure(ox, oy, nx, ny);
+                IsMoveMade = moveFigure(appState, ox, oy, nx, ny);
                 if (IsMoveMade)
                 {
                     WhoseMove = !EnvironmentMove;
-                    if (CheckingKingOnShah(PlayerColor))
+                    if (CheckingKingOnShah(appState, PlayerColor))
                     {
                         printf("Поставлен шах белому королю\n");
-                        if (CheckingKingOnMat(PlayerColor))
+                        if (CheckingKingOnMat(appState, PlayerColor))
                             printf("Поставлен мат белому королю\n");
                     }
                     printf("\n\nХод белых\n\n");
@@ -196,21 +216,21 @@ bool FigureMovementPvEEnvironment(int ox, int oy, int nx, int ny)
                 else
                 {
                     PieceIsChoose = false;
-                    WhichFigureIsSelected(ox, oy, FigureType);
+                    WhichFigureIsSelected(appState, ox, oy, FigureType);
                     printf("Вы не сделали шаг \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
-                WhichFigureIsSelected(ox, oy, FigureType);
+                WhichFigureIsSelected(appState, ox, oy, FigureType);
                 printf("Вы не сделали шаг \"%s\"\n", FigureType);
             }
         }
         else
         {
             PieceIsChoose = false;
-            WhichFigureIsSelected(ox, oy, FigureType);
+            WhichFigureIsSelected(appState, ox, oy, FigureType);
             printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
         }
     }
@@ -218,8 +238,17 @@ bool FigureMovementPvEEnvironment(int ox, int oy, int nx, int ny)
     return IsMoveMade;
 }
 
-bool movePawn(int ox, int oy, int nx, int ny)
+bool movePawn(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& board = appState.board;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
+    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
+    auto& WhoHasMoved = appState.WhoHasMoved;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+
     bool FigureHasMoved = false;
     int step1, step2;
 
@@ -258,7 +287,7 @@ bool movePawn(int ox, int oy, int nx, int ny)
 
         if (ny == oy + step2)
         {
-            if (IsTherePawnToActivateTakingOnAisle(nx, ny))
+            if (IsTherePawnToActivateTakingOnAisle(appState, nx, ny))
             {
                 IsTakingOnAisleActivated = true;
                 PawnOnAisleCoordinates = {nx, ny};
@@ -286,8 +315,11 @@ bool movePawn(int ox, int oy, int nx, int ny)
     return FigureHasMoved;
 }
 
-bool moveRook(int ox, int oy, int nx, int ny)
+bool moveRook(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& board = appState.board;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+
     bool FigureHasMoved = false;
     int i;
 
@@ -348,8 +380,11 @@ bool moveRook(int ox, int oy, int nx, int ny)
     return FigureHasMoved;
 }
 
-bool moveBishop(int ox, int oy, int nx, int ny)
+bool moveBishop(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& board = appState.board;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+
     bool FigureHasMoved = false;
     int i, j;
 
@@ -408,21 +443,24 @@ bool moveBishop(int ox, int oy, int nx, int ny)
     return FigureHasMoved;
 }
 
-bool moveQueen(int ox, int oy, int nx, int ny)
+bool moveQueen(AppState& appState, int ox, int oy, int nx, int ny)
 {
     bool FigureHasMoved = false;
     int i, j;
 
-    FigureHasMoved = moveRook(ox, oy, nx, ny);
+    FigureHasMoved = moveRook(appState, ox, oy, nx, ny);
 
     if (!FigureHasMoved)
-        FigureHasMoved = moveBishop(ox, oy, nx, ny);
+        FigureHasMoved = moveBishop(appState, ox, oy, nx, ny);
 
     return FigureHasMoved;
 }
 
-bool moveKnight(int ox, int oy, int nx, int ny)
+bool moveKnight(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& board = appState.board;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+
     bool FigureHasMoved = false;
 
     if (ny == oy - 2 && (nx == ox - 1 || nx == ox + 1) && board[ny][nx] >= 0)
@@ -456,12 +494,20 @@ bool moveKnight(int ox, int oy, int nx, int ny)
     return FigureHasMoved;
 }
 
-bool moveKing(int ox, int oy, int nx, int ny)
+bool moveKing(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& board = appState.board;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& AnimatedRook = appState.AnimatedRook;
+    auto& AnimatedRookStartingPosition = appState.AnimatedRookStartingPosition;
+    auto& AnimatedRookFinalPosition = appState.AnimatedRookFinalPosition;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+
     bool FigureHasMoved = false;
     bool IsCastlingAllowed = false;
     int i, rox, rnx;
-    int KingColor = DetermineFigureColor(ox, oy);
+    int KingColor = DetermineFigureColor(appState, ox, oy);
 
     if ((nx == ox - 1 || nx == ox || nx == ox + 1) && (ny == oy - 1 || ny == oy || ny == oy + 1) && board[ny][nx] >= 0)
     {
@@ -482,7 +528,7 @@ bool moveKing(int ox, int oy, int nx, int ny)
             {
                 rox = i;
                 rnx = ox - 1;
-                IsCastlingAllowed = !CheckingKingOnShah(KingColor) && IsKingCrossingSafeField(ox, rnx, oy) && !DKORM(ox, oy, rox, oy);
+                IsCastlingAllowed = !CheckingKingOnShah(appState, KingColor) && IsKingCrossingSafeField(appState, ox, rnx, oy) && !DKORM(appState, ox, oy, rox, oy);
             }
         }
         else if (nx > ox)
@@ -494,7 +540,7 @@ bool moveKing(int ox, int oy, int nx, int ny)
             {
                 rox = i;
                 rnx = ox + 1;
-                IsCastlingAllowed = !CheckingKingOnShah(KingColor) && IsKingCrossingSafeField(ox, rnx, oy) && !DKORM(ox, oy, rox, oy);
+                IsCastlingAllowed = !CheckingKingOnShah(appState, KingColor) && IsKingCrossingSafeField(appState, ox, rnx, oy) && !DKORM(appState, ox, oy, rox, oy);
             }
         }
 
@@ -503,7 +549,7 @@ bool moveKing(int ox, int oy, int nx, int ny)
             AnimatedRook = board[oy][rox];
             AnimatedRookStartingPosition = {rox, oy};
             AnimatedRookFinalPosition = {rnx, ny};
-            DoCastling(ox, nx, rox, rnx, oy);
+            DoCastling(appState, ox, nx, rox, rnx, oy);
             PieceIsChoose = false;
             FigureHasMoved = true;
         }
@@ -521,8 +567,12 @@ bool moveKing(int ox, int oy, int nx, int ny)
     return FigureHasMoved;
 }
 
-void DoCastling(int okingx, int nkingx, int orookx, int nrookx, int kry)
+void DoCastling(AppState& appState, int okingx, int nkingx, int orookx, int nrookx, int kry)
 {
+    auto& board = appState.board;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+
     board[kry][nkingx] = board[kry][okingx];
     board[kry][okingx] = 0;
     board[kry][nrookx] = board[kry][orookx];

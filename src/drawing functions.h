@@ -1,18 +1,20 @@
 #ifndef DRAWING_FUNCTIONS_H_INCLUDED
 #define DRAWING_FUNCTIONS_H_INCLUDED
 
-void DrawApp(void);
-void DrawMainMenuScreen(void);
-void DrawChessGameScreen(void);
-void DrawStaticChessGameObjects(void);
-inline void DrawWhoseMoveInscription(void);
-inline void DrawChessboard(void);
-inline void DrawPawnTransformation(void);
-inline void DrawGameOverWindow(void);
-inline void DrawGameOnPauseWindow(void);
-inline void DrawOptionsWindow(void);
-inline void DrawGameSaveWindow(void);
-void DrawFigures(void);
-void DrawSmallFigures(void);
+#include "app-state.h"
+
+void DrawApp(AppState& appState);
+void DrawMainMenuScreen(AppState& appState);
+void DrawChessGameScreen(AppState& appState);
+void DrawStaticChessGameObjects(AppState& appState);
+inline void DrawWhoseMoveInscription(AppState& appState);
+inline void DrawChessboard(AppState& appState);
+inline void DrawPawnTransformation(AppState& appState);
+inline void DrawGameOverWindow(AppState& appState);
+inline void DrawGameOnPauseWindow(AppState& appState);
+inline void DrawOptionsWindow(AppState& appState);
+inline void DrawGameSaveWindow(AppState& appState);
+void DrawFigures(AppState& appState);
+void DrawSmallFigures(AppState& appState);
 
 #endif // DRAWING_FUNCTIONS_H_INCLUDED

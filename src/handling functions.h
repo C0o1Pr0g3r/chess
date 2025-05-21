@@ -1,15 +1,17 @@
 #ifndef MAIN_FUNCTIONS_H_INCLUDED
 #define MAIN_FUNCTIONS_H_INCLUDED
 
-void HandleApp(void);
-void HandleMainMenuScreen(void);
-void HandleChessGameScreen(void);
-void HandleClickOnChessboard(void);
+#include "app-state.h"
 
-void HandlePawnTransformationWindow(void);
-void HandleGameOverWindow(void);
-void HandleGameOnPauseWindow(void);
-void HandleOptionsWindow(void);
-void HandleGameSaveWindow(void);
+void HandleApp(AppState& appState);
+void HandleMainMenuScreen(AppState& appState);
+void HandleChessGameScreen(AppState& appState);
+void HandleClickOnChessboard(AppState& appState);
+
+void HandlePawnTransformationWindow(AppState& appState);
+void HandleGameOverWindow(AppState& appState);
+void HandleGameOnPauseWindow(AppState& appState);
+void HandleOptionsWindow(AppState& appState);
+void HandleGameSaveWindow(AppState& appState);
 
 #endif // MAIN_FUNCTIONS_H_INCLUDED

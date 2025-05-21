@@ -1,15 +1,19 @@
 #include <stdio.h>
 #include <cstdlib>
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "move functions.h"
 #include "checks.h"
 #include "secondary functions.h"
+#include "app-state.h"
 
-bool movePawnsAtShah(int FigureColor)
+bool movePawnsAtShah(AppState& appState, int FigureColor)
 {
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& GroupOfFigures = appState.GroupOfFigures;
+    auto& board = appState.board;
+
     bool IsShah = true;
-    int AmountOfFigures = NumberOfFigures(FigureColor, PAWN);
+    int AmountOfFigures = NumberOfFigures(appState, FigureColor, PAWN);
     int i;
     int x, y;
     int MainFigure, MinorFigure;
@@ -43,7 +47,7 @@ bool movePawnsAtShah(int FigureColor)
             board[y + step2][x] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y + step2][x] = 0;
@@ -56,7 +60,7 @@ bool movePawnsAtShah(int FigureColor)
             board[y + step1][x] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y + step1][x] = 0;
@@ -70,7 +74,7 @@ bool movePawnsAtShah(int FigureColor)
             board[y + step1][x - 1] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y + step1][x - 1] = MinorFigure;
@@ -84,7 +88,7 @@ bool movePawnsAtShah(int FigureColor)
             board[y + step1][x + 1] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y + step1][x + 1] = MinorFigure;
@@ -96,10 +100,13 @@ bool movePawnsAtShah(int FigureColor)
     return IsShah;
 }
 
-bool moveRooksAtShah(int FigureColor)
+bool moveRooksAtShah(AppState& appState, int FigureColor)
 {
+    auto& GroupOfFigures = appState.GroupOfFigures;
+    auto& board = appState.board;
+
     bool IsShah = true;
-    int AmountOfFigures = NumberOfFigures(FigureColor, ROOK);
+    int AmountOfFigures = NumberOfFigures(appState, FigureColor, ROOK);
     int i, j, k;
     int x, y;
     int MainFigure, MinorFigure;
@@ -120,7 +127,7 @@ bool moveRooksAtShah(int FigureColor)
             board[i][x] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[i][x] = MinorFigure;
@@ -144,7 +151,7 @@ bool moveRooksAtShah(int FigureColor)
             board[y][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y][i] = MinorFigure;
@@ -168,7 +175,7 @@ bool moveRooksAtShah(int FigureColor)
             board[i][x] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[i][x] = MinorFigure;
@@ -192,7 +199,7 @@ bool moveRooksAtShah(int FigureColor)
             board[y][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y][i] = MinorFigure;
@@ -211,10 +218,13 @@ bool moveRooksAtShah(int FigureColor)
     return IsShah;
 }
 
-bool moveBishopsAtShah(int FigureColor)
+bool moveBishopsAtShah(AppState& appState, int FigureColor)
 {
+    auto& GroupOfFigures = appState.GroupOfFigures;
+    auto& board = appState.board;
+
     bool IsShah = true;
-    int AmountOfFigures = NumberOfFigures(FigureColor, BISHOP);
+    int AmountOfFigures = NumberOfFigures(appState, FigureColor, BISHOP);
     int i, j, k;
     int x, y;
     int MainFigure, MinorFigure;
@@ -235,7 +245,7 @@ bool moveBishopsAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -259,7 +269,7 @@ bool moveBishopsAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -283,7 +293,7 @@ bool moveBishopsAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -307,7 +317,7 @@ bool moveBishopsAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -326,10 +336,13 @@ bool moveBishopsAtShah(int FigureColor)
     return IsShah;
 }
 
-bool moveQueenAtShah(int FigureColor)
+bool moveQueenAtShah(AppState& appState, int FigureColor)
 {
+    auto& GroupOfFigures = appState.GroupOfFigures;
+    auto& board = appState.board;
+
     bool IsShah = true;
-    int AmountOfFigures = NumberOfFigures(FigureColor, QUEEN);
+    int AmountOfFigures = NumberOfFigures(appState, FigureColor, QUEEN);
     int i, j, k;
     int x, y;
     int MainFigure, MinorFigure;
@@ -350,7 +363,7 @@ bool moveQueenAtShah(int FigureColor)
             board[i][x] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[i][x] = MinorFigure;
@@ -374,7 +387,7 @@ bool moveQueenAtShah(int FigureColor)
             board[y][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y][i] = MinorFigure;
@@ -398,7 +411,7 @@ bool moveQueenAtShah(int FigureColor)
             board[i][x] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[i][x] = MinorFigure;
@@ -422,7 +435,7 @@ bool moveQueenAtShah(int FigureColor)
             board[y][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[y][i] = MinorFigure;
@@ -446,7 +459,7 @@ bool moveQueenAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -470,7 +483,7 @@ bool moveQueenAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -494,7 +507,7 @@ bool moveQueenAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -518,7 +531,7 @@ bool moveQueenAtShah(int FigureColor)
             board[j][i] = MainFigure;
             board[y][x] = 0;
 
-            IsShah = CheckingKingOnShah(FigureColor);
+            IsShah = CheckingKingOnShah(appState, FigureColor);
 
             board[y][x] = MainFigure;
             board[j][i] = MinorFigure;
@@ -537,10 +550,13 @@ bool moveQueenAtShah(int FigureColor)
     return IsShah;
 }
 
-bool moveKnightsAtShah(int FigureColor)
+bool moveKnightsAtShah(AppState& appState, int FigureColor)
 {
+    auto& GroupOfFigures = appState.GroupOfFigures;
+    auto& board = appState.board;
+
     bool IsShah = true;
-    int AmountOfFigures = NumberOfFigures(FigureColor, KNIGHT);
+    int AmountOfFigures = NumberOfFigures(appState, FigureColor, KNIGHT);
     int i, j, k, l;
     int x, y;
     int MainFigure, MinorFigure;
@@ -569,7 +585,7 @@ bool moveKnightsAtShah(int FigureColor)
                     board[y + j][x + i] = MainFigure;
                     board[y][x] = 0;
 
-                    IsShah = CheckingKingOnShah(FigureColor);
+                    IsShah = CheckingKingOnShah(appState, FigureColor);
 
                     board[y][x] = MainFigure;
                     board[y + j][x + i] = MinorFigure;
@@ -592,10 +608,15 @@ bool moveKnightsAtShah(int FigureColor)
     return IsShah;
 }
 
-bool moveKingAtShah(int FigureColor)
+bool moveKingAtShah(AppState& appState, int FigureColor)
 {
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+    auto& GroupOfFigures = appState.GroupOfFigures;
+    auto& board = appState.board;
+
     bool IsShah = true;
-    int AmountOfFigures = NumberOfFigures(FigureColor, KING);
+    int AmountOfFigures = NumberOfFigures(appState, FigureColor, KING);
     int i, j, k;
     int x, y;
     int MainFigure, MinorFigure;
@@ -635,7 +656,7 @@ bool moveKingAtShah(int FigureColor)
                     *pKSPx = x + i;
                     *pKSPy = y + j;
 
-                    IsShah = CheckingKingOnShah(FigureColor);
+                    IsShah = CheckingKingOnShah(appState, FigureColor);
 
                     board[y][x] = MainFigure;
                     board[y + j][x + i] = MinorFigure;

@@ -6,17 +6,19 @@
 #include <cstring>
 #include <string>
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "checks.h"
 #include "secondary functions.h"
 #include "animation functions.h"
 #include "connector.hpp"
+#include "app-state.h"
 
 using namespace std;
 using namespace sf;
 
-void OutputOfChessboardToConsole(void)
+void OutputOfChessboardToConsole(AppState& appState)
 {
+    auto& board = appState.board;
+
     int i, j;
 
     for (i = 1; i < LENGTH - 1; i++)
@@ -30,30 +32,39 @@ void OutputOfChessboardToConsole(void)
     putchar('\n');
 }
 
-void OutputPropertiesToConsole(void)
+void OutputPropertiesToConsole(AppState& appState)
 {
+    auto& window = appState.window;
+    auto& MC = appState.MC;
+    auto& CC = appState.CC;
+
     printf("\nРазмер окна: %dx%d\n", window.getSize().x, window.getSize().y);
     printf("Координаты мыши: x = %d; y = %d\n", MC.x, MC.y);
     printf("Координаты доски: x = %d; y = %d\n", CC.x, CC.y);
     printf("Размер шахматной клетки: %d\n\n", CFDCP);
 }
 
-void StateOfShahs(void)
+void StateOfShahs(AppState& appState)
 {
     char IsShah[] = "поставлен шах", IsNotShah[] = "\"НЕ\" поставлен шах";
 
-    printf("Черным %s\n", CheckingKingOnShah(BLACK) ? IsShah : IsNotShah);
-    printf("Белым %s\n\n", CheckingKingOnShah(WHITE) ? IsShah : IsNotShah);
+    printf("Черным %s\n", CheckingKingOnShah(appState, BLACK) ? IsShah : IsNotShah);
+    printf("Белым %s\n\n", CheckingKingOnShah(appState, WHITE) ? IsShah : IsNotShah);
 }
 
-void OutputKingsCoordinates(void)
+void OutputKingsCoordinates(AppState& appState)
 {
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+
     printf("Координаты черного короля: %dx%d\n", blackKing.x, blackKing.y);
     printf("Координаты белого короля: %dx%d\n", whiteKing.x, whiteKing.y);
 }
 
-void SetChessPiecesToTheirOriginalPosition(void)
+void SetChessPiecesToTheirOriginalPosition(AppState& appState)
 {
+    auto& board = appState.board;
+
     int i, j;
 
     for (i = 0; i < LENGTH; i++)
@@ -82,16 +93,27 @@ void SetChessPiecesToTheirOriginalPosition(void)
     board[BOTTOM_EXTREME_COORDINATE][LEFT_EXTREME_COORDINATE + 4] = WHITE_KING;
 }
 
-void ClearEatenFiguresArray(void)
+void ClearEatenFiguresArray(AppState& appState)
 {
+    auto& EatenFigures = appState.EatenFigures;
+
     int i;
 
     for (i = 0; i < 10; i++)
         EatenFigures[i] = 0;
 }
 
-void FigureSelection(int x, int y)
+void FigureSelection(AppState& appState, int x, int y)
 {
+    auto& WhoseMove = appState.WhoseMove;
+    auto& board = appState.board;
+    auto& OCC = appState.OCC;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& WhoHasMoved = appState.WhoHasMoved;
+    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
+
     bool status = false;
     char FigureType[10];
 
@@ -101,7 +123,7 @@ void FigureSelection(int x, int y)
         {
             OCC.x = x;
             OCC.y = y;
-            WhichFigureIsSelected(OCC.x, OCC.y, FigureType);
+            WhichFigureIsSelected(appState, OCC.x, OCC.y, FigureType);
             printf("Выбрана черная фигура для перемещения, а именно — %s\n", FigureType);
             PieceIsChoose = true;
             status = true;
@@ -117,7 +139,7 @@ void FigureSelection(int x, int y)
         {
             OCC.x = x;
             OCC.y = y;
-            WhichFigureIsSelected(OCC.x, OCC.y, FigureType);
+            WhichFigureIsSelected(appState, OCC.x, OCC.y, FigureType);
             printf("Выбрана белая фигура для перемещения, а именно — %s\n", FigureType);
             PieceIsChoose = true;
             status = true;
@@ -134,8 +156,10 @@ void FigureSelection(int x, int y)
     }
 }
 
-void WhichFigureIsSelected(int x, int y, char * FigureType)
+void WhichFigureIsSelected(AppState& appState, int x, int y, char * FigureType)
 {
+    auto& board = appState.board;
+
     switch (FIGURE_TYPE(board[y][x]))
     {
         case PAWN: strcpy(FigureType, "Пешка"); break;
@@ -148,8 +172,10 @@ void WhichFigureIsSelected(int x, int y, char * FigureType)
     }
 }
 
-int WhichFigureHasMoved(int x, int y)
+int WhichFigureHasMoved(AppState& appState, int x, int y)
 {
+    auto& board = appState.board;
+
     int FigureColor, FigureType, Figure;
 
     switch (FIGURE_COLOR(board[y][x]))
@@ -173,8 +199,10 @@ int WhichFigureHasMoved(int x, int y)
     return Figure;
 }
 
-int DetermineFigureColor(int x, int y)
+int DetermineFigureColor(AppState& appState, int x, int y)
 {
+    auto& board = appState.board;
+
     int FigureColor;
 
     switch(FIGURE_COLOR(board[y][x]))
@@ -186,8 +214,10 @@ int DetermineFigureColor(int x, int y)
     return FigureColor;
 }
 
-int DetermineFigureType(int x, int y)
+int DetermineFigureType(AppState& appState, int x, int y)
 {
+    auto& board = appState.board;
+
     int FigureType;
 
     switch(FIGURE_TYPE(board[y][x]))
@@ -203,17 +233,30 @@ int DetermineFigureType(int x, int y)
     return FigureType;
 }
 
-int DetermineFigure(int x, int y)
+int DetermineFigure(AppState& appState, int x, int y)
 {
     int Figure;
 
-    Figure = DetermineFigureColor(x, y) | DetermineFigureType(x, y);
+    Figure = DetermineFigureColor(appState, x, y) | DetermineFigureType(appState, x, y);
 
     return Figure;
 }
 
-void DetermineAnimatedSprite(int Figure, DrawnObject ** ps)
+void DetermineAnimatedSprite(AppState& appState, int Figure, DrawnObject ** ps)
 {
+    auto& BlackPawn_sprite = appState.BlackPawn_sprite;
+    auto& BlackRook_sprite = appState.BlackRook_sprite;
+    auto& BlackKnight_sprite = appState.BlackKnight_sprite;
+    auto& BlackBishop_sprite = appState.BlackBishop_sprite;
+    auto& BlackQueen_sprite = appState.BlackQueen_sprite;
+    auto& BlackKing_sprite = appState.BlackKing_sprite;
+    auto& WhitePawn_sprite = appState.WhitePawn_sprite;
+    auto& WhiteRook_sprite = appState.WhiteRook_sprite;
+    auto& WhiteKnight_sprite = appState.WhiteKnight_sprite;
+    auto& WhiteBishop_sprite = appState.WhiteBishop_sprite;
+    auto& WhiteQueen_sprite = appState.WhiteQueen_sprite;
+    auto& WhiteKing_sprite = appState.WhiteKing_sprite;
+
     switch(FIGURE(Figure))
     {
         case BLACK_PAWN: *ps = &BlackPawn_sprite; break;
@@ -231,8 +274,11 @@ void DetermineAnimatedSprite(int Figure, DrawnObject ** ps)
     }
 }
 
-int NumberOfFigures(int FigureColor, int FigureType)
+int NumberOfFigures(AppState& appState, int FigureColor, int FigureType)
 {
+    auto& board = appState.board;
+    auto& GroupOfFigures = appState.GroupOfFigures;
+
     int number_of_figures;
     int i, j, k;
     for (i = k = number_of_figures = 0; i < LENGTH; i++)
@@ -250,15 +296,32 @@ int NumberOfFigures(int FigureColor, int FigureType)
     return number_of_figures;
 }
 
-void TransformationColorDefinition(int x, int y)
+void TransformationColorDefinition(AppState& appState, int x, int y)
 {
+    auto& board = appState.board;
+    auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& PawnTransformationColor = appState.PawnTransformationColor;
+    auto& DQ = appState.DQ;
+    auto& BlackQueenPT_icon = appState.BlackQueenPT_icon;
+    auto& DB = appState.DB;
+    auto& BlackBishopPT_icon = appState.BlackBishopPT_icon;
+    auto& DK = appState.DK;
+    auto& BlackKnightPT_icon = appState.BlackKnightPT_icon;
+    auto& DR = appState.DR;
+    auto& BlackRookPT_icon = appState.BlackRookPT_icon;
+    auto& WhiteQueenPT_icon = appState.WhiteQueenPT_icon;
+    auto& WhiteBishopPT_icon = appState.WhiteBishopPT_icon;
+    auto& WhiteKnightPT_icon = appState.WhiteKnightPT_icon;
+    auto& WhiteRookPT_icon = appState.WhiteRookPT_icon;
+
     int PawnColor = FIGURE_COLOR(board[y][x]) == BLACK ? BLACK : WHITE;
 
-    if (HasPawnReachedLastHorizontal(x, y))
+    if (HasPawnReachedLastHorizontal(appState, x, y))
     {
         PawnReachedLastHorizontal = true;
         CurrentWindow = PawnTransformationWindow;
-        ChangeButtonsAvailability(ChessGameScreen, false);
+        ChangeButtonsAvailability(appState, ChessGameScreen, false);
         switch (PawnColor)
         {
             case BLACK:
@@ -279,20 +342,38 @@ void TransformationColorDefinition(int x, int y)
     }
 }
 
-void CreationOfObjects(void)   //Creating Window, Loading Textures, Setting Textures To Sprites
+void CreationOfObjects(AppState& appState)   //Creating Window, Loading Textures, Setting Textures To Sprites
 {
+    auto& window = appState.window;
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& CurrentScreen = appState.CurrentScreen;
+
     window.create(VideoMode(InitialWindowSize.x, InitialWindowSize.y), "Chess");
     CurrentScreen = MainMenuScreen;
 
-    CreateChessPieces();
-    CreateSmallChessPieces();
-    CreateBacklight();
-    CreateChessboards();
-    CreateScreensAndWindows();
+    CreateChessPieces(appState);
+    CreateSmallChessPieces(appState);
+    CreateBacklight(appState);
+    CreateChessboards(appState);
+    CreateScreensAndWindows(appState);
 }
 
-void CreateChessPieces(void)
+void CreateChessPieces(AppState& appState)
 {
+    auto& ChessPieces_texture = appState.ChessPieces_texture;
+    auto& BlackPawn_sprite = appState.BlackPawn_sprite;
+    auto& BlackRook_sprite = appState.BlackRook_sprite;
+    auto& BlackKnight_sprite = appState.BlackKnight_sprite;
+    auto& BlackBishop_sprite = appState.BlackBishop_sprite;
+    auto& BlackQueen_sprite = appState.BlackQueen_sprite;
+    auto& BlackKing_sprite = appState.BlackKing_sprite;
+    auto& WhitePawn_sprite = appState.WhitePawn_sprite;
+    auto& WhiteRook_sprite = appState.WhiteRook_sprite;
+    auto& WhiteKnight_sprite = appState.WhiteKnight_sprite;
+    auto& WhiteBishop_sprite = appState.WhiteBishop_sprite;
+    auto& WhiteQueen_sprite = appState.WhiteQueen_sprite;
+    auto& WhiteKing_sprite = appState.WhiteKing_sprite;
+
     IntRect BP, BR, BKn, BB, BQ, BKi, WP, WR, WKn, WB, WQ, WKi;
 
     BP = {400, 0, 80, 80};
@@ -324,8 +405,22 @@ void CreateChessPieces(void)
     WhiteKing_sprite.Create(ChessPieces_texture, WKi);
 }
 
-void CreateSmallChessPieces(void)
+void CreateSmallChessPieces(AppState& appState)
 {
+    auto& SmallChessPieces_texture = appState.SmallChessPieces_texture;
+    auto& SmallBlackPawn_sprite = appState.SmallBlackPawn_sprite;
+    auto& SmallBlackRook_sprite = appState.SmallBlackRook_sprite;
+    auto& SmallBlackKnight_sprite = appState.SmallBlackKnight_sprite;
+    auto& SmallBlackBishop_sprite = appState.SmallBlackBishop_sprite;
+    auto& SmallBlackQueen_sprite = appState.SmallBlackQueen_sprite;
+    auto& SmallBlackKing_sprite = appState.SmallBlackKing_sprite;
+    auto& SmallWhitePawn_sprite = appState.SmallWhitePawn_sprite;
+    auto& SmallWhiteRook_sprite = appState.SmallWhiteRook_sprite;
+    auto& SmallWhiteKnight_sprite = appState.SmallWhiteKnight_sprite;
+    auto& SmallWhiteBishop_sprite = appState.SmallWhiteBishop_sprite;
+    auto& SmallWhiteQueen_sprite = appState.SmallWhiteQueen_sprite;
+    auto& SmallWhiteKing_sprite = appState.SmallWhiteKing_sprite;
+
     IntRect SBP, SBR, SBKn, SBB, SBQ, SBKi, SWP, SWR, SWKn, SWB, SWQ, SWKi;
 
     SBP = {250, 0, 50, 50};
@@ -357,8 +452,15 @@ void CreateSmallChessPieces(void)
     SmallWhiteKing_sprite.Create(SmallChessPieces_texture, SWKi);
 }
 
-void CreateBacklight(void)
+void CreateBacklight(AppState& appState)
 {
+    auto& Backlight_texture = appState.Backlight_texture;
+    auto& DarkCircle_sprite = appState.DarkCircle_sprite;
+    auto& LightCircle_sprite = appState.LightCircle_sprite;
+    auto& GreenSquare_sprite = appState.GreenSquare_sprite;
+    auto& YellowSquare_sprite = appState.YellowSquare_sprite;
+    auto& RedSquare_sprite = appState.RedSquare_sprite;
+
     IntRect DC, LC, GS, YS, RS;
 
     DC = {0, 0, 80, 80};
@@ -376,8 +478,12 @@ void CreateBacklight(void)
     RedSquare_sprite.Create(Backlight_texture, RS);
 }
 
-void CreateChessboards(void)
+void CreateChessboards(AppState& appState)
 {
+    auto& Chessboards_texture = appState.Chessboards_texture;
+    auto& OrdinaryChessboard_sprite = appState.OrdinaryChessboard_sprite;
+    auto& InvertedChessboard_sprite = appState.InvertedChessboard_sprite;
+
     IntRect OC, IC;
 
     OC = {0, 0, 800, 800};
@@ -389,8 +495,20 @@ void CreateChessboards(void)
     InvertedChessboard_sprite.Create(Chessboards_texture, IC);
 }
 
-void CreateScreensAndWindows(void)
+void CreateScreensAndWindows(AppState& appState)
 {
+    auto& Backgrounds_texture = appState.Backgrounds_texture;
+    auto& Windows_texture = appState.Windows_texture;
+    auto& MainMenuScreen_guiElements_texture = appState.MainMenuScreen_guiElements_texture;
+    auto& ChessGameScreen_guiElements_texture = appState.ChessGameScreen_guiElements_texture;
+    auto& PawnTransformationWindow_guiElements_texture = appState.PawnTransformationWindow_guiElements_texture;
+    auto& GameOverWindow_guiElements_texture = appState.GameOverWindow_guiElements_texture;
+    auto& GamePauseWindow_guiElements_texture = appState.GamePauseWindow_guiElements_texture;
+    auto& OptionsWindow_guiElements_texture = appState.OptionsWindow_guiElements_texture;
+    auto& GameSaveWindow_guiElements_texture = appState.GameSaveWindow_guiElements_texture;
+    auto& BackgroundDimmer_texture = appState.BackgroundDimmer_texture;
+    auto& BackgroundDimmer = appState.BackgroundDimmer;
+
     Backgrounds_texture.loadFromFile("Images\\Backgrounds.jpg");
     Windows_texture.loadFromFile("Images\\Windows.png");
     MainMenuScreen_guiElements_texture.loadFromFile("Images\\MainMenuScreen_guiElements.png");
@@ -402,18 +520,28 @@ void CreateScreensAndWindows(void)
     GameSaveWindow_guiElements_texture.loadFromFile("Images\\GameSaveWindow_guiElements.png");
     BackgroundDimmer_texture.loadFromFile("Images\\Background dimmer.png");
 
-    CreateMainMenuScreen();
-    CreateChessGameScreen();
-    CreatePawnTransformationWindow();
-    CreateOptionsWindow();
-    CreateGameOverWindow();
-    CreateGameSaveWindow();
-    CreateGamePauseWindow();
+    CreateMainMenuScreen(appState);
+    CreateChessGameScreen(appState);
+    CreatePawnTransformationWindow(appState);
+    CreateOptionsWindow(appState);
+    CreateGameOverWindow(appState);
+    CreateGameSaveWindow(appState);
+    CreateGamePauseWindow(appState);
     BackgroundDimmer.Create(BackgroundDimmer_texture, {0, 0, 1274, 800});
 }
 
-void CreateMainMenuScreen(void)
+void CreateMainMenuScreen(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& MainMenu_background = appState.MainMenu_background;
+    auto& Backgrounds_texture = appState.Backgrounds_texture;
+    auto& NewGame_button = appState.NewGame_button;
+    auto& MainMenuScreen_guiElements_texture = appState.MainMenuScreen_guiElements_texture;
+    auto& Options_button = appState.Options_button;
+    auto& ExitFromApp_button = appState.ExitFromApp_button;
+    auto& BackToGameMM_button = appState.BackToGameMM_button;
+    auto& GamePauseWindow_guiElements_texture = appState.GamePauseWindow_guiElements_texture;
+
     Vector2u NGs, Os, EFAs, BTGmms;
     Vector2f NGp, Op, EFAp,BTGmmp;
     IntRect NGr1, Or1, EFAr1, PGr1, NGr2, Or2, EFAr2, MMSBr, BTGmmr1, BTGmmr2;
@@ -445,8 +573,18 @@ void CreateMainMenuScreen(void)
     BackToGameMM_button.Create(GamePauseWindow_guiElements_texture, BTGmmr1, BTGmmr2, BTGmms, BTGmmp);
 }
 
-void CreateChessGameScreen(void)
+void CreateChessGameScreen(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& PauseGame_button = appState.PauseGame_button;
+    auto& ChessGameScreen_guiElements_texture = appState.ChessGameScreen_guiElements_texture;
+    auto& FlipChessboard_button = appState.FlipChessboard_button;
+    auto& BlackMove_label = appState.BlackMove_label;
+    auto& WhiteMove_label = appState.WhiteMove_label;
+    auto& EatenFigures_label = appState.EatenFigures_label;
+    auto& ChessGame_background = appState.ChessGame_background;
+    auto& Backgrounds_texture = appState.Backgrounds_texture;
+
     Vector2u PGs, FCs, BMs, WMs, EFs;
     Vector2f FCp, PGp, BNGp, BMp, WMp, EFp;
     IntRect PGr1, PGr2, FCr1, FCr2, BMr, WMr, EFr, CGSBr;
@@ -481,8 +619,21 @@ void CreateChessGameScreen(void)
     ChessGame_background.Create(Backgrounds_texture, CGSBr);
 }
 
-void CreatePawnTransformationWindow(void)
+void CreatePawnTransformationWindow(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& PawnTransformation_window = appState.PawnTransformation_window;
+    auto& Windows_texture = appState.Windows_texture;
+    auto& BlackQueenPT_icon = appState.BlackQueenPT_icon;
+    auto& PawnTransformationWindow_guiElements_texture = appState.PawnTransformationWindow_guiElements_texture;
+    auto& BlackBishopPT_icon = appState.BlackBishopPT_icon;
+    auto& BlackKnightPT_icon = appState.BlackKnightPT_icon;
+    auto& BlackRookPT_icon = appState.BlackRookPT_icon;
+    auto& WhiteQueenPT_icon = appState.WhiteQueenPT_icon;
+    auto& WhiteBishopPT_icon = appState.WhiteBishopPT_icon;
+    auto& WhiteKnightPT_icon = appState.WhiteKnightPT_icon;
+    auto& WhiteRookPT_icon = appState.WhiteRookPT_icon;
+
     Vector2u PTWs, BQs, BBs, BKs, BRs, WQs, WBs, WKs, WRs, PiecesSize;
     Vector2f PTWp, BQp, BBp, BKp, BRp, WQp, WBp, WKp, WRp, StartPosition;
     IntRect PTWr, BQr1, BBr1, BKr1, BRr1, WQr1, WBr1, WKr1, WRr1, BQr2, BBr2, BKr2, BRr2, WQr2, WBr2, WKr2, WRr2;
@@ -530,8 +681,24 @@ void CreatePawnTransformationWindow(void)
     WhiteRookPT_icon.Create(PawnTransformationWindow_guiElements_texture, WRr1, WRr2, PiecesSize, WRp);
 }
 
-void CreateOptionsWindow(void)
+void CreateOptionsWindow(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& Options_window = appState.Options_window;
+    auto& Windows_texture = appState.Windows_texture;
+    auto& PvE_radioButton = appState.PvE_radioButton;
+    auto& OptionsWindow_guiElements_texture = appState.OptionsWindow_guiElements_texture;
+    auto& PvP_radioButton = appState.PvP_radioButton;
+    auto& White_radioButton = appState.White_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+    auto& ExitFromOptionsWindow_button = appState.ExitFromOptionsWindow_button;
+    auto& GameMode_label = appState.GameMode_label;
+    auto& PieceColor_label = appState.PieceColor_label;
+    auto& LevelOfDifficulty_label = appState.LevelOfDifficulty_label;
+
     Vector2u OWs, PvEs, PvPs, Ws, Bs, Es, Ms, Ds, EFOWs, GMs, PCs, LODs;
     Vector2f OWp, PvEp, PvPp, Wp, Bp, Ep, Mp, Dp, EFOWp, GMp, PCp, LODp;
     IntRect OWr, PvEr1, PvPr1, Wr1, Br1, Er1, Mr1, Dr1, PvEr2, PvPr2, Wr2, Br2, Er2, Mr2, Dr2, PvEr3, PvPr3, Wr3, Br3, Er3, Mr3, Dr3, EFOWr1, EFOWr2, GSSWYr1, GSSWNr1, GSSWYr2, GSSWNr2, GMr, PCr, LODr;
@@ -608,8 +775,20 @@ void CreateOptionsWindow(void)
     LevelOfDifficulty_label.Create(OptionsWindow_guiElements_texture, LODr, LODp);
 }
 
-void CreateGameOverWindow(void)
+void CreateGameOverWindow(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& GameOver_window = appState.GameOver_window;
+    auto& Windows_texture = appState.Windows_texture;
+    auto& BeginNewGame_button = appState.BeginNewGame_button;
+    auto& GameOverWindow_guiElements_texture = appState.GameOverWindow_guiElements_texture;
+    auto& GoToMenu_button = appState.GoToMenu_button;
+    auto& Mat_label = appState.Mat_label;
+    auto& Pat_label = appState.Pat_label;
+    auto& BlackWin_label = appState.BlackWin_label;
+    auto& WhiteWin_label = appState.WhiteWin_label;
+    auto& Standoff_label = appState.Standoff_label;
+
     Vector2u GOWs, BNGs, GTMs, Ms, Ps, BWs, WWs, Ss;
     Vector2f GOWp, BNGp, GTMp,Mp, Pp, BWp, WWp, Sp;
     IntRect GOWr, BNGr1, GTMr1, BNGr2, GTMr2, Mr, Pr, BWr, WWr, Sr;
@@ -650,8 +829,16 @@ void CreateGameOverWindow(void)
     Standoff_label.Create(GameOverWindow_guiElements_texture, Sr, Sp);
 }
 
-void CreateGameSaveWindow(void)
+void CreateGameSaveWindow(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& GameSave_window = appState.GameSave_window;
+    auto& Windows_texture = appState.Windows_texture;
+    auto& WouldYouLikeToSaveGame_label = appState.WouldYouLikeToSaveGame_label;
+    auto& GameSaveWindow_guiElements_texture = appState.GameSaveWindow_guiElements_texture;
+    auto& GSWYes_button = appState.GSWYes_button;
+    auto& GSWNo_button = appState.GSWNo_button;
+
     Vector2u GSWs, WYLTSGs, GSWYs, GSWNs;
     Vector2f GSWp, WYLTSGp, GSWYp, GSWNp;
     IntRect GSWr, WYLTSGr, GSWYr1, GSWNr1, GSWYr2, GSWNr2;
@@ -679,8 +866,16 @@ void CreateGameSaveWindow(void)
     GSWNo_button.Create(GameSaveWindow_guiElements_texture, GSWNr1, GSWNr2, GSWNs, GSWNp);
 }
 
-void CreateGamePauseWindow(void)
+void CreateGamePauseWindow(AppState& appState)
 {
+    auto& InitialWindowSize = appState.InitialWindowSize;
+    auto& GamePause_window = appState.GamePause_window;
+    auto& Windows_texture = appState.Windows_texture;
+    auto& BackToGame_button = appState.BackToGame_button;
+    auto& GamePauseWindow_guiElements_texture = appState.GamePauseWindow_guiElements_texture;
+    auto& SaveGame_button = appState.SaveGame_button;
+    auto& ExitFromChessGame_button = appState.ExitFromChessGame_button;
+
     Vector2u GPWs, BTGs, SGs, EFCGs;
     Vector2f GPWp, BTGp, SGp, EFCGp;
     IntRect GPWr, BTGr1, SGr1, BTGr2, SGr2, EFCGr1, EFCGr2;
@@ -709,8 +904,37 @@ void CreateGamePauseWindow(void)
     ExitFromChessGame_button.Create(GamePauseWindow_guiElements_texture, EFCGr1, EFCGr2, EFCGs, EFCGp);
 }
 
-void ChangeButtonPropertiesByCoefficient(Vector2f coeff)
+void ChangeButtonPropertiesByCoefficient(AppState& appState, Vector2f coeff)
 {
+    auto& NewGame_button = appState.NewGame_button;
+    auto& Options_button = appState.Options_button;
+    auto& ExitFromApp_button = appState.ExitFromApp_button;
+    auto& BackToGameMM_button = appState.BackToGameMM_button;
+    auto& PauseGame_button = appState.PauseGame_button;
+    auto& BlackQueenPT_icon = appState.BlackQueenPT_icon;
+    auto& BlackBishopPT_icon = appState.BlackBishopPT_icon;
+    auto& BlackKnightPT_icon = appState.BlackKnightPT_icon;
+    auto& BlackRookPT_icon = appState.BlackRookPT_icon;
+    auto& WhiteQueenPT_icon = appState.WhiteQueenPT_icon;
+    auto& WhiteBishopPT_icon = appState.WhiteBishopPT_icon;
+    auto& WhiteKnightPT_icon = appState.WhiteKnightPT_icon;
+    auto& WhiteRookPT_icon = appState.WhiteRookPT_icon;
+    auto& BeginNewGame_button = appState.BeginNewGame_button;
+    auto& GoToMenu_button = appState.GoToMenu_button;
+    auto& BackToGame_button = appState.BackToGame_button;
+    auto& SaveGame_button = appState.SaveGame_button;
+    auto& ExitFromChessGame_button = appState.ExitFromChessGame_button;
+    auto& PvE_radioButton = appState.PvE_radioButton;
+    auto& PvP_radioButton = appState.PvP_radioButton;
+    auto& White_radioButton = appState.White_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+    auto& ExitFromOptionsWindow_button = appState.ExitFromOptionsWindow_button;
+    auto& GSWYes_button = appState.GSWYes_button;
+    auto& GSWNo_button = appState.GSWNo_button;
+
     NewGame_button.ChangePropertiesByCoefficient(coeff);
     Options_button.ChangePropertiesByCoefficient(coeff);
     ExitFromApp_button.ChangePropertiesByCoefficient(coeff);
@@ -741,27 +965,43 @@ void ChangeButtonPropertiesByCoefficient(Vector2f coeff)
     GSWNo_button.ChangePropertiesByCoefficient(coeff);
 }
 
-void AdditionalActionsBeforeMovingFigure(int ox, int oy, int nx, int ny)
+void AdditionalActionsBeforeMovingFigure(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& FigureByOldCoordinates = appState.FigureByOldCoordinates;
+    auto& board = appState.board;
+    auto& FigureByNewCoordinates = appState.FigureByNewCoordinates;
+
     FigureByOldCoordinates = board[oy][ox];
     FigureByNewCoordinates = board[ny][nx];
 }
 
-void AdditionalActionsAfterMovingFigure(int ox, int oy, int nx, int ny, bool IsMoveMade)
+void AdditionalActionsAfterMovingFigure(AppState& appState, int ox, int oy, int nx, int ny, bool IsMoveMade)
 {
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+    auto& board = appState.board;
+    auto& pNC = appState.pNC;
+    auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
+    auto& CurrentGameMode = appState.CurrentGameMode;
+    auto& PlayerMove = appState.PlayerMove;
+    auto& CurrentChessNote = appState.CurrentChessNote;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+    auto& FigureByOldCoordinates = appState.FigureByOldCoordinates;
+    auto& FigureByNewCoordinates = appState.FigureByNewCoordinates;
+    auto& WhoseMove = appState.WhoseMove;
+
     int EatenFigure;
     string current_chess_move;
     Vector2i o, n;
 
     if (IsMoveMade)
     {
-        FigureMovementAnimation(ox, oy, nx, ny);
-        current_chess_move = toChessNote(Vector2i(ox, oy));
-        current_chess_move += toChessNote(Vector2i(nx, ny));
-        RecordChessMove(current_chess_move);
+        FigureMovementAnimation(appState, ox, oy, nx, ny);
+        current_chess_move = toChessNote(appState, Vector2i(ox, oy));
+        current_chess_move += toChessNote(appState, Vector2i(nx, ny));
+        RecordChessMove(appState, current_chess_move);
 
-        if (EatenFigure = HasFigureBeenEaten())
-            AddFigureToEatenFigures(EatenFigure);
+        if (EatenFigure = HasFigureBeenEaten(appState))
+            AddFigureToEatenFigures(appState, EatenFigure);
 
         if (IsTakingOnAisleUsed)
         {
@@ -773,14 +1013,14 @@ void AdditionalActionsAfterMovingFigure(int ox, int oy, int nx, int ny, bool IsM
 
         if (PawnReachedLastHorizontal && CurrentGameMode == PlayerVersusEnvironment && WhoseMove == PlayerMove)
         {
-            EnvironmentPawnTransformation(CurrentChessNote, nx, ny);
-            RewriteChessNotation();
+            EnvironmentPawnTransformation(appState, CurrentChessNote, nx, ny);
+            RewriteChessNotation(appState);
         }
 
         HaveThereBeenChangesSinceTheLastSave = false;
 
-        o = toCoord(current_chess_move[0], current_chess_move[1]);
-        n = toCoord(current_chess_move[2], current_chess_move[3]);
+        o = toCoord(appState, current_chess_move[0], current_chess_move[1]);
+        n = toCoord(appState, current_chess_move[2], current_chess_move[3]);
         cout << "Шахматная нотация: " << current_chess_move << endl;
         printf("Координатная нотация: oldPos = %d, %d   ;   newPos = %d, %d\n", o.x, o.y , n.x, n.y);
     }
@@ -791,11 +1031,15 @@ void AdditionalActionsAfterMovingFigure(int ox, int oy, int nx, int ny, bool IsM
     }
 
     if ((FIGURE_COLOR(board[ny][nx]) == BLACK && WhoseMove) || (FIGURE_COLOR(board[ny][nx]) == WHITE && !WhoseMove))
-        FigureSelection(nx, ny);
+        FigureSelection(appState, nx, ny);
 }
 
-std::string RewriteChessNotation(void)
+std::string RewriteChessNotation(AppState& appState)
 {
+    auto& board = appState.board;
+    auto& pNC = appState.pNC;
+    auto& AllMovesInGame = appState.AllMovesInGame;
+
     string figure_letter = "";
 
     switch (FIGURE_TYPE(board[pNC.y][pNC.x]))
@@ -811,8 +1055,13 @@ std::string RewriteChessNotation(void)
     return figure_letter;
 }
 
-void EnvironmentPawnTransformation(std::string current_move, int x, int y)
+void EnvironmentPawnTransformation(AppState& appState, std::string current_move, int x, int y)
 {
+    auto& board = appState.board;
+    auto& EnvironmentColor = appState.EnvironmentColor;
+    auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
+    auto& CurrentWindow = appState.CurrentWindow;
+
     cout << "current_move: " << current_move << endl;
     char figure_letter = current_move[4];
 
@@ -826,11 +1075,16 @@ void EnvironmentPawnTransformation(std::string current_move, int x, int y)
 
     PawnReachedLastHorizontal = false;
     CurrentWindow = MissingWindow;
-    ChangeButtonsAvailability(ChessGameScreen, true);
+    ChangeButtonsAvailability(appState, ChessGameScreen, true);
 }
 
-int HasFigureBeenEaten(void)
+int HasFigureBeenEaten(AppState& appState)
 {
+    auto& FigureByNewCoordinates = appState.FigureByNewCoordinates;
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+    auto& board = appState.board;
+    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
+
     int EatenFigure = 0;
 
     if (FigureByNewCoordinates > 0)
@@ -841,8 +1095,10 @@ int HasFigureBeenEaten(void)
     return EatenFigure;
 }
 
-void AddFigureToEatenFigures(int EatenFigure)
+void AddFigureToEatenFigures(AppState& appState, int EatenFigure)
 {
+    auto& EatenFigures = appState.EatenFigures;
+
     switch(FIGURE(EatenFigure))
     {
         case BLACK_PAWN : EatenFigures[0]++; break;
@@ -859,8 +1115,10 @@ void AddFigureToEatenFigures(int EatenFigure)
     }
 }
 
-string toChessNote(Vector2i numberPos)
+string toChessNote(AppState& appState, Vector2i numberPos)
 {
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+
     string letterPos = "";
 
     if (ChessboardIsInverted)
@@ -877,8 +1135,10 @@ string toChessNote(Vector2i numberPos)
     return letterPos;
 }
 
-Vector2i toCoord(char a, char b)
+Vector2i toCoord(AppState& appState, char a, char b)
 {
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+
     Vector2i numberPos;
 
     if (ChessboardIsInverted)
@@ -895,8 +1155,10 @@ Vector2i toCoord(char a, char b)
     return numberPos;
 }
 
-string GetNextEnvironmentMove(int * ox, int * oy, int * nx, int * ny)
+string GetNextEnvironmentMove(AppState& appState, int * ox, int * oy, int * nx, int * ny)
 {
+    auto& AllMovesInGame = appState.AllMovesInGame;
+
     string NEM;
     Vector2i OP, NP;
 
@@ -905,8 +1167,8 @@ string GetNextEnvironmentMove(int * ox, int * oy, int * nx, int * ny)
         NEM = getNextMove(AllMovesInGame);
     } while (NEM == "error");
 
-    OP = toCoord(NEM[0], NEM[1]);
-    NP = toCoord(NEM[2], NEM[3]);
+    OP = toCoord(appState, NEM[0], NEM[1]);
+    NP = toCoord(appState, NEM[2], NEM[3]);
 
     *ox = OP.x;
     *oy = OP.y;
@@ -916,8 +1178,13 @@ string GetNextEnvironmentMove(int * ox, int * oy, int * nx, int * ny)
     return NEM;
 }
 
-void RecordChessMove(std::string chess_note)
+void RecordChessMove(AppState& appState, std::string chess_note)
 {
+    auto& AllMovesInGame = appState.AllMovesInGame;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& PlayerMove = appState.PlayerMove;
+    auto& EnvironmentMove = appState.EnvironmentMove;
+
     cout << "chess_note: " << "\"" << chess_note << "\"" << endl;
     AllMovesInGame += " " + chess_note;
 
@@ -929,8 +1196,16 @@ void RecordChessMove(std::string chess_note)
     //cout << "Все ходы в игре: " << AllMovesInGame << endl;
 }
 
-void FlipChessboard(void)
+void FlipChessboard(AppState& appState)
 {
+    auto& board = appState.board;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& OCC = appState.OCC;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+
     int temp[LENGTH][LENGTH];
     int i, j;
 
@@ -948,13 +1223,19 @@ void FlipChessboard(void)
     whiteKing = {LENGTH - 1 - whiteKing.x, LENGTH - 1 - whiteKing.y};
 
     if (PieceIsChoose)
-        FigureSelection(LENGTH - 1 - OCC.x, LENGTH - 1 - OCC.y);
+        FigureSelection(appState, LENGTH - 1 - OCC.x, LENGTH - 1 - OCC.y);
 
     HaveThereBeenChangesSinceTheLastSave = false;
 }
 
-void ChangeButtonsAvailability(AppScreens screen, bool status)
+void ChangeButtonsAvailability(AppState& appState, AppScreens screen, bool status)
 {
+    auto& NewGame_button = appState.NewGame_button;
+    auto& Options_button = appState.Options_button;
+    auto& ExitFromApp_button = appState.ExitFromApp_button;
+    auto& PauseGame_button = appState.PauseGame_button;
+    auto& FlipChessboard_button = appState.FlipChessboard_button;
+
     if (screen == MainMenuScreen)
     {
         NewGame_button.SetEnabled(status);
@@ -968,8 +1249,14 @@ void ChangeButtonsAvailability(AppScreens screen, bool status)
     }
 }
 
-void ChangeOptionsButtonsAvailability(bool status)
+void ChangeOptionsButtonsAvailability(AppState& appState, bool status)
 {
+    auto& White_radioButton = appState.White_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+
     White_radioButton.SetEnabled(status);
     Black_radioButton.SetEnabled(status);
     EasyLvl_radioButton.SetEnabled(status);
@@ -977,8 +1264,14 @@ void ChangeOptionsButtonsAvailability(bool status)
     DifficultLvl_radioButton.SetEnabled(status);
 }
 
-void DeselectOptionsButtons(void)
+void DeselectOptionsButtons(AppState& appState)
 {
+    auto& White_radioButton = appState.White_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+
     White_radioButton.SetChoosed(false);
     Black_radioButton.SetChoosed(false);
     EasyLvl_radioButton.SetChoosed(false);
@@ -986,10 +1279,23 @@ void DeselectOptionsButtons(void)
     DifficultLvl_radioButton.SetChoosed(false);
 }
 
-void SetDefaultGameSettings(bool is_this_first_launch)
+void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
 {
-    SetChessPiecesToTheirOriginalPosition();
-    ClearEatenFiguresArray();
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+    auto& GameIsOver = appState.GameIsOver;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+    auto& AllMovesInGame = appState.AllMovesInGame;
+
+    SetChessPiecesToTheirOriginalPosition(appState);
+    ClearEatenFiguresArray(appState);
     CurrentWindow = MissingWindow;
 
     blackKing = {LEFT_EXTREME_COORDINATE + 4, TOP_EXTREME_COORDINATE};
@@ -1006,19 +1312,26 @@ void SetDefaultGameSettings(bool is_this_first_launch)
     AllMovesInGame = "";
 }
 
-void SetGameMode(GameModes gamemode)
+void SetGameMode(AppState& appState, GameModes gamemode)
 {
+    auto& CurrentGameMode = appState.CurrentGameMode;
+
     CurrentGameMode = gamemode;
 
     if (gamemode == PlayerVersusEnvironment)
     {
-        SetPiecesColorOfPlayer(WHITE);
-        SetLevelOfDifficulty(1);
+        SetPiecesColorOfPlayer(appState, WHITE);
+        SetLevelOfDifficulty(appState, 1);
     }
 }
 
-void SetPiecesColorOfPlayer(int pieces_color)
+void SetPiecesColorOfPlayer(AppState& appState, int pieces_color)
 {
+    auto& PlayerColor = appState.PlayerColor;
+    auto& EnvironmentColor = appState.EnvironmentColor;
+    auto& PlayerMove = appState.PlayerMove;
+    auto& EnvironmentMove = appState.EnvironmentMove;
+
     if (pieces_color == BLACK)
     {
         PlayerColor = BLACK, EnvironmentColor = WHITE;
@@ -1031,8 +1344,10 @@ void SetPiecesColorOfPlayer(int pieces_color)
     }
 }
 
-void SetLevelOfDifficulty(int level_of_difficulty)
+void SetLevelOfDifficulty(AppState& appState, int level_of_difficulty)
 {
+    auto& LevelOfDifficulty = appState.LevelOfDifficulty;
+
     LevelOfDifficulty = level_of_difficulty;
 
     switch (LevelOfDifficulty)
@@ -1043,8 +1358,24 @@ void SetLevelOfDifficulty(int level_of_difficulty)
     }
 }
 
-bool WriteDataToFile(void)
+bool WriteDataToFile(AppState& appState)
 {
+    auto& IsThereSavedGame = appState.IsThereSavedGame;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+    auto& WhoHasMoved = appState.WhoHasMoved;
+    auto& CurrentGameMode = appState.CurrentGameMode;
+    auto& PlayerColor = appState.PlayerColor;
+    auto& LevelOfDifficulty = appState.LevelOfDifficulty;
+    auto& board = appState.board;
+    auto& EatenFigures = appState.EatenFigures;
+    auto& AllMovesInGame = appState.AllMovesInGame;
+
     ofstream out;
     int i, j;
     bool status = true;
@@ -1099,8 +1430,31 @@ bool WriteDataToFile(void)
     return status;
 }
 
-bool ReadDataFromFile(void)
+bool ReadDataFromFile(AppState& appState)
 {
+    auto& PvP_radioButton = appState.PvP_radioButton;
+    auto& IsThereSavedGame = appState.IsThereSavedGame;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
+    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
+    auto& WhoHasMoved = appState.WhoHasMoved;
+    auto& CurrentGameMode = appState.CurrentGameMode;
+    auto& PvE_radioButton = appState.PvE_radioButton;
+    auto& PlayerColor = appState.PlayerColor;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& White_radioButton = appState.White_radioButton;
+    auto& LevelOfDifficulty = appState.LevelOfDifficulty;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+    auto& board = appState.board;
+    auto& EatenFigures = appState.EatenFigures;
+    auto& AllMovesInGame = appState.AllMovesInGame;
+
     FILE * fp;
     int i, j;
     char is_there_saved_game;
@@ -1115,9 +1469,9 @@ bool ReadDataFromFile(void)
     if ((fp = fopen("saved data.txt", "rb+")) == NULL)
     {
         printf("Ошибка при открытии файла\n");
-        SetGameMode(PlayerVersusPlayer);
+        SetGameMode(appState, PlayerVersusPlayer);
         PvP_radioButton.SetChoosed(true);
-        ChangeOptionsButtonsAvailability(false);
+        ChangeOptionsButtonsAvailability(appState, false);
         status = false;
     }
     else
@@ -1195,11 +1549,11 @@ bool ReadDataFromFile(void)
             IsTakingOnAisleActivated = is_taking_on_aisle_activated;
             IsTakingOnAisleUsed = is_taking_on_aisle_used;
             WhoHasMoved = who_has_moved;
-            SetGameMode((GameModes) current_game_mode);
+            SetGameMode(appState, (GameModes) current_game_mode);
             if (CurrentGameMode == PlayerVersusEnvironment)
             {
-                SetPiecesColorOfPlayer(player_color);
-                SetLevelOfDifficulty(level_of_difficulty);
+                SetPiecesColorOfPlayer(appState, player_color);
+                SetLevelOfDifficulty(appState, level_of_difficulty);
                 switch (CurrentGameMode)
                 {
                     case PlayerVersusEnvironment : PvE_radioButton.SetChoosed(true); PvE_radioButton.ChangeRadioGroupChoosed(); break;
@@ -1220,7 +1574,7 @@ bool ReadDataFromFile(void)
             else
             {
                 PvP_radioButton.SetChoosed(true);
-                ChangeOptionsButtonsAvailability(false);
+                ChangeOptionsButtonsAvailability(appState, false);
             }
 
             for (i = 0; i < LENGTH; i++)
@@ -1239,9 +1593,9 @@ bool ReadDataFromFile(void)
         }
         else
         {
-            SetGameMode(PlayerVersusPlayer);
+            SetGameMode(appState, PlayerVersusPlayer);
             PvP_radioButton.SetChoosed(true);
-            ChangeOptionsButtonsAvailability(false);
+            ChangeOptionsButtonsAvailability(appState, false);
         }
     }
 

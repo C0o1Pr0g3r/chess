@@ -1,17 +1,19 @@
 #ifndef MOVE_FUNCTIONS_H_INCLUDED
 #define MOVE_FUNCTIONS_H_INCLUDED
 
-bool FigureMovementPvP(int ox, int oy, int nx, int ny);
-bool FigureMovementPvEPlayer(int ox, int oy, int nx, int ny);
-bool FigureMovementPvEEnvironment(int ox, int oy, int nx, int ny);
+#include "app-state.h"
 
-bool moveFigure(int ox, int oy, int nx, int ny);
-bool movePawn(int ox, int oy, int nx, int ny);
-bool moveRook(int ox, int oy, int nx, int ny);
-bool moveBishop(int ox, int oy, int nx, int ny);
-bool moveKnight(int ox, int oy, int nx, int ny);
-bool moveQueen(int ox, int oy, int nx, int ny);
-bool moveKing(int ox, int oy, int nx, int ny);
-void DoCastling(int okingx, int nkingx, int orookx, int nrookx, int kry);
+bool FigureMovementPvP(AppState& appState, int ox, int oy, int nx, int ny);
+bool FigureMovementPvEPlayer(AppState& appState, int ox, int oy, int nx, int ny);
+bool FigureMovementPvEEnvironment(AppState& appState, int ox, int oy, int nx, int ny);
+
+bool moveFigure(AppState& appState, int ox, int oy, int nx, int ny);
+bool movePawn(AppState& appState, int ox, int oy, int nx, int ny);
+bool moveRook(AppState& appState, int ox, int oy, int nx, int ny);
+bool moveBishop(AppState& appState, int ox, int oy, int nx, int ny);
+bool moveKnight(AppState& appState, int ox, int oy, int nx, int ny);
+bool moveQueen(AppState& appState, int ox, int oy, int nx, int ny);
+bool moveKing(AppState& appState, int ox, int oy, int nx, int ny);
+void DoCastling(AppState& appState, int okingx, int nkingx, int orookx, int nrookx, int kry);
 
 #endif // MOVE_FUNCTIONS_H_INCLUDED

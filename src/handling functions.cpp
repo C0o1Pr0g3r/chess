@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <iostream>
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "secondary functions.h"
 #include "checks.h"
 #include "move functions.h"
@@ -10,50 +9,63 @@
 #include "handling functions.h"
 #include "connector.hpp"
 #include "button class.h"
+#include "app-state.h"
 
 using namespace std;
 
-void HandleApp(void)
+void HandleApp(AppState& appState)
 {
+    auto& CurrentScreen = appState.CurrentScreen;
+
     switch(CurrentScreen)
     {
         case MainMenuScreen:
-            HandleMainMenuScreen();
+            HandleMainMenuScreen(appState);
             break;
         case ChessGameScreen:
-            HandleChessGameScreen();
+            HandleChessGameScreen(appState);
             break;
     }
 }
 
-void HandleMainMenuScreen(void)
+void HandleMainMenuScreen(AppState& appState)
 {
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& NewGame_button = appState.NewGame_button;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& CurrentScreen = appState.CurrentScreen;
+    auto& Options_button = appState.Options_button;
+    auto& ExitFromApp_button = appState.ExitFromApp_button;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+    auto& BackToGameMM_button = appState.BackToGameMM_button;
+
     if (CurrentWindow == OptionsWindow)
     {
-        HandleOptionsWindow();
+        HandleOptionsWindow(appState);
     }
     else
     {
         if (NewGame_button.IsPressed(window, LeftMouseButtonIsPressed))
         {
             CurrentScreen = ChessGameScreen;
-            SetDefaultGameSettings(false);
+            SetDefaultGameSettings(appState, false);
         }
         else if (Options_button.IsPressed(window, LeftMouseButtonIsPressed))
         {
             CurrentWindow = OptionsWindow;
-            ChangeButtonsAvailability(MainMenuScreen, false);
+            ChangeButtonsAvailability(appState, MainMenuScreen, false);
         }
         else if (ExitFromApp_button.IsPressed(window, LeftMouseButtonIsPressed))
         {
             if (HaveThereBeenChangesSinceTheLastSave)
             {
-                WriteDataToFile();
+                WriteDataToFile(appState);
                 window.close();
             }
             else
             {
-                ChangeButtonsAvailability(MainMenuScreen, false);
+                ChangeButtonsAvailability(appState, MainMenuScreen, false);
                 CurrentWindow = GameSaveWindow;
             }
         }
@@ -63,64 +75,79 @@ void HandleMainMenuScreen(void)
         }
         else if (CurrentWindow == GameSaveWindow)
         {
-            HandleGameSaveWindow();
+            HandleGameSaveWindow(appState);
         }
     }
 }
 
-void HandleChessGameScreen(void)
+void HandleChessGameScreen(AppState& appState)
 {
+    auto& GameIsOver = appState.GameIsOver;
+    auto& PauseGame_button = appState.PauseGame_button;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& FlipChessboard_button = appState.FlipChessboard_button;
+    auto& CurrentGameMode = appState.CurrentGameMode;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& EnvironmentMove = appState.EnvironmentMove;
+    auto& CurrentChessNote = appState.CurrentChessNote;
+    auto& CC = appState.CC;
+    auto& RightMouseButtonIsPressed = appState.RightMouseButtonIsPressed;
+    auto& EscapeIsPressed = appState.EscapeIsPressed;
+    auto& AllMovesInGame = appState.AllMovesInGame;
+
     bool status;
     int ox, oy, nx, ny;
 
-    GameIsOver = IsGameOver();
+    GameIsOver = IsGameOver(appState);
 
     if (!GameIsOver)
     {
         if (PauseGame_button.IsPressed(window, LeftMouseButtonIsPressed))
         {
             CurrentWindow = GameOnPauseWindow;
-            ChangeButtonsAvailability(ChessGameScreen, false);
+            ChangeButtonsAvailability(appState, ChessGameScreen, false);
         }
         else if (FlipChessboard_button.IsPressed(window, LeftMouseButtonIsPressed))
         {
-            FlipChessboard();
+            FlipChessboard(appState);
         }
         else if (CurrentWindow == GameOnPauseWindow)
         {
-            HandleGameOnPauseWindow();
+            HandleGameOnPauseWindow(appState);
         }
         else if (CurrentWindow == PawnTransformationWindow)
         {
-            HandlePawnTransformationWindow();
+            HandlePawnTransformationWindow(appState);
         }
         else if (CurrentWindow == GameSaveWindow)
         {
-            HandleGameSaveWindow();
+            HandleGameSaveWindow(appState);
         }
         else if (CurrentGameMode == PlayerVersusEnvironment && WhoseMove == EnvironmentMove)
         {
-            CurrentChessNote = GetNextEnvironmentMove(&ox, &oy, &nx, &ny);
+            CurrentChessNote = GetNextEnvironmentMove(appState, &ox, &oy, &nx, &ny);
             cout << CurrentChessNote << endl;
-            AdditionalActionsBeforeMovingFigure(ox, oy, nx, ny);
-            status = FigureMovementPvEEnvironment(ox, oy, nx, ny);
-            AdditionalActionsAfterMovingFigure(ox, oy, nx, ny, status);
+            AdditionalActionsBeforeMovingFigure(appState, ox, oy, nx, ny);
+            status = FigureMovementPvEEnvironment(appState, ox, oy, nx, ny);
+            AdditionalActionsAfterMovingFigure(appState, ox, oy, nx, ny, status);
         }
         else
         {
             if (LeftMouseButtonIsPressed)
             {
-                RecodeMouseCoordinatesToChecssboardCoordinates();
+                RecodeMouseCoordinatesToChecssboardCoordinates(appState);
                 if (!(CC.x < LEFT_EXTREME_COORDINATE || CC.x > RIGHT_EXTREME_COORDINATE || CC.y < TOP_EXTREME_COORDINATE || CC.y > BOTTOM_EXTREME_COORDINATE))
-                    HandleClickOnChessboard();
+                    HandleClickOnChessboard(appState);
             }
             else if (RightMouseButtonIsPressed)
             {
-                OutputKingsCoordinates();
-                OutputKingsCoordinates();
-                OutputPropertiesToConsole();
-                StateOfShahs();
-                OutputOfChessboardToConsole();
+                OutputKingsCoordinates(appState);
+                OutputKingsCoordinates(appState);
+                OutputPropertiesToConsole(appState);
+                StateOfShahs(appState);
+                OutputOfChessboardToConsole(appState);
             }
             else if (EscapeIsPressed)
             {
@@ -130,32 +157,49 @@ void HandleChessGameScreen(void)
     }
     else
     {
-        ChangeButtonsAvailability(ChessGameScreen, false);
-        HandleGameOverWindow();
+        ChangeButtonsAvailability(appState, ChessGameScreen, false);
+        HandleGameOverWindow(appState);
     }
 }
 
-void HandleClickOnChessboard(void)
+void HandleClickOnChessboard(AppState& appState)
 {
+    auto& PieceIsChoose = appState.PieceIsChoose;
+    auto& OCC = appState.OCC;
+    auto& CC = appState.CC;
+    auto& CurrentGameMode = appState.CurrentGameMode;
+
     bool status;
 
     if (PieceIsChoose)
     {
-        AdditionalActionsBeforeMovingFigure(OCC.x, OCC.y, CC.x, CC.y);
+        AdditionalActionsBeforeMovingFigure(appState, OCC.x, OCC.y, CC.x, CC.y);
         if (CurrentGameMode == PlayerVersusPlayer)
-            status = FigureMovementPvP(OCC.x, OCC.y, CC.x, CC.y);
+            status = FigureMovementPvP(appState, OCC.x, OCC.y, CC.x, CC.y);
         else if (CurrentGameMode == PlayerVersusEnvironment)
-            status = FigureMovementPvEPlayer(OCC.x, OCC.y, CC.x, CC.y);
-        AdditionalActionsAfterMovingFigure(OCC.x, OCC.y, CC.x, CC.y, status);
+            status = FigureMovementPvEPlayer(appState, OCC.x, OCC.y, CC.x, CC.y);
+        AdditionalActionsAfterMovingFigure(appState, OCC.x, OCC.y, CC.x, CC.y, status);
     }
     else
     {
-        FigureSelection(CC.x, CC.y);
+        FigureSelection(appState, CC.x, CC.y);
     }
 }
 
-void HandlePawnTransformationWindow(void)
+void HandlePawnTransformationWindow(AppState& appState)
 {
+    auto& PawnTransformationColor = appState.PawnTransformationColor;
+    auto& DQ = appState.DQ;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& board = appState.board;
+    auto& CC = appState.CC;
+    auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
+    auto& DB = appState.DB;
+    auto& DK = appState.DK;
+    auto& DR = appState.DR;
+    auto& CurrentWindow = appState.CurrentWindow;
+
     int Rook, Bishop, Knight, Queen;
 
     Rook = PawnTransformationColor | ROOK;
@@ -187,13 +231,21 @@ void HandlePawnTransformationWindow(void)
     if (!PawnReachedLastHorizontal)
     {
         CurrentWindow = MissingWindow;
-        ChangeButtonsAvailability(ChessGameScreen, true);
-        RewriteChessNotation();
+        ChangeButtonsAvailability(appState, ChessGameScreen, true);
+        RewriteChessNotation(appState);
     }
 }
 
-void HandleGameOverWindow(void)
+void HandleGameOverWindow(AppState& appState)
 {
+    auto& BeginNewGame_button = appState.BeginNewGame_button;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& GameIsOver = appState.GameIsOver;
+    auto& GoToMenu_button = appState.GoToMenu_button;
+    auto& CurrentScreen = appState.CurrentScreen;
+    auto& CurrentWindow = appState.CurrentWindow;
+
     if (BeginNewGame_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
         GameIsOver = 0;
@@ -207,17 +259,27 @@ void HandleGameOverWindow(void)
     if (!GameIsOver)
     {
         CurrentWindow = MissingWindow;
-        ChangeButtonsAvailability(ChessGameScreen, true);
-        SetDefaultGameSettings(false);
+        ChangeButtonsAvailability(appState, ChessGameScreen, true);
+        SetDefaultGameSettings(appState, false);
     }
 }
 
-void HandleGameOnPauseWindow(void)
+void HandleGameOnPauseWindow(AppState& appState)
 {
+    auto& BackToGame_button = appState.BackToGame_button;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& SaveGame_button = appState.SaveGame_button;
+    auto& IsThereSavedGame = appState.IsThereSavedGame;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+    auto& ExitFromChessGame_button = appState.ExitFromChessGame_button;
+    auto& CurrentScreen = appState.CurrentScreen;
+
     if (BackToGame_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
         CurrentWindow = MissingWindow;
-        ChangeButtonsAvailability(ChessGameScreen, true);
+        ChangeButtonsAvailability(appState, ChessGameScreen, true);
     }
     else if (SaveGame_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
@@ -230,7 +292,7 @@ void HandleGameOnPauseWindow(void)
         {
             CurrentWindow = MissingWindow;
             CurrentScreen = MainMenuScreen;
-            ChangeButtonsAvailability(ChessGameScreen, true);
+            ChangeButtonsAvailability(appState, ChessGameScreen, true);
         }
         else
         {
@@ -239,65 +301,88 @@ void HandleGameOnPauseWindow(void)
     }
 }
 
-void HandleOptionsWindow(void)
+void HandleOptionsWindow(AppState& appState)
 {
+    auto& ExitFromOptionsWindow_button = appState.ExitFromOptionsWindow_button;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+    auto& PvE_radioButton = appState.PvE_radioButton;
+    auto& White_radioButton = appState.White_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& PvP_radioButton = appState.PvP_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+
     if (ExitFromOptionsWindow_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
         CurrentWindow = MissingWindow;
-        ChangeButtonsAvailability(MainMenuScreen, true);
+        ChangeButtonsAvailability(appState, MainMenuScreen, true);
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (PvE_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        SetGameMode(PlayerVersusEnvironment);
+        SetGameMode(appState, PlayerVersusEnvironment);
         PvE_radioButton.ChangeRadioGroupChoosed();
         White_radioButton.ChangeRadioGroupChoosed();
         MediumLvl_radioButton.ChangeRadioGroupChoosed();
-        ChangeOptionsButtonsAvailability(true);
+        ChangeOptionsButtonsAvailability(appState, true);
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (PvP_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
         PvP_radioButton.ChangeRadioGroupChoosed();
-        SetGameMode(PlayerVersusPlayer);
-        ChangeOptionsButtonsAvailability(false);
-        DeselectOptionsButtons();
+        SetGameMode(appState, PlayerVersusPlayer);
+        ChangeOptionsButtonsAvailability(appState, false);
+        DeselectOptionsButtons(appState);
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (White_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        SetPiecesColorOfPlayer(WHITE);
+        SetPiecesColorOfPlayer(appState, WHITE);
         White_radioButton.ChangeRadioGroupChoosed();
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (Black_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        SetPiecesColorOfPlayer(BLACK);
+        SetPiecesColorOfPlayer(appState, BLACK);
         Black_radioButton.ChangeRadioGroupChoosed();
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (EasyLvl_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        SetLevelOfDifficulty(0);
+        SetLevelOfDifficulty(appState, 0);
         EasyLvl_radioButton.ChangeRadioGroupChoosed();
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (MediumLvl_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        SetLevelOfDifficulty(1);
+        SetLevelOfDifficulty(appState, 1);
         MediumLvl_radioButton.ChangeRadioGroupChoosed();
         HaveThereBeenChangesSinceTheLastSave = false;
     }
     else if (DifficultLvl_radioButton.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        SetLevelOfDifficulty(2);
+        SetLevelOfDifficulty(appState, 2);
         DifficultLvl_radioButton.ChangeRadioGroupChoosed();
         HaveThereBeenChangesSinceTheLastSave = false;
     }
 }
 
-void HandleGameSaveWindow(void)
+void HandleGameSaveWindow(AppState& appState)
 {
+    auto& GSWYes_button = appState.GSWYes_button;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& IsThereSavedGame = appState.IsThereSavedGame;
+    auto& GSWNo_button = appState.GSWNo_button;
+    auto& EscapeIsPressed = appState.EscapeIsPressed;
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& CurrentScreen = appState.CurrentScreen;
+    auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
+
     bool status = false;
 
     if (GSWYes_button.IsPressed(window, LeftMouseButtonIsPressed))
@@ -309,7 +394,7 @@ void HandleGameSaveWindow(void)
     else if (GSWNo_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
         printf("Игра не сохранена\n");
-        SetDefaultGameSettings(false);
+        SetDefaultGameSettings(appState, false);
         status = true;
         IsThereSavedGame = false;
     }
@@ -324,14 +409,14 @@ void HandleGameSaveWindow(void)
         {
             CurrentWindow = MissingWindow;
             CurrentScreen = MainMenuScreen;
-            ChangeButtonsAvailability(ChessGameScreen, true);
+            ChangeButtonsAvailability(appState, ChessGameScreen, true);
             HaveThereBeenChangesSinceTheLastSave = true;
         }
         else if (CurrentScreen == MainMenuScreen)
         {
             CurrentWindow = MissingWindow;
-            ChangeButtonsAvailability(MainMenuScreen, true);
-            WriteDataToFile();
+            ChangeButtonsAvailability(appState, MainMenuScreen, true);
+            WriteDataToFile(appState);
             window.close();
         }
     }

@@ -1,62 +1,86 @@
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "drawing functions.h"
 #include "backlight functions.h"
 #include "checks.h"
 #include "button class.h"
 #include "label class.h"
+#include "app-state.h"
 
-void DrawApp(void)
+void DrawApp(AppState& appState)
 {
+    auto& window = appState.window;
+    auto& CurrentScreen = appState.CurrentScreen;
+
     window.clear();
     switch(CurrentScreen)
     {
         case MainMenuScreen:
-            DrawMainMenuScreen();
+            DrawMainMenuScreen(appState);
             break;
         case ChessGameScreen:
-            DrawChessGameScreen();
+            DrawChessGameScreen(appState);
             break;
     }
     window.display();
 }
 
-void DrawMainMenuScreen(void)
+void DrawMainMenuScreen(AppState& appState)
 {
+    auto& MainMenu_background = appState.MainMenu_background;
+    auto& window = appState.window;
+    auto& NewGame_button = appState.NewGame_button;
+    auto& Options_button = appState.Options_button;
+    auto& ExitFromApp_button = appState.ExitFromApp_button;
+    auto& IsThereSavedGame = appState.IsThereSavedGame;
+    auto& BackToGameMM_button = appState.BackToGameMM_button;
+
     MainMenu_background.Draw(window);
     NewGame_button.Draw(window);
     Options_button.Draw(window);
     ExitFromApp_button.Draw(window);
     if (IsThereSavedGame)
         BackToGameMM_button.Draw(window);
-    DrawOptionsWindow();
-    DrawGameSaveWindow();
+    DrawOptionsWindow(appState);
+    DrawGameSaveWindow(appState);
 }
 
-void DrawChessGameScreen(void)
+void DrawChessGameScreen(AppState& appState)
 {
-    DrawStaticChessGameObjects();
-    DrawWhoseMoveInscription();
-    DrawFigures();
-    DrawBacklight(OCC.x, OCC.y);
-    DrawPawnTransformation();
-    DrawGameOverWindow();
-    DrawGameOnPauseWindow();
-    DrawGameSaveWindow();
+    auto& OCC = appState.OCC;
+
+    DrawStaticChessGameObjects(appState);
+    DrawWhoseMoveInscription(appState);
+    DrawFigures(appState);
+    DrawBacklight(appState, OCC.x, OCC.y);
+    DrawPawnTransformation(appState);
+    DrawGameOverWindow(appState);
+    DrawGameOnPauseWindow(appState);
+    DrawGameSaveWindow(appState);
 }
 
-void DrawStaticChessGameObjects(void)
+void DrawStaticChessGameObjects(AppState& appState)
 {
+    auto& ChessGame_background = appState.ChessGame_background;
+    auto& window = appState.window;
+    auto& PauseGame_button = appState.PauseGame_button;
+    auto& FlipChessboard_button = appState.FlipChessboard_button;
+    auto& EatenFigures_label = appState.EatenFigures_label;
+
     ChessGame_background.Draw(window);
     PauseGame_button.Draw(window);
     FlipChessboard_button.Draw(window);
-    DrawChessboard();
+    DrawChessboard(appState);
     EatenFigures_label.Draw(window);
-    DrawSmallFigures();
+    DrawSmallFigures(appState);
 }
 
-inline void DrawWhoseMoveInscription(void)
+inline void DrawWhoseMoveInscription(AppState& appState)
 {
+    auto& WhoseMove = appState.WhoseMove;
+    auto& BlackMove_label = appState.BlackMove_label;
+    auto& window = appState.window;
+    auto& WhiteMove_label = appState.WhiteMove_label;
+
     if (WhoseMove)
     {
         BlackMove_label.Draw(window);
@@ -67,16 +91,33 @@ inline void DrawWhoseMoveInscription(void)
     }
 }
 
-inline void DrawChessboard(void)
+inline void DrawChessboard(AppState& appState)
 {
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& InvertedChessboard_sprite = appState.InvertedChessboard_sprite;
+    auto& window = appState.window;
+    auto& OrdinaryChessboard_sprite = appState.OrdinaryChessboard_sprite;
+
     if (ChessboardIsInverted)
         InvertedChessboard_sprite.Draw(window);
     else
         OrdinaryChessboard_sprite.Draw(window);
 }
 
-inline void DrawPawnTransformation(void)
+inline void DrawPawnTransformation(AppState& appState)
 {
+    auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
+    auto& CurrentGameMode = appState.CurrentGameMode;
+    auto& WhoseMove = appState.WhoseMove;
+    auto& EnvironmentMove = appState.EnvironmentMove;
+    auto& BackgroundDimmer = appState.BackgroundDimmer;
+    auto& window = appState.window;
+    auto& PawnTransformation_window = appState.PawnTransformation_window;
+    auto& DQ = appState.DQ;
+    auto& DB = appState.DB;
+    auto& DK = appState.DK;
+    auto& DR = appState.DR;
+
     if (PawnReachedLastHorizontal)
     {
         if (CurrentGameMode == PlayerVersusPlayer || (CurrentGameMode == PlayerVersusEnvironment && WhoseMove == EnvironmentMove))
@@ -91,8 +132,20 @@ inline void DrawPawnTransformation(void)
     }
 }
 
-inline void DrawGameOverWindow(void)
+inline void DrawGameOverWindow(AppState& appState)
 {
+    auto& GameIsOver = appState.GameIsOver;
+    auto& BackgroundDimmer = appState.BackgroundDimmer;
+    auto& window = appState.window;
+    auto& GameOver_window = appState.GameOver_window;
+    auto& Mat_label = appState.Mat_label;
+    auto& BlackWin_label = appState.BlackWin_label;
+    auto& WhiteWin_label = appState.WhiteWin_label;
+    auto& Pat_label = appState.Pat_label;
+    auto& Standoff_label = appState.Standoff_label;
+    auto& BeginNewGame_button = appState.BeginNewGame_button;
+    auto& GoToMenu_button = appState.GoToMenu_button;
+
     if (GameIsOver)
     {
         BackgroundDimmer.Draw(window);
@@ -118,8 +171,16 @@ inline void DrawGameOverWindow(void)
     }
 }
 
-inline void DrawGameOnPauseWindow(void)
+inline void DrawGameOnPauseWindow(AppState& appState)
 {
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& BackgroundDimmer = appState.BackgroundDimmer;
+    auto& window = appState.window;
+    auto& GamePause_window = appState.GamePause_window;
+    auto& BackToGame_button = appState.BackToGame_button;
+    auto& SaveGame_button = appState.SaveGame_button;
+    auto& ExitFromChessGame_button = appState.ExitFromChessGame_button;
+
     if (CurrentWindow == GameOnPauseWindow)
     {
         BackgroundDimmer.Draw(window);
@@ -130,8 +191,24 @@ inline void DrawGameOnPauseWindow(void)
     }
 }
 
-inline void DrawOptionsWindow(void)
+inline void DrawOptionsWindow(AppState& appState)
 {
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& BackgroundDimmer = appState.BackgroundDimmer;
+    auto& window = appState.window;
+    auto& Options_window = appState.Options_window;
+    auto& ExitFromOptionsWindow_button = appState.ExitFromOptionsWindow_button;
+    auto& GameMode_label = appState.GameMode_label;
+    auto& PieceColor_label = appState.PieceColor_label;
+    auto& LevelOfDifficulty_label = appState.LevelOfDifficulty_label;
+    auto& PvE_radioButton = appState.PvE_radioButton;
+    auto& PvP_radioButton = appState.PvP_radioButton;
+    auto& White_radioButton = appState.White_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+
     if (CurrentWindow == OptionsWindow)
     {
         BackgroundDimmer.Draw(window);
@@ -150,8 +227,16 @@ inline void DrawOptionsWindow(void)
     }
 }
 
-inline void DrawGameSaveWindow(void)
+inline void DrawGameSaveWindow(AppState& appState)
 {
+    auto& CurrentWindow = appState.CurrentWindow;
+    auto& BackgroundDimmer = appState.BackgroundDimmer;
+    auto& window = appState.window;
+    auto& GameSave_window = appState.GameSave_window;
+    auto& WouldYouLikeToSaveGame_label = appState.WouldYouLikeToSaveGame_label;
+    auto& GSWYes_button = appState.GSWYes_button;
+    auto& GSWNo_button = appState.GSWNo_button;
+
     if (CurrentWindow == GameSaveWindow)
     {
         BackgroundDimmer.Draw(window);
@@ -162,8 +247,23 @@ inline void DrawGameSaveWindow(void)
     }
 }
 
-void DrawFigures(void)
+void DrawFigures(AppState& appState)
 {
+    auto& board = appState.board;
+    auto& BlackPawn_sprite = appState.BlackPawn_sprite;
+    auto& window = appState.window;
+    auto& WhitePawn_sprite = appState.WhitePawn_sprite;
+    auto& BlackRook_sprite = appState.BlackRook_sprite;
+    auto& WhiteRook_sprite = appState.WhiteRook_sprite;
+    auto& BlackKnight_sprite = appState.BlackKnight_sprite;
+    auto& WhiteKnight_sprite = appState.WhiteKnight_sprite;
+    auto& BlackBishop_sprite = appState.BlackBishop_sprite;
+    auto& WhiteBishop_sprite = appState.WhiteBishop_sprite;
+    auto& BlackQueen_sprite = appState.BlackQueen_sprite;
+    auto& WhiteQueen_sprite = appState.WhiteQueen_sprite;
+    auto& BlackKing_sprite = appState.BlackKing_sprite;
+    auto& WhiteKing_sprite = appState.WhiteKing_sprite;
+
     int i, j;
 
     for (i = 0; i < LENGTH; i++)
@@ -237,8 +337,21 @@ void DrawFigures(void)
     }
 }
 
-void DrawSmallFigures(void)
+void DrawSmallFigures(AppState& appState)
 {
+    auto& EatenFigures = appState.EatenFigures;
+    auto& SmallBlackPawn_sprite = appState.SmallBlackPawn_sprite;
+    auto& window = appState.window;
+    auto& SmallBlackRook_sprite = appState.SmallBlackRook_sprite;
+    auto& SmallBlackKnight_sprite = appState.SmallBlackKnight_sprite;
+    auto& SmallBlackBishop_sprite = appState.SmallBlackBishop_sprite;
+    auto& SmallBlackQueen_sprite = appState.SmallBlackQueen_sprite;
+    auto& SmallWhitePawn_sprite = appState.SmallWhitePawn_sprite;
+    auto& SmallWhiteRook_sprite = appState.SmallWhiteRook_sprite;
+    auto& SmallWhiteKnight_sprite = appState.SmallWhiteKnight_sprite;
+    auto& SmallWhiteBishop_sprite = appState.SmallWhiteBishop_sprite;
+    auto& SmallWhiteQueen_sprite = appState.SmallWhiteQueen_sprite;
+
     int i, j;
     int BPs, BRs, BKs, BBs, BQs, WPs, WRs, WKs, WBs, WQs;
     int BPp, BRp, BKp, BBp, BQp, WPp, WRp, WKp, WBp, WQp;

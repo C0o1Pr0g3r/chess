@@ -1,14 +1,19 @@
 #include <stdio.h>
 #include "global constants.h"
-#include "external declaration of global variables.h"
 #include "move functions.h"
 #include "secondary functions.h"
 #include "checks.h"
 #include "move functions at mat.h"
 #include "coordinate processing functions.h"
+#include "app-state.h"
 
-bool CheckingKingOnShah(int KingColor)
+bool CheckingKingOnShah(AppState& appState, int KingColor)
 {
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+    auto& board = appState.board;
+
     bool IsShah = false;
     int i, j;
     int kingx, kingy;
@@ -106,8 +111,12 @@ bool CheckingKingOnShah(int KingColor)
     return IsShah;
 }
 
-bool IsAllowedMF(int ox, int oy, int nx, int ny)   //Is Allowed Movement Of Figure
+bool IsAllowedMF(AppState& appState, int ox, int oy, int nx, int ny)   //Is Allowed Movement Of Figure
 {
+    auto& board = appState.board;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+
     bool MovementApproved = false;
     bool status = false;
     bool IsCastling = false;
@@ -137,15 +146,15 @@ bool IsAllowedMF(int ox, int oy, int nx, int ny)   //Is Allowed Movement Of Figu
 
     switch (FIGURE_TYPE(board[oy][ox]))
     {
-        case PAWN: status = movePawn(ox, oy, nx, ny); break;
-        case ROOK: status = moveRook(ox, oy, nx, ny); break;
-        case BISHOP: status = moveBishop(ox, oy, nx, ny); break;
-        case KNIGHT: status = moveKnight(ox, oy, nx, ny); break;
-        case QUEEN: status = moveQueen(ox, oy, nx, ny); break;
-        case KING: status = moveKing(ox, oy, nx, ny); break;
+        case PAWN: status = movePawn(appState, ox, oy, nx, ny); break;
+        case ROOK: status = moveRook(appState, ox, oy, nx, ny); break;
+        case BISHOP: status = moveBishop(appState, ox, oy, nx, ny); break;
+        case KNIGHT: status = moveKnight(appState, ox, oy, nx, ny); break;
+        case QUEEN: status = moveQueen(appState, ox, oy, nx, ny); break;
+        case KING: status = moveKing(appState, ox, oy, nx, ny); break;
     }
 
-    if (!CheckingKingOnShah(FigureColor))
+    if (!CheckingKingOnShah(appState, FigureColor))
         MovementApproved = true;
 
     if (IsCastling)
@@ -175,8 +184,10 @@ bool IsAllowedMF(int ox, int oy, int nx, int ny)   //Is Allowed Movement Of Figu
     return MovementApproved;
 }
 
-bool DKORM(int kingx, int kingy, int rookx, int rooky)   //Did King Or Rook Move
+bool DKORM(AppState& appState, int kingx, int kingy, int rookx, int rooky)   //Did King Or Rook Move
 {
+    auto& board = appState.board;
+
     bool status = false;
 
     if (IS_MOVE(board[kingy][kingx]) || IS_MOVE(board[rooky][rookx]))
@@ -184,8 +195,10 @@ bool DKORM(int kingx, int kingy, int rookx, int rooky)   //Did King Or Rook Move
     return status;
 }
 
-bool IsCastlingNow(int ox, int oy, int nx, int ny)
+bool IsCastlingNow(AppState& appState, int ox, int oy, int nx, int ny)
 {
+    auto& FigureByOldCoordinates = appState.FigureByOldCoordinates;
+
     bool status = false;
 
     if (FIGURE_TYPE(FigureByOldCoordinates) == KING && (nx == ox - 2 || nx == ox + 2) && ny == oy)
@@ -194,8 +207,12 @@ bool IsCastlingNow(int ox, int oy, int nx, int ny)
     return status;
 }
 
-bool IsKingCrossingSafeField(int sx, int ix, int y)
+bool IsKingCrossingSafeField(AppState& appState, int sx, int ix, int y)
 {
+    auto& board = appState.board;
+    auto& blackKing = appState.blackKing;
+    auto& whiteKing = appState.whiteKing;
+
     bool status;
     int KingColor;
     int * KPx, KSPx;
@@ -216,35 +233,38 @@ bool IsKingCrossingSafeField(int sx, int ix, int y)
 
     *KPx = ix;
 
-    status = !CheckingKingOnShah(KingColor);
+    status = !CheckingKingOnShah(appState, KingColor);
 
     *KPx = KSPx;
 
     return status;
 }
 
-bool CheckingKingOnMat(int FigureColor)
+bool CheckingKingOnMat(AppState& appState, int FigureColor)
 {
     bool IsMat = true;
 
-    if (!movePawnsAtShah(FigureColor) || !moveRooksAtShah(FigureColor) || !moveBishopsAtShah(FigureColor) || !moveQueenAtShah(FigureColor) || !moveKnightsAtShah(FigureColor) || !moveKingAtShah(FigureColor))
+    if (!movePawnsAtShah(appState, FigureColor) || !moveRooksAtShah(appState, FigureColor) || !moveBishopsAtShah(appState, FigureColor) || !moveQueenAtShah(appState, FigureColor) || !moveKnightsAtShah(appState, FigureColor) || !moveKingAtShah(appState, FigureColor))
         IsMat = false;
 
     return IsMat;
 }
 
-bool CheckingKingOnPat(int FigureColor)
+bool CheckingKingOnPat(AppState& appState, int FigureColor)
 {
     bool IsPat = true;
 
-    if (!movePawnsAtShah(FigureColor) || !moveRooksAtShah(FigureColor) || !moveBishopsAtShah(FigureColor) || !moveQueenAtShah(FigureColor) || !moveKnightsAtShah(FigureColor) || !moveKingAtShah(FigureColor))
+    if (!movePawnsAtShah(appState, FigureColor) || !moveRooksAtShah(appState, FigureColor) || !moveBishopsAtShah(appState, FigureColor) || !moveQueenAtShah(appState, FigureColor) || !moveKnightsAtShah(appState, FigureColor) || !moveKingAtShah(appState, FigureColor))
         IsPat = false;
 
     return IsPat;
 }
 
-bool HasPawnReachedLastHorizontal(int x, int y)   //Has Pawn Reached Last Horizontal
+bool HasPawnReachedLastHorizontal(AppState& appState, int x, int y)   //Has Pawn Reached Last Horizontal
 {
+    auto& board = appState.board;
+    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
+
     bool HasPawnReached = false;
     int RHC;   //Required Horizontal Coordinate
 
@@ -260,10 +280,12 @@ bool HasPawnReachedLastHorizontal(int x, int y)   //Has Pawn Reached Last Horizo
     return HasPawnReached;
 }
 
-bool IsTherePawnToActivateTakingOnAisle(int x, int y)
+bool IsTherePawnToActivateTakingOnAisle(AppState& appState, int x, int y)
 {
+    auto& board = appState.board;
+
     bool status = false;
-    int PawnColor = DetermineFigureColor(x, y);
+    int PawnColor = DetermineFigureColor(appState, x, y);
     int OpponentColor = PawnColor == BLACK ? WHITE : BLACK;
     int OpponentPawn = OpponentColor | PAWN;
 
@@ -273,29 +295,38 @@ bool IsTherePawnToActivateTakingOnAisle(int x, int y)
     return status;
 }
 
-int IsGameOver(void)
+int IsGameOver(AppState& appState)
 {
+    auto& WhoseMove = appState.WhoseMove;
+
     int status = 0;
 
-    if (CheckingKingOnShah(BLACK) || CheckingKingOnShah(WHITE))
+    if (CheckingKingOnShah(appState, BLACK) || CheckingKingOnShah(appState, WHITE))
     {
-        if (CheckingKingOnMat(WHITE))
+        if (CheckingKingOnMat(appState, WHITE))
             status = 1;
 
-        if (CheckingKingOnMat(BLACK))
+        if (CheckingKingOnMat(appState, BLACK))
             status = 2;
     }
     else
     {
-        if ((CheckingKingOnPat(BLACK)) && WhoseMove || (CheckingKingOnPat(WHITE) && !WhoseMove))
+        if ((CheckingKingOnPat(appState, BLACK)) && WhoseMove || (CheckingKingOnPat(appState, WHITE) && !WhoseMove))
             status = 3;
     }
 
     return status;
 }
 
-void EventChecking(void)
+void EventChecking(AppState& appState)
 {
+    auto& MC = appState.MC;
+    auto& window = appState.window;
+    auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
+    auto& RightMouseButtonIsPressed = appState.RightMouseButtonIsPressed;
+    auto& EscapeIsPressed = appState.EscapeIsPressed;
+    auto& event = appState.event;
+
     MC = Mouse::getPosition(window);
 
     LeftMouseButtonIsPressed = RightMouseButtonIsPressed = EscapeIsPressed = false;
@@ -305,11 +336,11 @@ void EventChecking(void)
         switch(event.type)
         {
             case Event::Closed:
-                WriteDataToFile();
+                WriteDataToFile(appState);
                 window.close();
                 break;
             case Event::Resized:
-                ChangeWSC();
+                ChangeWSC(appState);
                 break;
             case Event::MouseButtonPressed:
                 switch(event.key.code)
