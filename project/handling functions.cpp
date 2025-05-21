@@ -124,7 +124,7 @@ void HandleChessGameScreen(void)
             }
             else if (EscapeIsPressed)
             {
-                cout << "Âñå õîäû â èãðå äî õîäà: " << AllMovesInGame << endl;
+                cout << "Ð’ÑÐµ Ñ…Ð¾Ð´Ñ‹ Ð² Ð¸Ð³Ñ€Ðµ Ð´Ð¾ Ñ…Ð¾Ð´Ð°: " << AllMovesInGame << endl;
             }
         }
     }
@@ -221,7 +221,7 @@ void HandleGameOnPauseWindow(void)
     }
     else if (SaveGame_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        printf("Èãðà ñîõðàíåíà\n");
+        printf("Ð˜Ð³Ñ€Ð° ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð°\n");
         IsThereSavedGame = HaveThereBeenChangesSinceTheLastSave = true;
     }
     else if (ExitFromChessGame_button.IsPressed(window, LeftMouseButtonIsPressed))
@@ -302,13 +302,13 @@ void HandleGameSaveWindow(void)
 
     if (GSWYes_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        printf("Èãðà ñîõðàíåíà\n");
+        printf("Ð˜Ð³Ñ€Ð° ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð°\n");
         status = true;
         IsThereSavedGame = true;
     }
     else if (GSWNo_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        printf("Èãðà íå ñîõðàíåíà\n");
+        printf("Ð˜Ð³Ñ€Ð° Ð½Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð°\n");
         SetDefaultGameSettings(false);
         status = true;
         IsThereSavedGame = false;

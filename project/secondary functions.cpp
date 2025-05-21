@@ -32,24 +32,24 @@ void OutputOfChessboardToConsole(void)
 
 void OutputPropertiesToConsole(void)
 {
-    printf("\nРазмер окна: %dx%d\n", window.getSize().x, window.getSize().y);
-    printf("Координаты мыши: x = %d; y = %d\n", MC.x, MC.y);
-    printf("Координаты доски: x = %d; y = %d\n", CC.x, CC.y);
-    printf("Размер шахматной клетки: %d\n\n", CFDCP);
+    printf("\nР Р°Р·РјРµСЂ РѕРєРЅР°: %dx%d\n", window.getSize().x, window.getSize().y);
+    printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ РјС‹С€Рё: x = %d; y = %d\n", MC.x, MC.y);
+    printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ РґРѕСЃРєРё: x = %d; y = %d\n", CC.x, CC.y);
+    printf("Р Р°Р·РјРµСЂ С€Р°С…РјР°С‚РЅРѕР№ РєР»РµС‚РєРё: %d\n\n", CFDCP);
 }
 
 void StateOfShahs(void)
 {
-    char IsShah[] = "поставлен шах", IsNotShah[] = "\"НЕ\" поставлен шах";
+    char IsShah[] = "РїРѕСЃС‚Р°РІР»РµРЅ С€Р°С…", IsNotShah[] = "\"РќР•\" РїРѕСЃС‚Р°РІР»РµРЅ С€Р°С…";
 
-    printf("Черным %s\n", CheckingKingOnShah(BLACK) ? IsShah : IsNotShah);
-    printf("Белым %s\n\n", CheckingKingOnShah(WHITE) ? IsShah : IsNotShah);
+    printf("Р§РµСЂРЅС‹Рј %s\n", CheckingKingOnShah(BLACK) ? IsShah : IsNotShah);
+    printf("Р‘РµР»С‹Рј %s\n\n", CheckingKingOnShah(WHITE) ? IsShah : IsNotShah);
 }
 
 void OutputKingsCoordinates(void)
 {
-    printf("Координаты черного короля: %dx%d\n", blackKing.x, blackKing.y);
-    printf("Координаты белого короля: %dx%d\n", whiteKing.x, whiteKing.y);
+    printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ С‡РµСЂРЅРѕРіРѕ РєРѕСЂРѕР»СЏ: %dx%d\n", blackKing.x, blackKing.y);
+    printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ Р±РµР»РѕРіРѕ РєРѕСЂРѕР»СЏ: %dx%d\n", whiteKing.x, whiteKing.y);
 }
 
 void SetChessPiecesToTheirOriginalPosition(void)
@@ -102,13 +102,13 @@ void FigureSelection(int x, int y)
             OCC.x = x;
             OCC.y = y;
             WhichFigureIsSelected(OCC.x, OCC.y, FigureType);
-            printf("Выбрана черная фигура для перемещения, а именно — %s\n", FigureType);
+            printf("Р’С‹Р±СЂР°РЅР° С‡РµСЂРЅР°СЏ С„РёРіСѓСЂР° РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ, Р° РёРјРµРЅРЅРѕ вЂ” %s\n", FigureType);
             PieceIsChoose = true;
             status = true;
         }
         else
         {
-            printf("Черная фигура не выбрана из-за нажатия мимо фигуры\n");
+            printf("Р§РµСЂРЅР°СЏ С„РёРіСѓСЂР° РЅРµ РІС‹Р±СЂР°РЅР° РёР·-Р·Р° РЅР°Р¶Р°С‚РёСЏ РјРёРјРѕ С„РёРіСѓСЂС‹\n");
         }
     }
     else
@@ -118,7 +118,7 @@ void FigureSelection(int x, int y)
             OCC.x = x;
             OCC.y = y;
             WhichFigureIsSelected(OCC.x, OCC.y, FigureType);
-            printf("Выбрана белая фигура для перемещения, а именно — %s\n", FigureType);
+            printf("Р’С‹Р±СЂР°РЅР° Р±РµР»Р°СЏ С„РёРіСѓСЂР° РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ, Р° РёРјРµРЅРЅРѕ вЂ” %s\n", FigureType);
             PieceIsChoose = true;
             status = true;
         }
@@ -138,13 +138,13 @@ void WhichFigureIsSelected(int x, int y, char * FigureType)
 {
     switch (FIGURE_TYPE(board[y][x]))
     {
-        case PAWN: strcpy(FigureType, "Пешка"); break;
-        case ROOK: strcpy(FigureType, "Ладья"); break;
-        case BISHOP: strcpy(FigureType, "Слон"); break;
-        case KNIGHT: strcpy(FigureType, "Конь"); break;
-        case QUEEN: strcpy(FigureType, "Королева"); break;
-        case KING: strcpy(FigureType, "Король"); break;
-        default: strcpy(FigureType, "Никакая"); break;
+        case PAWN: strcpy(FigureType, "РџРµС€РєР°"); break;
+        case ROOK: strcpy(FigureType, "Р›Р°РґСЊСЏ"); break;
+        case BISHOP: strcpy(FigureType, "РЎР»РѕРЅ"); break;
+        case KNIGHT: strcpy(FigureType, "РљРѕРЅСЊ"); break;
+        case QUEEN: strcpy(FigureType, "РљРѕСЂРѕР»РµРІР°"); break;
+        case KING: strcpy(FigureType, "РљРѕСЂРѕР»СЊ"); break;
+        default: strcpy(FigureType, "РќРёРєР°РєР°СЏ"); break;
     }
 }
 
@@ -781,8 +781,8 @@ void AdditionalActionsAfterMovingFigure(int ox, int oy, int nx, int ny, bool IsM
 
         o = toCoord(current_chess_move[0], current_chess_move[1]);
         n = toCoord(current_chess_move[2], current_chess_move[3]);
-        cout << "Шахматная нотация: " << current_chess_move << endl;
-        printf("Координатная нотация: oldPos = %d, %d   ;   newPos = %d, %d\n", o.x, o.y , n.x, n.y);
+        cout << "РЁР°С…РјР°С‚РЅР°СЏ РЅРѕС‚Р°С†РёСЏ: " << current_chess_move << endl;
+        printf("РљРѕРѕСЂРґРёРЅР°С‚РЅР°СЏ РЅРѕС‚Р°С†РёСЏ: oldPos = %d, %d   ;   newPos = %d, %d\n", o.x, o.y , n.x, n.y);
     }
     else
     {
@@ -922,11 +922,11 @@ void RecordChessMove(std::string chess_note)
     AllMovesInGame += " " + chess_note;
 
     if (WhoseMove == PlayerMove)
-        cout << "Ход компьютера: " << chess_note << endl;
+        cout << "РҐРѕРґ РєРѕРјРїСЊСЋС‚РµСЂР°: " << chess_note << endl;
     else if (WhoseMove == EnvironmentMove)
-        cout << "Ход игрока: " << chess_note << endl;
+        cout << "РҐРѕРґ РёРіСЂРѕРєР°: " << chess_note << endl;
 
-    //cout << "Все ходы в игре: " << AllMovesInGame << endl;
+    //cout << "Р’СЃРµ С…РѕРґС‹ РІ РёРіСЂРµ: " << AllMovesInGame << endl;
 }
 
 void FlipChessboard(void)
@@ -1114,7 +1114,7 @@ bool ReadDataFromFile(void)
 
     if ((fp = fopen("saved data.txt", "rb+")) == NULL)
     {
-        printf("Ошибка при открытии файла\n");
+        printf("РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р°\n");
         SetGameMode(PlayerVersusPlayer);
         PvP_radioButton.SetChoosed(true);
         ChangeOptionsButtonsAvailability(false);
@@ -1127,7 +1127,7 @@ bool ReadDataFromFile(void)
         fscanf(fp, "%c", &is_there_saved_game);
         if (is_there_saved_game == '1')
         {
-            printf("Сохраненная игра присутствует\n");
+            printf("РЎРѕС…СЂР°РЅРµРЅРЅР°СЏ РёРіСЂР° РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚\n");
             fscanf(fp, "%d %d", &black_king_pos.x, &black_king_pos.y);
             fscanf(fp, "%d %d", &white_king_pos.x, &white_king_pos.y);
             fscanf(fp, "%d %d", &pawn_on_aisle_coordinates.x, &pawn_on_aisle_coordinates.y);
@@ -1151,19 +1151,19 @@ bool ReadDataFromFile(void)
             fgets(all_moves_in_game, 4096, fp);
             all_moves_length = strlen(all_moves_in_game);
 
-            printf("Сохраненная игра: %c\n", is_there_saved_game);
-            printf("Координаты черного короля: %d, %d\n", black_king_pos.x, black_king_pos.y);
-            printf("Координаты белого короля: %d, %d\n", white_king_pos.x, white_king_pos.y);
-            printf("Координаты пешки на проходе: %d, %d\n", pawn_on_aisle_coordinates.x, pawn_on_aisle_coordinates.y);
-            printf("Доска инвертирована: %d\n", chessboard_is_inverted);
-            printf("Чей ход: %d\n", whose_move);
-            printf("Взятие на проходе активировано: %d\n",is_taking_on_aisle_activated );
-            printf("Взятие на проходе использовано: %d\n", is_taking_on_aisle_used);
-            printf("Кто ходил: %d\n", who_has_moved);
-            printf("Режим игры: %d\n", current_game_mode);
-            printf("Цвет фигур игрока: %d\n", player_color);
-            printf("Уровень сложности: %d\n", level_of_difficulty);
-            printf("Шахматная доска:\n");
+            printf("РЎРѕС…СЂР°РЅРµРЅРЅР°СЏ РёРіСЂР°: %c\n", is_there_saved_game);
+            printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ С‡РµСЂРЅРѕРіРѕ РєРѕСЂРѕР»СЏ: %d, %d\n", black_king_pos.x, black_king_pos.y);
+            printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ Р±РµР»РѕРіРѕ РєРѕСЂРѕР»СЏ: %d, %d\n", white_king_pos.x, white_king_pos.y);
+            printf("РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРµС€РєРё РЅР° РїСЂРѕС…РѕРґРµ: %d, %d\n", pawn_on_aisle_coordinates.x, pawn_on_aisle_coordinates.y);
+            printf("Р”РѕСЃРєР° РёРЅРІРµСЂС‚РёСЂРѕРІР°РЅР°: %d\n", chessboard_is_inverted);
+            printf("Р§РµР№ С…РѕРґ: %d\n", whose_move);
+            printf("Р’Р·СЏС‚РёРµ РЅР° РїСЂРѕС…РѕРґРµ Р°РєС‚РёРІРёСЂРѕРІР°РЅРѕ: %d\n",is_taking_on_aisle_activated );
+            printf("Р’Р·СЏС‚РёРµ РЅР° РїСЂРѕС…РѕРґРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРѕ: %d\n", is_taking_on_aisle_used);
+            printf("РљС‚Рѕ С…РѕРґРёР»: %d\n", who_has_moved);
+            printf("Р РµР¶РёРј РёРіСЂС‹: %d\n", current_game_mode);
+            printf("Р¦РІРµС‚ С„РёРіСѓСЂ РёРіСЂРѕРєР°: %d\n", player_color);
+            printf("РЈСЂРѕРІРµРЅСЊ СЃР»РѕР¶РЅРѕСЃС‚Рё: %d\n", level_of_difficulty);
+            printf("РЁР°С…РјР°С‚РЅР°СЏ РґРѕСЃРєР°:\n");
 
             for (i = 0; i < LENGTH; i++)
             {
@@ -1171,16 +1171,16 @@ bool ReadDataFromFile(void)
                     printf("%4d ", arrangement_of_figures_on_board[i][j]);
                 putchar('\n');
             }
-            printf("Съеденные фигуры:\n");
+            printf("РЎСЉРµРґРµРЅРЅС‹Рµ С„РёРіСѓСЂС‹:\n");
             for (i = 0; i < LENGTH; i++)
                 printf("%2d", eaten_figures[i]);
             putchar('\n');
 
-            printf("Все ходы в игре: \"%s\"", all_moves_in_game);
+            printf("Р’СЃРµ С…РѕРґС‹ РІ РёРіСЂРµ: \"%s\"", all_moves_in_game);
         }
         else
         {
-            printf("Сохраненная игра отсутствует\n");
+            printf("РЎРѕС…СЂР°РЅРµРЅРЅР°СЏ РёРіСЂР° РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚\n");
             status = false;
         }
 
@@ -1248,7 +1248,7 @@ bool ReadDataFromFile(void)
 
     if (fclose(fp))
     {
-        printf("Ошибка при закрытии файла\n");
+        printf("РћС€РёР±РєР° РїСЂРё Р·Р°РєСЂС‹С‚РёРё С„Р°Р№Р»Р°\n");
         status = false;
     }
 
@@ -1263,12 +1263,12 @@ char * s_gets(char * st, int n)
     ret_val = fgets(st, n, stdin);
     if (ret_val)
     {
-        find = strchr(st, '\n'); // поиск новой строки
-        if (find)                // если адрес не равен NULL,
-            *find = '\0';        // поместить туда нулевой символ
+        find = strchr(st, '\n'); // РїРѕРёСЃРє РЅРѕРІРѕР№ СЃС‚СЂРѕРєРё
+        if (find)                // РµСЃР»Рё Р°РґСЂРµСЃ РЅРµ СЂР°РІРµРЅ NULL,
+            *find = '\0';        // РїРѕРјРµСЃС‚РёС‚СЊ С‚СѓРґР° РЅСѓР»РµРІРѕР№ СЃРёРјРІРѕР»
         else
             while (getchar() != '\n')
-                continue;        // отбросить остаток строки
+                continue;        // РѕС‚Р±СЂРѕСЃРёС‚СЊ РѕСЃС‚Р°С‚РѕРє СЃС‚СЂРѕРєРё
     }
     return ret_val;
 }

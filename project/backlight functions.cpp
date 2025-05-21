@@ -274,7 +274,7 @@ void BacklightOfPossibleKnightMovements(int OpponentColor, int ox, int oy)
             i = -2;
         for (l= 0; l < 2; l++)
         {
-            //if (board[oy + j][ox + i] == 0 && IsAllowedMF(ox, oy, ox + i, oy + j)) — ïðàâèëüíûé, íî íå ðàáî÷èé âàðèàíò
+            //if (board[oy + j][ox + i] == 0 && IsAllowedMF(ox, oy, ox + i, oy + j)) Ð§ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹, Ð½Ð¾ Ð½Ðµ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ð¹ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚
             if (board[oy + j][ox + i] == 0)
             {
                 DarkCircle_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);

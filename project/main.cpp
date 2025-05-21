@@ -111,9 +111,9 @@ int main()
     SetDefaultGameSettings(true);
     ReadDataFromFile();
 
-    printf("\nЗапуск\n\n");
-    printf("Начало игры\n\n\n");
-    printf("Ход белых\n\n");
+    printf("\nР—Р°РїСѓСЃРє\n\n");
+    printf("РќР°С‡Р°Р»Рѕ РёРіСЂС‹\n\n\n");
+    printf("РҐРѕРґ Р±РµР»С‹С…\n\n");
 
     while (window.isOpen())
     {

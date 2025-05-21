@@ -16,9 +16,9 @@ void ChangeWSC(void)
 {
     NWS = window.getSize();
     Vector2f newCFRCPC;
-    /*printf("Старые размеры окна: %dx%d\n", OWS.x, OWS.y);
-    printf("Новые размеры окна: %dx%d\n", NWS.x, NWS.y);
-    printf("До\n");
+    /*printf("РЎС‚Р°СЂС‹Рµ СЂР°Р·РјРµСЂС‹ РѕРєРЅР°: %dx%d\n", OWS.x, OWS.y);
+    printf("РќРѕРІС‹Рµ СЂР°Р·РјРµСЂС‹ РѕРєРЅР°: %dx%d\n", NWS.x, NWS.y);
+    printf("Р”Рѕ\n");
     printf("WSC.x =    %f     WSC.x =    %f\n", WSC.x, WSC.y);
     printf("CFRCPC.x = %d     CFRCPC.x = %d\n", CFRCPC.x, CFRCPC.y);*/
 
@@ -30,7 +30,7 @@ void ChangeWSC(void)
     CFRCPC.y = newCFRCPC.y - (int) newCFRCPC.y < 0.5 ? (int) newCFRCPC.y : (int) newCFRCPC.y + 1;
     ChangeButtonPropertiesByCoefficient(WSC);
     OWS = NWS;
-    /*printf("После\n");
+    /*printf("РџРѕСЃР»Рµ\n");
     printf("WSC.x =    %f     WSC.x =    %f\n", WSC.x, WSC.y);
     printf("CFRCPC.x = %d     CFRCPC.x = %d\n", CFRCPC.x, CFRCPC.y);*/
 }

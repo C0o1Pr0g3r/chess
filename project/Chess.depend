@@ -113,19 +113,19 @@
 
 1587048794 d:\creative\programming\projects\c++ projects\chess v1.3\checks.h
 
-1587053887 source:d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\checks.cpp
+1587053887 source:d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\checks.cpp
 	<stdio.h>
 	"global constants.h"
 	"external declaration of global variables.h"
 	"move functions.h"
 
-1586772610 d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\global constants.h
+1586772610 d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\global constants.h
 
-1587041571 d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\external declaration of global variables.h
+1587041571 d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\external declaration of global variables.h
 
-1587042954 d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\move functions.h
+1587042954 d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\move functions.h
 
-1587054021 source:d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\main.cpp
+1587054021 source:d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\main.cpp
 	<SFML/Graphics.hpp>
 	<stdio.h>
 	<windows.h>
@@ -133,9 +133,9 @@
 	"move functions.h"
 	"checks.h"
 
-1587048794 d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\checks.h
+1587048794 d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\checks.h
 
-1587048764 source:d:\creative\programming\projects\c++ projects\chess v1.3 —шах тоже работает\move functions.cpp
+1587048764 source:d:\creative\programming\projects\c++ projects\chess v1.3 Р§С€Р°С… С‚РѕР¶Рµ СЂР°Р±РѕС‚Р°РµС‚\move functions.cpp
 	<stdio.h>
 	<cstring>
 	"global constants.h"
@@ -493,7 +493,7 @@
 
 1588362039 d:\creative\programming\projects\c++ projects\testing\chess v1.10\move functions at mat.h
 
-1588423849 source:d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\main.cpp
+1588423849 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\main.cpp
 	<SFML/Graphics.hpp>
 	<stdio.h>
 	<windows.h>
@@ -502,15 +502,15 @@
 	"checks.h"
 	"secondary functions.h"
 
-1586772610 d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\global constants.h
+1586772610 d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\global constants.h
 
-1588361050 d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\move functions.h
+1588361050 d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\move functions.h
 
-1588423882 d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\checks.h
+1588423882 d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\checks.h
 
-1587747439 d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\secondary functions.h
+1587747439 d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\secondary functions.h
 
-1588423592 source:d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\move functions at mat.cpp
+1588423592 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\move functions at mat.cpp
 	<stdio.h>
 	<cstdlib>
 	"global constants.h"
@@ -519,9 +519,9 @@
 	"checks.h"
 	"secondary functions.h"
 
-1587926894 d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\external declaration of global variables.h
+1587926894 d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\external declaration of global variables.h
 
-1588423902 source:d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\move functions.cpp
+1588423902 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\move functions.cpp
 	<stdio.h>
 	<cstring>
 	<cstdlib>
@@ -532,16 +532,16 @@
 	"secondary functions.h"
 	"move functions at mat.h"
 
-1588362039 d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\move functions at mat.h
+1588362039 d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\move functions at mat.h
 
-1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\secondary functions.cpp
+1588191570 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\secondary functions.cpp
 	<stdio.h>
 	<cstring>
 	"global constants.h"
 	"external declaration of global variables.h"
 	"secondary functions.h"
 
-1588423783 source:d:\creative\programming\projects\c++ projects\testing\chess fortune — копия\checks.cpp
+1588423783 source:d:\creative\programming\projects\c++ projects\testing\chess fortune Р§ РєРѕРїРёВ¤\checks.cpp
 	<stdio.h>
 	"global constants.h"
 	"external declaration of global variables.h"

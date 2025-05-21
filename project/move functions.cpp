@@ -45,31 +45,31 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
                     WhoseMove = false;
                     if (CheckingKingOnShah(WHITE))
                     {
-                        printf("Поставлен шах белому королю\n");
+                        printf("РџРѕСЃС‚Р°РІР»РµРЅ С€Р°С… Р±РµР»РѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                         if (CheckingKingOnMat(WHITE))
-                            printf("Поставлен мат белому королю\n");
+                            printf("РџРѕСЃС‚Р°РІР»РµРЅ РјР°С‚ Р±РµР»РѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                     }
-                    printf("\n\nХод белых\n\n");
+                    printf("\n\nРҐРѕРґ Р±РµР»С‹С…\n\n");
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(ox, oy, FigureType);
-                    printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                    printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
             }
         }
         else
         {
             //PieceIsChoose = false;
             WhichFigureIsSelected(ox, oy, FigureType);
-            printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
+            printf("Р’С‹ СЃРЅСЏР»Рё С„РѕРєСѓСЃ СЃ С‡РµСЂРЅРѕР№ С„РёРіСѓСЂС‹ \"%s\"\n", FigureType);
         }
     }
     else if (!WhoseMove && FIGURE_COLOR(board[oy][ox]) == WHITE)
@@ -86,31 +86,31 @@ bool FigureMovementPvP(int ox, int oy, int nx, int ny)
                     WhoseMove = true;
                     if (CheckingKingOnShah(BLACK))
                     {
-                        printf("Поставлен шах черному королю\n");
+                        printf("РџРѕСЃС‚Р°РІР»РµРЅ С€Р°С… С‡РµСЂРЅРѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                         if(CheckingKingOnMat(BLACK))
-                            printf("Поставлен мат черному королю\n");
+                            printf("РџРѕСЃС‚Р°РІР»РµРЅ РјР°С‚ С‡РµСЂРЅРѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                     }
-                    printf("\n\nХод черных\n\n");
+                    printf("\n\nРҐРѕРґ С‡РµСЂРЅС‹С…\n\n");
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(ox, oy, FigureType);
-                    printf("Вы не сделали шаг фигурой \"%s\"\n", FigureType);
+                    printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі С„РёРіСѓСЂРѕР№ \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
             }
         }
         else
         {
             //PieceIsChoose = false;
             WhichFigureIsSelected(ox, oy, FigureType);
-            printf("Вы сняли фокус с белой фигуры \"%s\"\n", FigureType);
+            printf("Р’С‹ СЃРЅСЏР»Рё С„РѕРєСѓСЃ СЃ Р±РµР»РѕР№ С„РёРіСѓСЂС‹ \"%s\"\n", FigureType);
         }
     }
 
@@ -137,31 +137,31 @@ bool FigureMovementPvEPlayer(int ox, int oy, int nx, int ny)
                     WhoseMove = !PlayerMove;
                     if (CheckingKingOnShah(EnvironmentColor))
                     {
-                        printf("Поставлен шах белому королю\n");
+                        printf("РџРѕСЃС‚Р°РІР»РµРЅ С€Р°С… Р±РµР»РѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                         if (CheckingKingOnMat(EnvironmentColor))
-                            printf("Поставлен мат белому королю\n");
+                            printf("РџРѕСЃС‚Р°РІР»РµРЅ РјР°С‚ Р±РµР»РѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                     }
-                    printf("\n\nХод белых\n\n");
+                    printf("\n\nРҐРѕРґ Р±РµР»С‹С…\n\n");
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(ox, oy, FigureType);
-                    printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                    printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
             }
         }
         else
         {
             PieceIsChoose = false;
             WhichFigureIsSelected(ox, oy, FigureType);
-            printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
+            printf("Р’С‹ СЃРЅСЏР»Рё С„РѕРєСѓСЃ СЃ С‡РµСЂРЅРѕР№ С„РёРіСѓСЂС‹ \"%s\"\n", FigureType);
         }
     }
 
@@ -187,31 +187,31 @@ bool FigureMovementPvEEnvironment(int ox, int oy, int nx, int ny)
                     WhoseMove = !EnvironmentMove;
                     if (CheckingKingOnShah(PlayerColor))
                     {
-                        printf("Поставлен шах белому королю\n");
+                        printf("РџРѕСЃС‚Р°РІР»РµРЅ С€Р°С… Р±РµР»РѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                         if (CheckingKingOnMat(PlayerColor))
-                            printf("Поставлен мат белому королю\n");
+                            printf("РџРѕСЃС‚Р°РІР»РµРЅ РјР°С‚ Р±РµР»РѕРјСѓ РєРѕСЂРѕР»СЋ\n");
                     }
-                    printf("\n\nХод белых\n\n");
+                    printf("\n\nРҐРѕРґ Р±РµР»С‹С…\n\n");
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(ox, oy, FigureType);
-                    printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                    printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                printf("Р’С‹ РЅРµ СЃРґРµР»Р°Р»Рё С€Р°Рі \"%s\"\n", FigureType);
             }
         }
         else
         {
             PieceIsChoose = false;
             WhichFigureIsSelected(ox, oy, FigureType);
-            printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
+            printf("Р’С‹ СЃРЅСЏР»Рё С„РѕРєСѓСЃ СЃ С‡РµСЂРЅРѕР№ С„РёРіСѓСЂС‹ \"%s\"\n", FigureType);
         }
     }
 
