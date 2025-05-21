@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
 #include <string>
-#include <windows.h>
+// #include <windows.h>
 #include "global constants.h"
 #include "move functions.h"
 #include "checks.h"
@@ -101,9 +101,6 @@ RadioButton PvE_radioButton, PvP_radioButton, White_radioButton, Black_radioButt
 
 int main()
 {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-
     CreationOfObjects();
 
     ConnectToEngine("stockfish_20011801_32bit.exe");

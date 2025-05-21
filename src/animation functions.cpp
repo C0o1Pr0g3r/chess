@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <windows.h>
+// #include <windows.h>
 #include "global constants.h"
 #include "external declaration of global variables.h"
 #include "checks.h"
