@@ -17,7 +17,7 @@ void Button::Create(Texture btnTexture, IntRect rect1, IntRect rect2, Vector2u b
     ButtonEnabled = true;
 }
 
-Sprite Button::Draw(RenderWindow & window)
+void Button::Draw(RenderWindow & window)
 {
     if (MouseEntered(window) && IsEnabled())
         window.draw(ButtonImage2);
@@ -60,7 +60,7 @@ void Button::ChangePropertiesByCoefficient(Vector2f coeff)
 {
     Vector2f temp;
     temp = {(float) InitialButtonSize.x * coeff.x, (float) InitialButtonSize.y * coeff.y};
-    ButtonSize = {temp.x - (int) temp.x < 0.5 ? (int) temp.x : (int) temp.x + 1, temp.y - (int) temp.y < 0.5 ? (int) temp.y : (int) temp.y + 1};
+    ButtonSize = {static_cast<unsigned int>(temp.x - (int) temp.x < 0.5 ? (int) temp.x : (int) temp.x + 1), static_cast<unsigned int>(temp.y - (int) temp.y < 0.5 ? (int) temp.y : (int) temp.y + 1)};
     temp = {(float) InitialButtonPosition.x * coeff.x, (float) InitialButtonPosition.y * coeff.y};
     ButtonPosition = temp;
 }

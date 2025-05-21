@@ -15,7 +15,7 @@ protected:
     bool ButtonEnabled;
 public:
     void Create(Texture btnTexture, IntRect rect1, IntRect rect2, Vector2u btnSize, Vector2f btnPosition);
-    Sprite Draw(RenderWindow & window);
+    void Draw(RenderWindow & window);
     bool IsEnabled(void);
     void SetEnabled(bool status);
     bool MouseEntered(RenderWindow & window);

@@ -33,7 +33,7 @@ void DrawnObject::SetPosition(int x, int y)
     DrawnObjectImage.setPosition(x_f, y_f);
 }
 
-Sprite DrawnObject::Draw(RenderWindow & window)
+void DrawnObject::Draw(RenderWindow & window)
 {
     window.draw(DrawnObjectImage);
 }

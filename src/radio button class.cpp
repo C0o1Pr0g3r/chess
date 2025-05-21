@@ -23,7 +23,7 @@ void RadioButton::Create(Texture btnTexture, IntRect rect1, IntRect rect2, IntRe
     NextRadioBtn = nextRBtn;
 }
 
-Sprite RadioButton::Draw(RenderWindow & window)
+void RadioButton::Draw(RenderWindow & window)
 {
     if (IsChoosed())
         window.draw(ButtonImage3);

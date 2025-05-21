@@ -103,7 +103,8 @@ int main()
 {
     CreationOfObjects();
 
-    ConnectToEngine("stockfish_20011801_32bit.exe");
+    char chessEngine[29] = "stockfish_20011801_32bit.exe";
+    ConnectToEngine(chessEngine);
 
     SetDefaultGameSettings(true);
     ReadDataFromFile();

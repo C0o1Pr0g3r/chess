@@ -4,7 +4,7 @@
 void DrawApp(void);
 void DrawMainMenuScreen(void);
 void DrawChessGameScreen(void);
-inline void DrawStaticChessGameObjects(void);
+void DrawStaticChessGameObjects(void);
 inline void DrawWhoseMoveInscription(void);
 inline void DrawChessboard(void);
 inline void DrawPawnTransformation(void);

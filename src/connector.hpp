@@ -9,4 +9,4 @@ std::string getNextMove(std::string position);
 
 void CloseConnection();
 
-#endif CONNECTOR_H
+#endif // CONNECTOR_H

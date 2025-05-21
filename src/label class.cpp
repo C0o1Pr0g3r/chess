@@ -11,7 +11,7 @@ void Label::Create(Texture iTexture, IntRect rect, Vector2f iPosition)
     InscriptionImage.setPosition(iPosition);
 }
 
-Sprite Label::Draw(RenderWindow & window)
+void Label::Draw(RenderWindow & window)
 {
     window.draw(InscriptionImage);
 }

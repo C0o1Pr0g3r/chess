@@ -21,8 +21,8 @@ void FigureMovementAnimation(int ox, int oy, int nx, int ny)
     remainingTime = animationTime;
     IsCastling = IsCastlingNow(ox, oy, nx, ny);
 
-    FigureStartingPosition = {ox * CFDCP, oy * CFDCP};
-    FigureFinalPosition = {nx * CFDCP, ny * CFDCP};
+    FigureStartingPosition = {static_cast<float>(ox * CFDCP), static_cast<float>(oy * CFDCP)};
+    FigureFinalPosition = {static_cast<float>(nx * CFDCP), static_cast<float>(ny * CFDCP)};
     FigureCurrentPosition = FigureStartingPosition;
     FigureDistance = FigureFinalPosition - FigureStartingPosition;
     DetermineAnimatedSprite(FigureByOldCoordinates, &pAS);
@@ -30,8 +30,8 @@ void FigureMovementAnimation(int ox, int oy, int nx, int ny)
 
     if (IsCastling)
     {
-        RookStartingPosition = {AnimatedRookStartingPosition.x * CFDCP, AnimatedRookStartingPosition.y * CFDCP};
-        RookFinalPosition = {AnimatedRookFinalPosition.x * CFDCP, AnimatedRookFinalPosition.y * CFDCP};
+        RookStartingPosition = {static_cast<float>(AnimatedRookStartingPosition.x * CFDCP), static_cast<float>(AnimatedRookStartingPosition.y * CFDCP)};
+        RookFinalPosition = {static_cast<float>(AnimatedRookFinalPosition.x * CFDCP), static_cast<float>(AnimatedRookFinalPosition.y * CFDCP)};
         RookCurrentPosition = RookStartingPosition;
         RookDistance = RookFinalPosition - RookStartingPosition;
         rox = AnimatedRookStartingPosition.x;

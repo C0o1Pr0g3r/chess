@@ -13,7 +13,7 @@ private:
     Vector2f InscriptionPosition;
 public:
     void Create(Texture iTexture, IntRect rect, Vector2f iPosition);
-    Sprite Draw(RenderWindow & window);
+    void Draw(RenderWindow & window);
 };
 
 #endif // INSCRIPTION_CLASS_H_INCLUDED

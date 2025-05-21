@@ -14,7 +14,7 @@ private:
     bool ButtonChoosed;
 public:
     void Create(Texture btnTexture, IntRect rect1, IntRect rect2, IntRect rect3, Vector2u btnSize, Vector2f btnPosition, bool btnChoosed, RadioButton * previousRBtn, RadioButton * nextRBtn);
-    Sprite Draw(RenderWindow & window);
+    void Draw(RenderWindow & window);
     bool IsChoosed(void);
     void SetChoosed(bool status);
     bool IsPressed(RenderWindow & window, bool click_status);

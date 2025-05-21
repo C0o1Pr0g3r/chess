@@ -423,10 +423,10 @@ void CreateMainMenuScreen(void)
     EFAs = {244, 78};
     BTGmms = {544, 66};
 
-    Op = {InitialWindowSize.x / 2 - Os.x / 2, InitialWindowSize.y / 2 - Os.y / 2};
-    NGp = {InitialWindowSize.x / 2 - NGs.x / 2, Op.y - NGs.y - 20};
-    EFAp = {InitialWindowSize.x / 2 - EFAs.x / 2, Op.y + EFAs.y + 20};
-    BTGmmp = {InitialWindowSize.x / 2 - BTGmms.x / 2, NGp.y - BTGmms.y - 20};
+    Op = {static_cast<float>(InitialWindowSize.x / 2 - Os.x / 2), static_cast<float>(InitialWindowSize.y / 2 - Os.y / 2)};
+    NGp = {static_cast<float>(InitialWindowSize.x / 2 - NGs.x / 2), static_cast<float>(Op.y - NGs.y - 20)};
+    EFAp = {static_cast<float>(InitialWindowSize.x / 2 - EFAs.x / 2), static_cast<float>(Op.y + EFAs.y + 20)};
+    BTGmmp = {static_cast<float>(InitialWindowSize.x / 2 - BTGmms.x / 2), static_cast<float>(NGp.y - BTGmms.y - 20)};
 
     NGr1 = {0, 0, 368, 84};
     NGr2 = {0, 84, 368, 84};
@@ -458,11 +458,11 @@ void CreateChessGameScreen(void)
     WMs = {308, 70};
     EFs = {231, 120};
 
-    PGp = {InitialWindowSize.x - PGs.x - 10, 10};
+    PGp = {static_cast<float>(InitialWindowSize.x - PGs.x - 10), 10};
     FCp = {PGp.x - FCs.x - 20, 10};
-    BMp = {(450 / 2 - BMs.x / 2) + CS, InitialWindowSize.y / 2 - BMs.y / 2};
-    WMp = {(450 / 2 - WMs.x / 2) + CS, InitialWindowSize.y / 2 - WMs.y / 2};
-    EFp = {(450 / 2 - EFs.x / 2) + CS, 440};
+    BMp = {static_cast<float>((450 / 2 - BMs.x / 2) + CS), static_cast<float>(InitialWindowSize.y / 2 - BMs.y / 2)};
+    WMp = {static_cast<float>((450 / 2 - WMs.x / 2) + CS), static_cast<float>(InitialWindowSize.y / 2 - WMs.y / 2)};
+    EFp = {static_cast<float>((450 / 2 - EFs.x / 2) + CS), 440};
 
     PGr1 = {0, 260, 80, 80};
     PGr2 = {80, 260, 80, 80};
@@ -490,7 +490,7 @@ void CreatePawnTransformationWindow(void)
     PTWs = {832, 332};
     PiecesSize = BQs = BBs = BKs = BRs = WQs = WBs = WKs = WRs = {200, 200};
 
-    PTWp = {InitialWindowSize.x / 2 - PTWs.x / 2, InitialWindowSize.y / 2 - PTWs.y / 2};
+    PTWp = {static_cast<float>(InitialWindowSize.x / 2 - PTWs.x / 2), static_cast<float>(InitialWindowSize.y / 2 - PTWs.y / 2)};
     StartPosition = {227, 240};
     BQp = {StartPosition.x + 10, StartPosition.y + 110};
     BBp = {StartPosition.x + 210, StartPosition.y + 110};
@@ -545,18 +545,18 @@ void CreateOptionsWindow(void)
     PCs = {366, 62};
     LODs = {626, 62};
 
-    OWp = {InitialWindowSize.x / 2 - OWs.x / 2, InitialWindowSize.y / 2 - OWs.y / 2};
-    PvEp = {InitialWindowSize.x / 2 - PvEs.x - 7, OWp.y + 114};
-    PvPp = {InitialWindowSize.x / 2 + 7, OWp.y + 114};
-    Wp = {InitialWindowSize.x / 2 - Ws.x - 7, OWp.y + 266};
-    Bp = {InitialWindowSize.x / 2 + 7, OWp.y + 266};
-    Ep = {InitialWindowSize.x / 2 - Es.x - 7, OWp.y + 448};
-    Mp = {InitialWindowSize.x / 2 + 7, OWp.y + 448};
-    Dp = {InitialWindowSize.x / 2 - Ds.x / 2, OWp.y + 527};
+    OWp = {static_cast<float>(InitialWindowSize.x / 2 - OWs.x / 2), static_cast<float>(InitialWindowSize.y / 2 - OWs.y / 2)};
+    PvEp = {static_cast<float>(InitialWindowSize.x / 2 - PvEs.x - 7), OWp.y + 114};
+    PvPp = {static_cast<float>(InitialWindowSize.x / 2 + 7), OWp.y + 114};
+    Wp = {static_cast<float>(InitialWindowSize.x / 2 - Ws.x - 7), OWp.y + 266};
+    Bp = {static_cast<float>(InitialWindowSize.x / 2 + 7), OWp.y + 266};
+    Ep = {static_cast<float>(InitialWindowSize.x / 2 - Es.x - 7), OWp.y + 448};
+    Mp = {static_cast<float>(InitialWindowSize.x / 2 + 7), OWp.y + 448};
+    Dp = {static_cast<float>(InitialWindowSize.x / 2 - Ds.x / 2), OWp.y + 527};
     EFOWp = {OWp.x + 20, OWp.y + 20};
-    GMp = {InitialWindowSize.x / 2 - GMs.x / 2, OWp.y + 35};
-    PCp = {InitialWindowSize.x / 2 - PCs.x / 2, OWp.y + 189};
-    LODp = {InitialWindowSize.x / 2 - LODs.x / 2, OWp.y + 371};
+    GMp = {static_cast<float>(InitialWindowSize.x / 2 - GMs.x / 2), OWp.y + 35};
+    PCp = {static_cast<float>(InitialWindowSize.x / 2 - PCs.x / 2), OWp.y + 189};
+    LODp = {static_cast<float>(InitialWindowSize.x / 2 - LODs.x / 2), OWp.y + 371};
 
     OWr = {0, 0, 740, 640};
 
@@ -620,7 +620,7 @@ void CreateGameOverWindow(void)
     Ms = Ps = {170, 74};
     BWs = WWs = Ss = {420, 166};
 
-    GOWp = {InitialWindowSize.x / 2 - GOWs.x / 2, InitialWindowSize.y / 2 - GOWs.y / 2};
+    GOWp = {static_cast<float>(InitialWindowSize.x / 2 - GOWs.x / 2), static_cast<float>(InitialWindowSize.y / 2 - GOWs.y / 2)};
     BNGp = {GOWs.x / 2 - BNGs.x / 2 + GOWp.x, GOWp.y + 278};
     GTMp = {GOWs.x / 2 - GTMs.x / 2 + GOWp.x, GOWp.y + 365};
     Mp = {GOWs.x / 2 - Ms.x / 2 + GOWp.x, GOWp.y + 20};
@@ -661,8 +661,8 @@ void CreateGameSaveWindow(void)
     GSWYs = {146, 68};
     GSWNs = {84, 66};
 
-    GSWp = {InitialWindowSize.x / 2 - GSWs.x / 2, InitialWindowSize.y / 2 - GSWs.y / 2};
-    WYLTSGp = {InitialWindowSize.x / 2 - WYLTSGs.x / 2, GSWp.y + 40};
+    GSWp = {static_cast<float>(InitialWindowSize.x / 2 - GSWs.x / 2), static_cast<float>(InitialWindowSize.y / 2 - GSWs.y / 2)};
+    WYLTSGp = {static_cast<float>(InitialWindowSize.x / 2 - WYLTSGs.x / 2), GSWp.y + 40};
     GSWYp = {((GSWp.x + InitialWindowSize.x / 2) / 2) - GSWYs.x / 2 + 30, GSWp.y + 182};
     GSWNp = {((GSWp.x + GSWs.x + InitialWindowSize.x / 2) / 2) - GSWNs.x / 2 - 30, GSWp.y + 183};
 
@@ -690,7 +690,7 @@ void CreateGamePauseWindow(void)
     SGs = {422, 66};
     EFCGs = {194, 54};
 
-    GPWp = {InitialWindowSize.x / 2 - GPWs.x / 2, InitialWindowSize.y / 2 - GPWs.y / 2};
+    GPWp = {static_cast<float>(InitialWindowSize.x / 2 - GPWs.x / 2), static_cast<float>(InitialWindowSize.y / 2 - GPWs.y / 2)};
     BTGp = {GPWs.x / 2 - BTGs.x / 2 + GPWp.x, GPWp.y + 57};
     SGp = {GPWs.x / 2 - SGs.x / 2 + GPWp.x, GPWp.y + 143};
     EFCGp = {GPWs.x / 2 - EFCGs.x / 2 + GPWp.x, GPWp.y + 229};

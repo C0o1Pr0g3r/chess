@@ -45,7 +45,7 @@ void DrawChessGameScreen(void)
     DrawGameSaveWindow();
 }
 
-inline void DrawStaticChessGameObjects(void)
+void DrawStaticChessGameObjects(void)
 {
     ChessGame_background.Draw(window);
     PauseGame_button.Draw(window);
