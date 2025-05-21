@@ -1600,7 +1600,7 @@ bool ReadDataFromFile(AppState& appState)
     }
 
 
-    if (fclose(fp))
+    if (fp != NULL && fclose(fp))
     {
         printf("Ошибка при закрытии файла\n");
         status = false;
