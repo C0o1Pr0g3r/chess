@@ -316,12 +316,12 @@ void BacklightOfPossibleKnightMovements(AppState& appState, int OpponentColor, i
         for (l= 0; l < 2; l++)
         {
             //if (board[oy + j][ox + i] == 0 && IsAllowedMF(appState, ox, oy, ox + i, oy + j)) Ч правильный, но не рабочий вариант
-            if (board[oy + j][ox + i] == 0)
+            if (AreCoordsInsideBoard(BOARD_SIZE, oy + j, ox + i) && board[oy + j][ox + i] == 0)
             {
                 DarkCircle_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);
                 DarkCircle_sprite.Draw(window);
             }
-            else if (board[oy + j][ox + i] > 0 && FIGURE_COLOR(board[oy + j][ox + i]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox + i, oy + j))
+            else if (AreCoordsInsideBoard(BOARD_SIZE, oy + j, ox + i) && board[oy + j][ox + i] > 0 && FIGURE_COLOR(board[oy + j][ox + i]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox + i, oy + j))
             {
                 YellowSquare_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);
                 YellowSquare_sprite.Draw(window);

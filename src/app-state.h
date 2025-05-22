@@ -12,7 +12,7 @@ using namespace std;
 using namespace sf;
 
 struct AppState {
-    int board[10][10] =
+    int board[BOARD_SIZE][BOARD_SIZE] =
     {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         -1, 37, 36, 35, 34, 33, 35, 36, 37, -1,

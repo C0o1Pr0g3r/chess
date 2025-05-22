@@ -10,6 +10,7 @@
 using namespace std;
 using namespace sf;
 
+bool AreCoordsInsideBoard(int boardSize, int y, int x);
 void OutputOfChessboardToConsole(AppState& appState);
 void OutputPropertiesToConsole(AppState& appState);
 void StateOfShahs(AppState& appState);

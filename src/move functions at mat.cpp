@@ -42,7 +42,12 @@ bool movePawnsAtShah(AppState& appState, int FigureColor)
         y = GroupOfFigures[i].y;
         MainFigure = board[y][x];
 
-        if (board[y + step2][x] == 0 && board[y + step1][x] == 0 && !IS_MOVE(board[y][x]))
+        if (
+            AreCoordsInsideBoard(BOARD_SIZE, y + step2, x) && board[y + step2][x] == 0
+            &&
+            AreCoordsInsideBoard(BOARD_SIZE, y + step1, x) && board[y + step1][x] == 0
+            &&
+            AreCoordsInsideBoard(BOARD_SIZE, y, x) && !IS_MOVE(board[y][x]))
         {
             board[y + step2][x] = MainFigure;
             board[y][x] = 0;
@@ -55,7 +60,7 @@ bool movePawnsAtShah(AppState& appState, int FigureColor)
                 break;
         }
 
-        if (board[y + step1][x] == 0)
+        if (AreCoordsInsideBoard(BOARD_SIZE, y + step1, x) && board[y + step1][x] == 0)
         {
             board[y + step1][x] = MainFigure;
             board[y][x] = 0;
@@ -68,7 +73,10 @@ bool movePawnsAtShah(AppState& appState, int FigureColor)
                 break;
         }
 
-        if (board[y + step1][x - 1] > 0 && FIGURE_COLOR(board[y + step1][x - 1]) != FigureColor && FIGURE_TYPE(board[y + step1][x - 1]) != KING)
+        if (
+            AreCoordsInsideBoard(BOARD_SIZE, y + step1, x - 1)
+            &&
+            board[y + step1][x - 1] > 0 && FIGURE_COLOR(board[y + step1][x - 1]) != FigureColor && FIGURE_TYPE(board[y + step1][x - 1]) != KING)
         {
             MinorFigure = board[y + step1][x - 1];
             board[y + step1][x - 1] = MainFigure;
@@ -82,7 +90,10 @@ bool movePawnsAtShah(AppState& appState, int FigureColor)
                 break;
         }
 
-        if (board[y + step1][x + 1] > 0 && FIGURE_COLOR(board[y + step1][x + 1]) != FigureColor && FIGURE_TYPE(board[y + step1][x + 1]) != KING)
+        if (
+            AreCoordsInsideBoard(BOARD_SIZE, y + step1, x + 1)
+            &&
+            board[y + step1][x + 1] > 0 && FIGURE_COLOR(board[y + step1][x + 1]) != FigureColor && FIGURE_TYPE(board[y + step1][x + 1]) != KING)
         {
             MinorFigure = board[y + step1][x + 1];
             board[y + step1][x + 1] = MainFigure;

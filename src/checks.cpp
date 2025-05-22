@@ -48,64 +48,112 @@ bool CheckingKingOnShah(AppState& appState, int KingColor)
     if (ChessboardIsInverted)
         pawnstepy = -pawnstepy;
 
-    if (FIGURE(board[kingy + pawnstepy][kingx - 1]) == OpponentPawn || FIGURE(board[kingy + pawnstepy][kingx + 1]) == OpponentPawn)
+    if (AreCoordsInsideBoard(BOARD_SIZE, kingy + pawnstepy, kingx - 1)
+        && FIGURE(board[kingy + pawnstepy][kingx - 1]) == OpponentPawn
+        ||
+        AreCoordsInsideBoard(BOARD_SIZE, kingy + pawnstepy, kingx + 1)
+        && FIGURE(board[kingy + pawnstepy][kingx + 1]) == OpponentPawn)
         IsShah = true;
 
     for (j = kingy - 1; j > TOP_EXTREME_COORDINATE - 1; j--)
         if (board[j][kingx] > 0)
             break;
-    if (FIGURE(board[j][kingx]) == OpponentRook || FIGURE(board[j][kingx]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, j, kingx)
+        &&
+        (FIGURE(board[j][kingx]) == OpponentRook
+        ||
+        FIGURE(board[j][kingx]) == OpponentQueen))
         IsShah = true;
     for (j = kingy + 1; j < BOTTOM_EXTREME_COORDINATE  + 1; j++)
         if (board[j][kingx] > 0)
             break;
-    if (FIGURE(board[j][kingx]) == OpponentRook || FIGURE(board[j][kingx]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, j, kingx)
+        &&
+        (FIGURE(board[j][kingx]) == OpponentRook
+        ||
+        FIGURE(board[j][kingx]) == OpponentQueen))
         IsShah = true;
     for (i = kingx - 1; i > LEFT_EXTREME_COORDINATE  - 1; i--)
         if (board[kingy][i] > 0)
             break;
-    if (FIGURE(board[kingy][i]) == OpponentRook || FIGURE(board[kingy][i]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, kingy, i)
+        &&
+        (FIGURE(board[kingy][i]) == OpponentRook
+        ||
+        FIGURE(board[kingy][i]) == OpponentQueen))
         IsShah = true;
     for (i = kingx + 1; i < RIGHT_EXTREME_COORDINATE + 1; i++)
         if (board[kingy][i] > 0)
             break;
-    if (FIGURE(board[kingy][i]) == OpponentRook || FIGURE(board[kingy][i]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, kingy, i)
+        &&
+        (FIGURE(board[kingy][i]) == OpponentRook
+        ||
+        FIGURE(board[kingy][i]) == OpponentQueen))
         IsShah = true;
 
     for (i = kingx - 1, j = kingy - 1; i > LEFT_EXTREME_COORDINATE  - 1 && j > TOP_EXTREME_COORDINATE - 1; i--, j--)
         if (board[j][i] > 0)
             break;
-    if (FIGURE(board[j][i]) == OpponentBishop || FIGURE(board[j][i]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, j, i)
+        &&
+        (FIGURE(board[j][i]) == OpponentBishop
+        ||
+        FIGURE(board[j][i]) == OpponentQueen))
         IsShah = true;
     for (i = kingx + 1, j = kingy + 1; i < RIGHT_EXTREME_COORDINATE + 1 && j < BOTTOM_EXTREME_COORDINATE + 1; i++, j++)
         if (board[j][i] > 0)
             break;
-    if (FIGURE(board[j][i]) == OpponentBishop || FIGURE(board[j][i]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, j, i)
+        &&
+        (FIGURE(board[j][i]) == OpponentBishop
+        ||
+        FIGURE(board[j][i]) == OpponentQueen))
         IsShah = true;
     for (i = kingx + 1, j = kingy - 1; i < RIGHT_EXTREME_COORDINATE + 1 && j > TOP_EXTREME_COORDINATE - 1; i++, j--)
         if (board[j][i] > 0)
             break;
-    if (FIGURE(board[j][i]) == OpponentBishop || FIGURE(board[j][i]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, j, i)
+        &&
+        (FIGURE(board[j][i]) == OpponentBishop
+        ||
+        FIGURE(board[j][i]) == OpponentQueen))
         IsShah = true;
     for (i = kingx - 1, j = kingy + 1; i > LEFT_EXTREME_COORDINATE  - 1 && j < BOTTOM_EXTREME_COORDINATE + 1; i--, j++)
         if (board[j][i] > 0)
             break;
-    if (FIGURE(board[j][i]) == OpponentBishop || FIGURE(board[j][i]) == OpponentQueen)
+    if (AreCoordsInsideBoard(BOARD_SIZE, j, i)
+        &&
+        (FIGURE(board[j][i]) == OpponentBishop
+        ||
+        FIGURE(board[j][i]) == OpponentQueen))
         IsShah = true;
 
-    if (FIGURE(board[kingy - 2][kingx - 1]) == OpponentKnight || FIGURE(board[kingy - 2][kingx + 1]) == OpponentKnight)
+    if (
+        AreCoordsInsideBoard(BOARD_SIZE, kingy - 2, kingx - 1) && FIGURE(board[kingy - 2][kingx - 1]) == OpponentKnight
+        ||
+        AreCoordsInsideBoard(BOARD_SIZE, kingy - 2, kingx + 1) && FIGURE(board[kingy - 2][kingx + 1]) == OpponentKnight)
         IsShah = true;
-    if (FIGURE(board[kingy - 1][kingx - 2]) == OpponentKnight || FIGURE(board[kingy - 1][kingx + 2]) == OpponentKnight)
+    if (
+        AreCoordsInsideBoard(BOARD_SIZE, kingy - 1, kingx - 2) && FIGURE(board[kingy - 1][kingx - 2]) == OpponentKnight
+        ||
+        AreCoordsInsideBoard(BOARD_SIZE, kingy - 1, kingx + 2) && FIGURE(board[kingy - 1][kingx + 2]) == OpponentKnight)
         IsShah = true;
-    if (FIGURE(board[kingy + 1][kingx - 2]) == OpponentKnight || FIGURE(board[kingy + 1][kingx + 2]) == OpponentKnight)
+    if (
+        AreCoordsInsideBoard(BOARD_SIZE, kingy + 1, kingx - 2) && FIGURE(board[kingy + 1][kingx - 2]) == OpponentKnight
+        ||
+        AreCoordsInsideBoard(BOARD_SIZE, kingy + 1, kingx + 2) && FIGURE(board[kingy + 1][kingx + 2]) == OpponentKnight)
         IsShah = true;
-    if (FIGURE(board[kingy + 2][kingx - 1]) == OpponentKnight || FIGURE(board[kingy + 2][kingx + 1]) == OpponentKnight)
+    if (
+        AreCoordsInsideBoard(BOARD_SIZE, kingy + 2, kingx - 1) && FIGURE(board[kingy + 2][kingx - 1]) == OpponentKnight
+        ||
+        AreCoordsInsideBoard(BOARD_SIZE, kingy + 2, kingx + 1) && FIGURE(board[kingy + 2][kingx + 1]) == OpponentKnight)
         IsShah = true;
 
     for (j = - 1; j < 2; j++)
         for (i = -1; i < 2; i++)
             if (j != 0 || i != 0)
-                if (FIGURE(board[kingy + j][kingx + i]) == OpponentKing)
+                if (AreCoordsInsideBoard(BOARD_SIZE, kingy + j, kingx + i) && FIGURE(board[kingy + j][kingx + i]) == OpponentKing)
                     IsShah = true;
 
     return IsShah;

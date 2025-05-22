@@ -15,6 +15,10 @@
 using namespace std;
 using namespace sf;
 
+bool AreCoordsInsideBoard(int boardSize, int y, int x) {
+    return x >= 0 && x < boardSize && y >= 0 && y < boardSize;
+}
+
 void OutputOfChessboardToConsole(AppState& appState)
 {
     auto& board = appState.board;
