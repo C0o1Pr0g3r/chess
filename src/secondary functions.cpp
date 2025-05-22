@@ -15,6 +15,8 @@
 using namespace std;
 using namespace sf;
 
+auto TEXTURE_LOADING_ERROR_MESSAGE = "Произошла ошибка при попытке загрузить текстуру из файла.";
+
 bool AreCoordsInsideBoard(int boardSize, int y, int x) {
     return x >= 0 && x < boardSize && y >= 0 && y < boardSize;
 }
@@ -393,7 +395,10 @@ void CreateChessPieces(AppState& appState)
     WQ = {{80, 80}, {80, 80}};
     WKi = {{0, 80}, {80, 80}};
 
-    ChessPieces_texture.loadFromFile("Images/Chess pieces.png");
+    if (!ChessPieces_texture.loadFromFile("Images/Chess pieces.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
 
     BlackPawn_sprite.Create(ChessPieces_texture, BP);
     BlackRook_sprite.Create(ChessPieces_texture, BR);
@@ -440,7 +445,10 @@ void CreateSmallChessPieces(AppState& appState)
     SWQ = {{50, 50}, {50, 50}};
     SWKi = {{0, 50}, {50, 50}};
 
-    SmallChessPieces_texture.loadFromFile("Images/Small chess pieces.png");
+    if (!SmallChessPieces_texture.loadFromFile("Images/Small chess pieces.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
 
     SmallBlackPawn_sprite.Create(SmallChessPieces_texture, SBP);
     SmallBlackRook_sprite.Create(SmallChessPieces_texture, SBR);
@@ -473,7 +481,10 @@ void CreateBacklight(AppState& appState)
     YS = {{80, 80}, {80, 80}};
     RS = {{160, 80}, {80, 80}};
 
-    Backlight_texture.loadFromFile("Images/Backlight.png");
+    if (!Backlight_texture.loadFromFile("Images/Backlight.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
 
     DarkCircle_sprite.Create(Backlight_texture, DC);
     LightCircle_sprite.Create(Backlight_texture, LC);
@@ -493,7 +504,10 @@ void CreateChessboards(AppState& appState)
     OC = {{0, 0}, {800, 800}};
     IC = {{800, 0}, {800, 800}};
 
-    Chessboards_texture.loadFromFile("Images/Chessboards.png");
+    if (!Chessboards_texture.loadFromFile("Images/Chessboards.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
 
     OrdinaryChessboard_sprite.Create(Chessboards_texture, OC);
     InvertedChessboard_sprite.Create(Chessboards_texture, IC);
@@ -513,16 +527,46 @@ void CreateScreensAndWindows(AppState& appState)
     auto& BackgroundDimmer_texture = appState.BackgroundDimmer_texture;
     auto& BackgroundDimmer = appState.BackgroundDimmer;
 
-    Backgrounds_texture.loadFromFile("Images/Backgrounds.jpg");
-    Windows_texture.loadFromFile("Images/Windows.png");
-    MainMenuScreen_guiElements_texture.loadFromFile("Images/MainMenuScreen_guiElements.png");
-    ChessGameScreen_guiElements_texture.loadFromFile("Images/ChessGameScreen_guiElements.png");
-    PawnTransformationWindow_guiElements_texture.loadFromFile("Images/PawnTransformationWindow_guiElements.png");
-    GameOverWindow_guiElements_texture.loadFromFile("Images/GameOverWindow_guiElements.png");
-    GamePauseWindow_guiElements_texture.loadFromFile("Images/GamePauseWindow_guiElements.png");
-    OptionsWindow_guiElements_texture.loadFromFile("Images/OptionsWindow_guiElements.png");
-    GameSaveWindow_guiElements_texture.loadFromFile("Images/GameSaveWindow_guiElements.png");
-    BackgroundDimmer_texture.loadFromFile("Images/Background dimmer.png");
+    if (!Backgrounds_texture.loadFromFile("Images/Backgrounds.jpg"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!Windows_texture.loadFromFile("Images/Windows.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!MainMenuScreen_guiElements_texture.loadFromFile("Images/MainMenuScreen_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!ChessGameScreen_guiElements_texture.loadFromFile("Images/ChessGameScreen_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!PawnTransformationWindow_guiElements_texture.loadFromFile("Images/PawnTransformationWindow_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!GameOverWindow_guiElements_texture.loadFromFile("Images/GameOverWindow_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!GamePauseWindow_guiElements_texture.loadFromFile("Images/GamePauseWindow_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!OptionsWindow_guiElements_texture.loadFromFile("Images/OptionsWindow_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!GameSaveWindow_guiElements_texture.loadFromFile("Images/GameSaveWindow_guiElements.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
+    if (!BackgroundDimmer_texture.loadFromFile("Images/Background dimmer.png"))
+    {
+        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+    }
 
     CreateMainMenuScreen(appState);
     CreateChessGameScreen(appState);
