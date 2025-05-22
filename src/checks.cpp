@@ -374,8 +374,6 @@ void EventChecking(AppState& appState)
     auto& RightMouseButtonIsPressed = appState.RightMouseButtonIsPressed;
     auto& EscapeIsPressed = appState.EscapeIsPressed;
 
-    MC = Mouse::getPosition(window);
-
     LeftMouseButtonIsPressed = RightMouseButtonIsPressed = EscapeIsPressed = false;
 
     while (const std::optional event = window.pollEvent())
@@ -385,12 +383,17 @@ void EventChecking(AppState& appState)
             WriteDataToFile(appState);
             window.close();
         }
-        else if (event->is<Event::Resized>())
+        else if (const auto* resizedEvent = event->getIf<Event::Resized>())
         {
-            ChangeWSC(appState);
+            printf("Размер окна изменился. Новый размер: (%d; %d).", resizedEvent->size.x, resizedEvent->size.y);
+        }
+        else if (event->is<Event::MouseMoved>())
+        {
+            MC = GetMouseCoordinates(window);
         }
         else if (const auto* keyPressed = event->getIf<Event::MouseButtonPressed>())
         {
+            MC = GetMouseCoordinates(window);
             switch(keyPressed->button)
             {
                 case Mouse::Button::Left : LeftMouseButtonIsPressed = true; break;

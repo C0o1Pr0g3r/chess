@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "button class.h"
+#include "coordinate processing functions.h"
 
 using namespace sf;
 
@@ -44,9 +45,9 @@ void Button::SetEnabled(bool status)
 bool Button::MouseEntered(RenderWindow & window)
 {
     bool status = false;
-    Vector2i mouse_pos = Mouse::getPosition(window);
+    Vector2i mouseCoords = GetMouseCoordinates(window);
 
-    if (mouse_pos.x >= ButtonPosition.x && mouse_pos.x <= ButtonPosition.x + ButtonSize.x && mouse_pos.y >= ButtonPosition.y && mouse_pos.y <= ButtonPosition.y + ButtonSize.y)
+    if (mouseCoords.x >= ButtonPosition.x && mouseCoords.x <= ButtonPosition.x + ButtonSize.x && mouseCoords.y >= ButtonPosition.y && mouseCoords.y <= ButtonPosition.y + ButtonSize.y)
         status = true;
 
     return status;

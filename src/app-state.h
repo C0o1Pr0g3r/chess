@@ -32,16 +32,12 @@ struct AppState {
 
     RenderWindow window;
     Vector2u InitialWindowSize = {1274, 800};
-    Vector2f WSC = {1, 1};   //Window Size Coefficient
-    Vector2u OWS = InitialWindowSize, NWS;   //Old Window Size, New Window Size
-    Vector2i MC, OCC, CC, PTC;   //Mouse Coordinates, Old Chessboard Coordinates, Chessboard Coordinates, Pawn Transformation Coordinates
+    Vector2i MC, OCC, CC;   //Mouse Coordinates, Old Chessboard Coordinates, Chessboard Coordinates
     bool LeftMouseButtonIsPressed, RightMouseButtonIsPressed, EscapeIsPressed;
 
     AppScreens CurrentScreen;
     GameWindows CurrentWindow;
     GameModes CurrentGameMode;
-
-    Vector2i CFRCPC = {CFDCP, CFDCP};   //Coefficient For Reading Chess Piece Coordinates
 
     int GameIsOver;
     bool HaveThereBeenChangesSinceTheLastSave;
