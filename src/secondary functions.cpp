@@ -352,7 +352,7 @@ void CreationOfObjects(AppState& appState)   //Creating Window, Loading Textures
     auto& InitialWindowSize = appState.InitialWindowSize;
     auto& CurrentScreen = appState.CurrentScreen;
 
-    window.create(VideoMode(InitialWindowSize.x, InitialWindowSize.y), "Chess");
+    window.create(VideoMode({InitialWindowSize.x, InitialWindowSize.y}), "Chess");
     CurrentScreen = MainMenuScreen;
 
     CreateChessPieces(appState);

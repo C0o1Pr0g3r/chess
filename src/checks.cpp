@@ -373,36 +373,36 @@ void EventChecking(AppState& appState)
     auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
     auto& RightMouseButtonIsPressed = appState.RightMouseButtonIsPressed;
     auto& EscapeIsPressed = appState.EscapeIsPressed;
-    auto& event = appState.event;
 
     MC = Mouse::getPosition(window);
 
     LeftMouseButtonIsPressed = RightMouseButtonIsPressed = EscapeIsPressed = false;
 
-    while (window.pollEvent(event))
+    while (const std::optional event = window.pollEvent())
     {
-        switch(event.type)
+        if (event->is<Event::Closed>())
         {
-            case Event::Closed:
-                WriteDataToFile(appState);
-                window.close();
-                break;
-            case Event::Resized:
-                ChangeWSC(appState);
-                break;
-            case Event::MouseButtonPressed:
-                switch(event.key.code)
-                {
-                    case Mouse::Left : LeftMouseButtonIsPressed = true; break;
-                    case Mouse::Right : RightMouseButtonIsPressed = true; break;
-                }
-                break;
-            case Event::KeyPressed:
-                switch(event.key.code)
-                {
-                    case Keyboard::Escape: EscapeIsPressed = true; break;
-                }
-                break;
+            WriteDataToFile(appState);
+            window.close();
+        }
+        else if (event->is<Event::Resized>())
+        {
+            ChangeWSC(appState);
+        }
+        else if (const auto* keyPressed = event->getIf<Event::MouseButtonPressed>())
+        {
+            switch(keyPressed->button)
+            {
+                case Mouse::Button::Left : LeftMouseButtonIsPressed = true; break;
+                case Mouse::Button::Right : RightMouseButtonIsPressed = true; break;
+            }
+        }
+        else if (const auto* keyPressed = event->getIf<Event::KeyPressed>())
+        {
+            if (keyPressed->scancode ==Keyboard::Scancode::Escape)
+            {
+                EscapeIsPressed = true;
+            }
         }
     }
 }

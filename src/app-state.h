@@ -41,8 +41,6 @@ struct AppState {
     GameWindows CurrentWindow;
     GameModes CurrentGameMode;
 
-    Event event;
-
     Vector2i CFRCPC = {CFDCP, CFDCP};   //Coefficient For Reading Chess Piece Coordinates
 
     int GameIsOver;

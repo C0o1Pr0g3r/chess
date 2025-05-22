@@ -30,7 +30,7 @@ void DrawnObject::SetPosition(int x, int y)
     x_f = (float) x;
     y_f = (float) y;
 
-    DrawnObjectImage.setPosition(x_f, y_f);
+    DrawnObjectImage.setPosition({x_f, y_f});
 }
 
 void DrawnObject::Draw(RenderWindow & window)
