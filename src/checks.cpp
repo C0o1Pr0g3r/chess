@@ -385,7 +385,7 @@ void EventChecking(AppState& appState)
         }
         else if (const auto* resizedEvent = event->getIf<Event::Resized>())
         {
-            printf("Размер окна изменился. Новый размер: (%d; %d).", resizedEvent->size.x, resizedEvent->size.y);
+            printf("Розмір вікна змінився. Новий розмір: (%d; %d).\n", resizedEvent->size.x, resizedEvent->size.y);
         }
         else if (event->is<Event::MouseMoved>())
         {

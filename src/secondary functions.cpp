@@ -15,7 +15,10 @@
 using namespace std;
 using namespace sf;
 
-auto TEXTURE_LOADING_ERROR_MESSAGE = "Произошла ошибка при попытке загрузить текстуру из файла.";
+void PrintErrorAboutLoadingTexture(const char* filePath)
+{
+    fprintf(stderr, "Виникла помилка при спробі завантажити текстуру з файлу \"%s\".", filePath);
+}
 
 bool AreCoordsInsideBoard(int boardSize, int y, int x) {
     return x >= 0 && x < boardSize && y >= 0 && y < boardSize;
@@ -44,18 +47,18 @@ void OutputPropertiesToConsole(AppState& appState)
     auto& MC = appState.MC;
     auto& CC = appState.CC;
 
-    printf("\nРазмер окна: %dx%d\n", window.getSize().x, window.getSize().y);
-    printf("Координаты мыши: x = %d; y = %d\n", MC.x, MC.y);
-    printf("Координаты доски: x = %d; y = %d\n", CC.x, CC.y);
-    printf("Размер шахматной клетки: %d\n\n", CFDCP);
+    printf("Розмір вікна: %dx%d\n.", window.getSize().x, window.getSize().y);
+    printf("Координати миші: (%d; %d).\n", MC.x, MC.y);
+    printf("Координати дошки: (%d; %d).\n", CC.x, CC.y);
+    printf("Розмір шахової клітки: %d.\n", CFDCP);
 }
 
 void StateOfShahs(AppState& appState)
 {
-    char IsShah[] = "поставлен шах", IsNotShah[] = "\"НЕ\" поставлен шах";
+    char IsShah[] = "поставлено шах", IsNotShah[] = "не поставлено шах";
 
-    printf("Черным %s\n", CheckingKingOnShah(appState, BLACK) ? IsShah : IsNotShah);
-    printf("Белым %s\n\n", CheckingKingOnShah(appState, WHITE) ? IsShah : IsNotShah);
+    printf("Чорним %s.\n", CheckingKingOnShah(appState, BLACK) ? IsShah : IsNotShah);
+    printf("Білим %s.\n", CheckingKingOnShah(appState, WHITE) ? IsShah : IsNotShah);
 }
 
 void OutputKingsCoordinates(AppState& appState)
@@ -63,8 +66,8 @@ void OutputKingsCoordinates(AppState& appState)
     auto& blackKing = appState.blackKing;
     auto& whiteKing = appState.whiteKing;
 
-    printf("Координаты черного короля: %dx%d\n", blackKing.x, blackKing.y);
-    printf("Координаты белого короля: %dx%d\n", whiteKing.x, whiteKing.y);
+    printf("Координати чорного короля: (%d; %d).\n", blackKing.x, blackKing.y);
+    printf("Координати білого короля: (%d; %d).\n", whiteKing.x, whiteKing.y);
 }
 
 void SetChessPiecesToTheirOriginalPosition(AppState& appState)
@@ -109,6 +112,18 @@ void ClearEatenFiguresArray(AppState& appState)
         EatenFigures[i] = 0;
 }
 
+void PrintThatFigureSelectedOrNot(bool isSelected, int color, const char* type)
+{
+    if (isSelected)
+    {
+        printf("Вибрано %s фігуру для переміщення, а саме — \"%s\".\n", color == WHITE ? "білу" : "чорну", type);
+    }
+    else
+    {
+        printf("%s фігура не вибрана через натискання повз фігуру.\n", color == WHITE ? "Біла" : "Чорна");
+    }
+}
+
 void FigureSelection(AppState& appState, int x, int y)
 {
     auto& WhoseMove = appState.WhoseMove;
@@ -130,13 +145,13 @@ void FigureSelection(AppState& appState, int x, int y)
             OCC.x = x;
             OCC.y = y;
             WhichFigureIsSelected(appState, OCC.x, OCC.y, FigureType);
-            printf("Выбрана черная фигура для перемещения, а именно — %s\n", FigureType);
+            PrintThatFigureSelectedOrNot(true, BLACK, FigureType);
             PieceIsChoose = true;
             status = true;
         }
         else
         {
-            printf("Черная фигура не выбрана из-за нажатия мимо фигуры\n");
+            PrintThatFigureSelectedOrNot(false, BLACK, FigureType);
         }
     }
     else
@@ -146,9 +161,13 @@ void FigureSelection(AppState& appState, int x, int y)
             OCC.x = x;
             OCC.y = y;
             WhichFigureIsSelected(appState, OCC.x, OCC.y, FigureType);
-            printf("Выбрана белая фигура для перемещения, а именно — %s\n", FigureType);
+            PrintThatFigureSelectedOrNot(true, WHITE, FigureType);
             PieceIsChoose = true;
             status = true;
+        }
+        else
+        {
+            PrintThatFigureSelectedOrNot(false, WHITE, FigureType);
         }
     }
 
@@ -168,13 +187,13 @@ void WhichFigureIsSelected(AppState& appState, int x, int y, char * FigureType)
 
     switch (FIGURE_TYPE(board[y][x]))
     {
-        case PAWN: strcpy(FigureType, "Пешка"); break;
+        case PAWN: strcpy(FigureType, "Пішак"); break;
         case ROOK: strcpy(FigureType, "Ладья"); break;
         case BISHOP: strcpy(FigureType, "Слон"); break;
-        case KNIGHT: strcpy(FigureType, "Конь"); break;
+        case KNIGHT: strcpy(FigureType, "Кінь"); break;
         case QUEEN: strcpy(FigureType, "Королева"); break;
         case KING: strcpy(FigureType, "Король"); break;
-        default: strcpy(FigureType, "Никакая"); break;
+        default: strcpy(FigureType, "Жодна"); break;
     }
 }
 
@@ -395,9 +414,10 @@ void CreateChessPieces(AppState& appState)
     WQ = {{80, 80}, {80, 80}};
     WKi = {{0, 80}, {80, 80}};
 
-    if (!ChessPieces_texture.loadFromFile("Images/Chess pieces.png"))
+    auto FILE_PATH = "Images/Chess pieces.png";
+    if (!ChessPieces_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
     BlackPawn_sprite.Create(ChessPieces_texture, BP);
@@ -445,9 +465,10 @@ void CreateSmallChessPieces(AppState& appState)
     SWQ = {{50, 50}, {50, 50}};
     SWKi = {{0, 50}, {50, 50}};
 
-    if (!SmallChessPieces_texture.loadFromFile("Images/Small chess pieces.png"))
+    auto FILE_PATH = "Images/Small chess pieces.png";
+    if (!SmallChessPieces_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
     SmallBlackPawn_sprite.Create(SmallChessPieces_texture, SBP);
@@ -481,9 +502,10 @@ void CreateBacklight(AppState& appState)
     YS = {{80, 80}, {80, 80}};
     RS = {{160, 80}, {80, 80}};
 
-    if (!Backlight_texture.loadFromFile("Images/Backlight.png"))
+    auto FILE_PATH = "Images/Backlight.png";
+    if (!Backlight_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
     DarkCircle_sprite.Create(Backlight_texture, DC);
@@ -504,9 +526,10 @@ void CreateChessboards(AppState& appState)
     OC = {{0, 0}, {800, 800}};
     IC = {{800, 0}, {800, 800}};
 
-    if (!Chessboards_texture.loadFromFile("Images/Chessboards.png"))
+    auto FILE_PATH = "Images/Chessboards.png";
+    if (!Chessboards_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
     OrdinaryChessboard_sprite.Create(Chessboards_texture, OC);
@@ -527,45 +550,64 @@ void CreateScreensAndWindows(AppState& appState)
     auto& BackgroundDimmer_texture = appState.BackgroundDimmer_texture;
     auto& BackgroundDimmer = appState.BackgroundDimmer;
 
-    if (!Backgrounds_texture.loadFromFile("Images/Backgrounds.jpg"))
+    auto FILE_PATH = "Images/Backgrounds.jpg";
+    if (!Backgrounds_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!Windows_texture.loadFromFile("Images/Windows.png"))
+
+    FILE_PATH = "Images/Windows.png";
+    if (!Windows_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!MainMenuScreen_guiElements_texture.loadFromFile("Images/MainMenuScreen_guiElements.png"))
+
+    FILE_PATH = "Images/MainMenuScreen_guiElements.png";
+    if (!MainMenuScreen_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!ChessGameScreen_guiElements_texture.loadFromFile("Images/ChessGameScreen_guiElements.png"))
+
+    FILE_PATH = "Images/ChessGameScreen_guiElements.png";
+    if (!ChessGameScreen_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!PawnTransformationWindow_guiElements_texture.loadFromFile("Images/PawnTransformationWindow_guiElements.png"))
+
+    FILE_PATH = "Images/PawnTransformationWindow_guiElements.png";
+    if (!PawnTransformationWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!GameOverWindow_guiElements_texture.loadFromFile("Images/GameOverWindow_guiElements.png"))
+
+    FILE_PATH = "Images/GameOverWindow_guiElements.png";
+    if (!GameOverWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!GamePauseWindow_guiElements_texture.loadFromFile("Images/GamePauseWindow_guiElements.png"))
+
+    FILE_PATH = "Images/GamePauseWindow_guiElements.png";
+    if (!GamePauseWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!OptionsWindow_guiElements_texture.loadFromFile("Images/OptionsWindow_guiElements.png"))
+
+    FILE_PATH = "Images/OptionsWindow_guiElements.png";
+    if (!OptionsWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!GameSaveWindow_guiElements_texture.loadFromFile("Images/GameSaveWindow_guiElements.png"))
+
+    FILE_PATH = "Images/GameSaveWindow_guiElements.png";
+    if (!GameSaveWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
-    if (!BackgroundDimmer_texture.loadFromFile("Images/Background dimmer.png"))
+
+    FILE_PATH = "Images/Background dimmer.png";
+    if (!BackgroundDimmer_texture.loadFromFile(FILE_PATH))
     {
-        printf(TEXTURE_LOADING_ERROR_MESSAGE);
+        PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
     CreateMainMenuScreen(appState);
@@ -1069,8 +1111,8 @@ void AdditionalActionsAfterMovingFigure(AppState& appState, int ox, int oy, int 
 
         o = toCoord(appState, current_chess_move[0], current_chess_move[1]);
         n = toCoord(appState, current_chess_move[2], current_chess_move[3]);
-        cout << "Шахматная нотация: " << current_chess_move << endl;
-        printf("Координатная нотация: oldPos = %d, %d   ;   newPos = %d, %d\n", o.x, o.y , n.x, n.y);
+        printf("Шахова нотація: %s.\n", current_chess_move.c_str());
+        printf("Координатна нотація: з (%d; %d) на (%d; %d).\n", o.x, o.y , n.x, n.y);
     }
     else
     {
@@ -1110,7 +1152,6 @@ void EnvironmentPawnTransformation(AppState& appState, std::string current_move,
     auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
     auto& CurrentWindow = appState.CurrentWindow;
 
-    cout << "current_move: " << current_move << endl;
     char figure_letter = current_move[4];
 
     switch (figure_letter)
@@ -1233,15 +1274,13 @@ void RecordChessMove(AppState& appState, std::string chess_note)
     auto& PlayerMove = appState.PlayerMove;
     auto& EnvironmentMove = appState.EnvironmentMove;
 
-    cout << "chess_note: " << "\"" << chess_note << "\"" << endl;
     AllMovesInGame += " " + chess_note;
 
     if (WhoseMove == PlayerMove)
-        cout << "Ход компьютера: " << chess_note << endl;
+        printf("Хід комп'ютера: %s.\n", chess_note.c_str());
     else if (WhoseMove == EnvironmentMove)
-        cout << "Ход игрока: " << chess_note << endl;
+        printf("Хід гравця: %s.\n", chess_note.c_str());
 
-    //cout << "Все ходы в игре: " << AllMovesInGame << endl;
 }
 
 void FlipChessboard(AppState& appState)
@@ -1406,6 +1445,8 @@ void SetLevelOfDifficulty(AppState& appState, int level_of_difficulty)
     }
 }
 
+auto PATH_TO_FILE_WITH_SAVING = "saved data.txt";
+
 bool WriteDataToFile(AppState& appState)
 {
     auto& IsThereSavedGame = appState.IsThereSavedGame;
@@ -1428,7 +1469,7 @@ bool WriteDataToFile(AppState& appState)
     int i, j;
     bool status = true;
 
-    out.open("saved data.txt");
+    out.open(PATH_TO_FILE_WITH_SAVING);
 
     if (out.is_open())
     {
@@ -1514,9 +1555,9 @@ bool ReadDataFromFile(AppState& appState)
     int all_moves_length;
     bool status = true;
 
-    if ((fp = fopen("saved data.txt", "rb+")) == NULL)
+    if ((fp = fopen(PATH_TO_FILE_WITH_SAVING, "rb+")) == NULL)
     {
-        printf("Ошибка при открытии файла\n");
+        fprintf(stderr, "Не вдалося відкрити файл, у якому збережено налаштування та стан гри.");
         SetGameMode(appState, PlayerVersusPlayer);
         PvP_radioButton.SetChoosed(true);
         ChangeOptionsButtonsAvailability(appState, false);
@@ -1529,7 +1570,7 @@ bool ReadDataFromFile(AppState& appState)
         fscanf(fp, "%c", &is_there_saved_game);
         if (is_there_saved_game == '1')
         {
-            printf("Сохраненная игра присутствует\n");
+            puts("Файл збереження містить дані про збережену гру.");
             fscanf(fp, "%d %d", &black_king_pos.x, &black_king_pos.y);
             fscanf(fp, "%d %d", &white_king_pos.x, &white_king_pos.y);
             fscanf(fp, "%d %d", &pawn_on_aisle_coordinates.x, &pawn_on_aisle_coordinates.y);
@@ -1553,19 +1594,19 @@ bool ReadDataFromFile(AppState& appState)
             fgets(all_moves_in_game, 4096, fp);
             all_moves_length = strlen(all_moves_in_game);
 
-            printf("Сохраненная игра: %c\n", is_there_saved_game);
-            printf("Координаты черного короля: %d, %d\n", black_king_pos.x, black_king_pos.y);
-            printf("Координаты белого короля: %d, %d\n", white_king_pos.x, white_king_pos.y);
-            printf("Координаты пешки на проходе: %d, %d\n", pawn_on_aisle_coordinates.x, pawn_on_aisle_coordinates.y);
-            printf("Доска инвертирована: %d\n", chessboard_is_inverted);
-            printf("Чей ход: %d\n", whose_move);
-            printf("Взятие на проходе активировано: %d\n",is_taking_on_aisle_activated );
-            printf("Взятие на проходе использовано: %d\n", is_taking_on_aisle_used);
-            printf("Кто ходил: %d\n", who_has_moved);
-            printf("Режим игры: %d\n", current_game_mode);
-            printf("Цвет фигур игрока: %d\n", player_color);
-            printf("Уровень сложности: %d\n", level_of_difficulty);
-            printf("Шахматная доска:\n");
+            printf("Збережена гра: %c.\n", is_there_saved_game);
+            printf("Координати чорного короля: (%d; %d).\n", black_king_pos.x, black_king_pos.y);
+            printf("Координати білого короля: (%d; %d).\n", white_king_pos.x, white_king_pos.y);
+            printf("Координати пішака на проході: (%d; %d).\n", pawn_on_aisle_coordinates.x, pawn_on_aisle_coordinates.y);
+            printf("Дошку перевернуто: %d.\n", chessboard_is_inverted);
+            printf("Чия черга робити хід: %d.\n", whose_move);
+            printf("Взяття на проході активоване: %d.\n",is_taking_on_aisle_activated );
+            printf("Взяття на проході використане: %d.\n", is_taking_on_aisle_used);
+            printf("Хто ходив: %d.\n", who_has_moved);
+            printf("Режим гри: %d.\n", current_game_mode);
+            printf("Колір фігур гравця: %d.\n", player_color);
+            printf("Рівень складності: %d.\n", level_of_difficulty);
+            puts("Шахова дошка:");
 
             for (i = 0; i < LENGTH; i++)
             {
@@ -1573,16 +1614,16 @@ bool ReadDataFromFile(AppState& appState)
                     printf("%4d ", arrangement_of_figures_on_board[i][j]);
                 putchar('\n');
             }
-            printf("Съеденные фигуры:\n");
+            puts("З'їдені фігури:");
             for (i = 0; i < LENGTH; i++)
                 printf("%2d", eaten_figures[i]);
             putchar('\n');
 
-            printf("Все ходы в игре: \"%s\"", all_moves_in_game);
+            printf("Всі ходи у грі: \"%s\".\n", all_moves_in_game);
         }
         else
         {
-            printf("Сохраненная игра отсутствует\n");
+            puts("У файлі збереження відсутні дані про збережену гру.");
             status = false;
         }
 
@@ -1650,7 +1691,7 @@ bool ReadDataFromFile(AppState& appState)
 
     if (fp != NULL && fclose(fp))
     {
-        printf("Ошибка при закрытии файла\n");
+        fprintf(stderr, "При закритті файлу, в якому збережено налаштування та стан гри, виникли помилки.");
         status = false;
     }
 

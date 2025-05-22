@@ -128,7 +128,7 @@ void HandleChessGameScreen(AppState& appState)
         else if (CurrentGameMode == PlayerVersusEnvironment && WhoseMove == EnvironmentMove)
         {
             CurrentChessNote = GetNextEnvironmentMove(appState, &ox, &oy, &nx, &ny);
-            cout << CurrentChessNote << endl;
+            printf("Наступний крок комп'ютера: %s.", CurrentChessNote.c_str());
             AdditionalActionsBeforeMovingFigure(appState, ox, oy, nx, ny);
             status = FigureMovementPvEEnvironment(appState, ox, oy, nx, ny);
             AdditionalActionsAfterMovingFigure(appState, ox, oy, nx, ny, status);
@@ -148,10 +148,6 @@ void HandleChessGameScreen(AppState& appState)
                 OutputPropertiesToConsole(appState);
                 StateOfShahs(appState);
                 OutputOfChessboardToConsole(appState);
-            }
-            else if (EscapeIsPressed)
-            {
-                cout << "Все ходы в игре до хода: " << AllMovesInGame << endl;
             }
         }
     }
@@ -283,7 +279,7 @@ void HandleGameOnPauseWindow(AppState& appState)
     }
     else if (SaveGame_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        printf("Игра сохранена\n");
+        puts("Гра збережена.");
         IsThereSavedGame = HaveThereBeenChangesSinceTheLastSave = true;
     }
     else if (ExitFromChessGame_button.IsPressed(window, LeftMouseButtonIsPressed))
@@ -387,13 +383,13 @@ void HandleGameSaveWindow(AppState& appState)
 
     if (GSWYes_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        printf("Игра сохранена\n");
+        puts("Гра збережена.");
         status = true;
         IsThereSavedGame = true;
     }
     else if (GSWNo_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
-        printf("Игра не сохранена\n");
+        puts("Гра не збережена.");
         SetDefaultGameSettings(appState, false);
         status = true;
         IsThereSavedGame = false;

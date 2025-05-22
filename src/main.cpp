@@ -33,9 +33,7 @@ int main()
     SetDefaultGameSettings(appState, true);
     ReadDataFromFile(appState);
 
-    printf("\nЗапуск\n\n");
-    printf("Начало игры\n\n\n");
-    printf("Ход белых\n\n");
+    puts("Ініціалізація програми завершена.");
 
     while (window.isOpen())
     {

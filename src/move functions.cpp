@@ -8,6 +8,29 @@
 #include "move functions at mat.h"
 #include "app-state.h"
 
+auto CHECK = 1;
+auto CHECKMATE = 2;
+
+void PrintThatKingIsIn(int checkOrCheckmate, int color)
+{
+    printf("Поставлено %s %s королю.\n", checkOrCheckmate == CHECK ? "шах": "мат", color == WHITE ? "білому": "чорному");
+}
+
+void PrintThatTurnToMakeMove(int color)
+{
+    printf("Черга %s зробити хід.\n", color == WHITE ? "білих": "чорних");
+}
+
+void PrintThatYouDoesNotMakeMove(const char* FigureType)
+{
+    printf("Ви не зробили крок фігурою \"%s\".\n", FigureType);
+}
+
+void PrintThatYouMakeFocusOutFigure(const char* type)
+{
+    printf("Ви зняли фокус з фігури \"%s\".\n", type);
+}
+
 bool moveFigure(AppState& appState, int ox, int oy, int nx, int ny)
 {
     auto& board = appState.board;
@@ -51,31 +74,31 @@ bool FigureMovementPvP(AppState& appState, int ox, int oy, int nx, int ny)
                     WhoseMove = false;
                     if (CheckingKingOnShah(appState, WHITE))
                     {
-                        printf("Поставлен шах белому королю\n");
+                        PrintThatKingIsIn(CHECK, WHITE);
                         if (CheckingKingOnMat(appState, WHITE))
-                            printf("Поставлен мат белому королю\n");
+                            PrintThatKingIsIn(CHECKMATE, WHITE);
                     }
-                    printf("\n\nХод белых\n\n");
+                    PrintThatTurnToMakeMove(BLACK);
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(appState, ox, oy, FigureType);
-                    printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                    PrintThatYouDoesNotMakeMove(FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(appState, ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                PrintThatYouDoesNotMakeMove(FigureType);
             }
         }
         else
         {
             //PieceIsChoose = false;
             WhichFigureIsSelected(appState, ox, oy, FigureType);
-            printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
+            PrintThatYouMakeFocusOutFigure(FigureType);
         }
     }
     else if (!WhoseMove && FIGURE_COLOR(board[oy][ox]) == WHITE)
@@ -92,31 +115,31 @@ bool FigureMovementPvP(AppState& appState, int ox, int oy, int nx, int ny)
                     WhoseMove = true;
                     if (CheckingKingOnShah(appState, BLACK))
                     {
-                        printf("Поставлен шах черному королю\n");
+                        PrintThatKingIsIn(CHECK, BLACK);
                         if(CheckingKingOnMat(appState, BLACK))
-                            printf("Поставлен мат черному королю\n");
+                            PrintThatKingIsIn(CHECKMATE, BLACK);
                     }
-                    printf("\n\nХод черных\n\n");
+                    PrintThatTurnToMakeMove(WHITE);
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(appState, ox, oy, FigureType);
-                    printf("Вы не сделали шаг фигурой \"%s\"\n", FigureType);
+                    PrintThatYouDoesNotMakeMove(FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(appState, ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                PrintThatYouDoesNotMakeMove(FigureType);
             }
         }
         else
         {
             //PieceIsChoose = false;
             WhichFigureIsSelected(appState, ox, oy, FigureType);
-            printf("Вы сняли фокус с белой фигуры \"%s\"\n", FigureType);
+            PrintThatYouMakeFocusOutFigure(FigureType);
         }
     }
 
@@ -150,31 +173,31 @@ bool FigureMovementPvEPlayer(AppState& appState, int ox, int oy, int nx, int ny)
                     WhoseMove = !PlayerMove;
                     if (CheckingKingOnShah(appState, EnvironmentColor))
                     {
-                        printf("Поставлен шах белому королю\n");
+                        PrintThatKingIsIn(CHECK, EnvironmentColor);
                         if (CheckingKingOnMat(appState, EnvironmentColor))
-                            printf("Поставлен мат белому королю\n");
+                            PrintThatKingIsIn(CHECKMATE, EnvironmentColor);
                     }
-                    printf("\n\nХод белых\n\n");
+                    PrintThatTurnToMakeMove(PlayerColor);
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(appState, ox, oy, FigureType);
-                    printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                    PrintThatYouDoesNotMakeMove(FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(appState, ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                PrintThatYouDoesNotMakeMove(FigureType);
             }
         }
         else
         {
             PieceIsChoose = false;
             WhichFigureIsSelected(appState, ox, oy, FigureType);
-            printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
+            PrintThatYouMakeFocusOutFigure(FigureType);
         }
     }
 
@@ -207,31 +230,31 @@ bool FigureMovementPvEEnvironment(AppState& appState, int ox, int oy, int nx, in
                     WhoseMove = !EnvironmentMove;
                     if (CheckingKingOnShah(appState, PlayerColor))
                     {
-                        printf("Поставлен шах белому королю\n");
+                        PrintThatKingIsIn(CHECK, PlayerColor);
                         if (CheckingKingOnMat(appState, PlayerColor))
-                            printf("Поставлен мат белому королю\n");
+                            PrintThatKingIsIn(CHECKMATE, PlayerColor);
                     }
-                    printf("\n\nХод белых\n\n");
+                    PrintThatTurnToMakeMove(EnvironmentColor);
                 }
                 else
                 {
                     PieceIsChoose = false;
                     WhichFigureIsSelected(appState, ox, oy, FigureType);
-                    printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                    PrintThatYouDoesNotMakeMove(FigureType);
                 }
             }
             else
             {
                 PieceIsChoose = false;
                 WhichFigureIsSelected(appState, ox, oy, FigureType);
-                printf("Вы не сделали шаг \"%s\"\n", FigureType);
+                PrintThatYouDoesNotMakeMove(FigureType);
             }
         }
         else
         {
             PieceIsChoose = false;
             WhichFigureIsSelected(appState, ox, oy, FigureType);
-            printf("Вы сняли фокус с черной фигуры \"%s\"\n", FigureType);
+            PrintThatYouMakeFocusOutFigure(FigureType);
         }
     }
 
