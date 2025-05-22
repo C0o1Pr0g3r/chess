@@ -34,6 +34,8 @@ add_executable(
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_17)
 
+set(CMAKE_CXX_FLAGS "-fsanitize=address")
+
 if(WIN32)
     add_custom_command(
         TARGET main
