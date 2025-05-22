@@ -35,7 +35,7 @@ bool FigureMovementPvP(AppState& appState, int ox, int oy, int nx, int ny)
 
     bool IsFigureMovementAllowed;
     bool IsMoveMade = false;
-    char FigureType[10];
+    char FigureType[FIGURE_TYPE_STRING_LENGTH];
 
     if (WhoseMove && FIGURE_COLOR(board[oy][ox]) == BLACK)
     {
@@ -134,7 +134,7 @@ bool FigureMovementPvEPlayer(AppState& appState, int ox, int oy, int nx, int ny)
 
     bool IsFigureMovementAllowed;
     bool IsMoveMade = false;
-    char FigureType[10];
+    char FigureType[FIGURE_TYPE_STRING_LENGTH];
 
     if (WhoseMove == PlayerMove && FIGURE_COLOR(board[oy][ox]) == PlayerColor)
     {
@@ -192,7 +192,7 @@ bool FigureMovementPvEEnvironment(AppState& appState, int ox, int oy, int nx, in
 
     bool IsFigureMovementAllowed;
     bool IsMoveMade = false;
-    char FigureType[10];
+    char FigureType[FIGURE_TYPE_STRING_LENGTH];
 
     if (WhoseMove == EnvironmentMove && FIGURE_COLOR(board[oy][ox]) == EnvironmentColor)
     {

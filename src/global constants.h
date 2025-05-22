@@ -39,6 +39,7 @@
 #define BOTTOM_EXTREME_COORDINATE 8
 
 #define BOARD_SIZE 10
+#define FIGURE_TYPE_STRING_LENGTH 24
 
 enum AppScreens {MainMenuScreen, ChessGameScreen};
 enum GameModes {PlayerVersusEnvironment, PlayerVersusPlayer};

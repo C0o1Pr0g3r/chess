@@ -119,7 +119,7 @@ void FigureSelection(AppState& appState, int x, int y)
     auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
 
     bool status = false;
-    char FigureType[10];
+    char FigureType[FIGURE_TYPE_STRING_LENGTH];
 
     if (WhoseMove)
     {
