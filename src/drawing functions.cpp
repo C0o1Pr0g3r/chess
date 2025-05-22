@@ -274,62 +274,62 @@ void DrawFigures(AppState& appState)
             {
                 if (FIGURE(board[i][j]) == FIGURE(BLACK_PAWN))
                 {
-                    BlackPawn_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    BlackPawn_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     BlackPawn_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(WHITE_PAWN))
                 {
-                    WhitePawn_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    WhitePawn_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     WhitePawn_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(BLACK_ROOK))
                 {
-                    BlackRook_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    BlackRook_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     BlackRook_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(WHITE_ROOK))
                 {
-                    WhiteRook_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    WhiteRook_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     WhiteRook_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(BLACK_KNIGHT))
                 {
-                    BlackKnight_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    BlackKnight_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     BlackKnight_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(WHITE_KNIGHT))
                 {
-                    WhiteKnight_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    WhiteKnight_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     WhiteKnight_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(BLACK_BISHOP))
                 {
-                    BlackBishop_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    BlackBishop_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     BlackBishop_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(WHITE_BISHOP))
                 {
-                    WhiteBishop_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    WhiteBishop_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     WhiteBishop_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(BLACK_QUEEN))
                 {
-                    BlackQueen_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    BlackQueen_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     BlackQueen_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(WHITE_QUEEN))
                 {
-                    WhiteQueen_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    WhiteQueen_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     WhiteQueen_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(BLACK_KING))
                 {
-                    BlackKing_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    BlackKing_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     BlackKing_sprite.Draw(window);
                 }
                 if (FIGURE(board[i][j]) == FIGURE(WHITE_KING))
                 {
-                    WhiteKing_sprite.SetPosition(j * CFDCP, i * CFDCP);
+                    WhiteKing_sprite.SetPosition({j * CFDCP, i * CFDCP});
                     WhiteKing_sprite.Draw(window);
                 }
             }
@@ -404,62 +404,62 @@ void DrawSmallFigures(AppState& appState)
 
     for (i = 0; i < EatenFigures[0]; i++)
     {
-        SmallBlackPawn_sprite.SetPosition(BPp, BFpy);
+        SmallBlackPawn_sprite.SetPosition({BPp, BFpy});
         SmallBlackPawn_sprite.Draw(window);
         BPp += 10;
     }
     for (i = 0; i < EatenFigures[1]; i++)
     {
-        SmallBlackRook_sprite.SetPosition(BRp, BFpy);
+        SmallBlackRook_sprite.SetPosition({BRp, BFpy});
         SmallBlackRook_sprite.Draw(window);
         BRp += 10;
     }
     for (i = 0; i < EatenFigures[2]; i++)
     {
-        SmallBlackKnight_sprite.SetPosition(BKp, BFpy);
+        SmallBlackKnight_sprite.SetPosition({BKp, BFpy});
         SmallBlackKnight_sprite.Draw(window);
         BKp += 10;
     }
     for (i = 0; i < EatenFigures[3]; i++)
     {
-        SmallBlackBishop_sprite.SetPosition(BBp, BFpy);
+        SmallBlackBishop_sprite.SetPosition({BBp, BFpy});
         SmallBlackBishop_sprite.Draw(window);
         BBp += 10;
     }
     for (i = 0; i < EatenFigures[4]; i++)
     {
-        SmallBlackQueen_sprite.SetPosition(BQp, BFpy);
+        SmallBlackQueen_sprite.SetPosition({BQp, BFpy});
         SmallBlackQueen_sprite.Draw(window);
         BQp += 10;
     }
 
     for (i = 0; i < EatenFigures[5]; i++)
     {
-        SmallWhitePawn_sprite.SetPosition(WPp, WFpy);
+        SmallWhitePawn_sprite.SetPosition({WPp, WFpy});
         SmallWhitePawn_sprite.Draw(window);
         WPp += 10;
     }
     for (i = 0; i < EatenFigures[6]; i++)
     {
-        SmallWhiteRook_sprite.SetPosition(WRp, WFpy);
+        SmallWhiteRook_sprite.SetPosition({WRp, WFpy});
         SmallWhiteRook_sprite.Draw(window);
         WRp += 10;
     }
     for (i = 0; i < EatenFigures[7]; i++)
     {
-        SmallWhiteKnight_sprite.SetPosition(WKp, WFpy);
+        SmallWhiteKnight_sprite.SetPosition({WKp, WFpy});
         SmallWhiteKnight_sprite.Draw(window);
         WKp += 10;
     }
     for (i = 0; i < EatenFigures[8]; i++)
     {
-        SmallWhiteBishop_sprite.SetPosition(WBp, WFpy);
+        SmallWhiteBishop_sprite.SetPosition({WBp, WFpy});
         SmallWhiteBishop_sprite.Draw(window);
         WBp += 10;
     }
     for (i = 0; i < EatenFigures[9]; i++)
     {
-        SmallWhiteQueen_sprite.SetPosition(WQp, WFpy);
+        SmallWhiteQueen_sprite.SetPosition({WQp, WFpy});
         SmallWhiteQueen_sprite.Draw(window);
         WQp += 10;
     }

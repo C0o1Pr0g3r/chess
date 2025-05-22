@@ -24,7 +24,7 @@ inline void SelectedFigureBacklight(AppState& appState, int x, int y)
 
     if (PieceIsChoose)
     {
-        GreenSquare_sprite.SetPosition(x * CFDCP, y * CFDCP);
+        GreenSquare_sprite.SetPosition({x * CFDCP, y * CFDCP});
         GreenSquare_sprite.Draw(window);
     }
 }
@@ -107,27 +107,27 @@ void BacklightOfPossiblePawnMovements(AppState& appState, int OpponentColor, int
 
     if (board[oy + step1][ox] == 0 && IsAllowedMF(appState, ox, oy, ox, oy + step1))
     {
-        DarkCircle_sprite.SetPosition(ox * CFDCP, (oy + step1) * CFDCP);
+        DarkCircle_sprite.SetPosition({ox * CFDCP, (oy + step1) * CFDCP});
         DarkCircle_sprite.Draw(window);
     }
     if (board[oy + step2][ox] == 0 && board[oy + step1][ox] == 0 && !IS_MOVE(board[oy][ox]) && IsAllowedMF(appState, ox, oy, ox, oy + step2))
     {
-        DarkCircle_sprite.SetPosition(ox * CFDCP, (oy + step2) * CFDCP);
+        DarkCircle_sprite.SetPosition({ox * CFDCP, (oy + step2) * CFDCP});
         DarkCircle_sprite.Draw(window);
     }
     if (board[oy + step1][ox - 1] > 0 && FIGURE_COLOR(board[oy + step1][ox - 1]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox - 1, oy + step1))
     {
-        YellowSquare_sprite.SetPosition((ox - 1) * CFDCP, (oy + step1) * CFDCP);
+        YellowSquare_sprite.SetPosition({(ox - 1) * CFDCP, (oy + step1) * CFDCP});
         YellowSquare_sprite.Draw(window);
     }
     if (board[oy + step1][ox + 1] > 0 && FIGURE_COLOR(board[oy + step1][ox + 1]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox + 1, oy + step1))
     {
-        YellowSquare_sprite.SetPosition((ox + 1) * CFDCP, (oy + step1) * CFDCP);
+        YellowSquare_sprite.SetPosition({(ox + 1) * CFDCP, (oy + step1) * CFDCP});
         YellowSquare_sprite.Draw(window);
     }
     if (oy == PawnOnAisleCoordinates.y && board[oy + step1][PawnOnAisleCoordinates.x] == 0 && IsTakingOnAisleActivated && IsAllowedMF(appState, ox, oy, PawnOnAisleCoordinates.x, oy + step1))
     {
-        DarkCircle_sprite.SetPosition(PawnOnAisleCoordinates.x * CFDCP, (oy + step1) * CFDCP);
+        DarkCircle_sprite.SetPosition({PawnOnAisleCoordinates.x * CFDCP, (oy + step1) * CFDCP});
         DarkCircle_sprite.Draw(window);
     }
 }
@@ -147,14 +147,14 @@ void BacklightOfPossibleRookMovements(AppState& appState, int OpponentColor, int
         {
             if (FIGURE_COLOR(board[i][ox]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox, i))
             {
-                YellowSquare_sprite.SetPosition(ox * CFDCP, i * CFDCP);
+                YellowSquare_sprite.SetPosition({ox * CFDCP, i * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, ox, i))
         {
-            DarkCircle_sprite.SetPosition(ox * CFDCP, i * CFDCP);
+            DarkCircle_sprite.SetPosition({ox * CFDCP, i * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -164,14 +164,14 @@ void BacklightOfPossibleRookMovements(AppState& appState, int OpponentColor, int
         {
             if (FIGURE_COLOR(board[i][ox]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox, i))
             {
-                YellowSquare_sprite.SetPosition(ox * CFDCP, i * CFDCP);
+                YellowSquare_sprite.SetPosition({ox * CFDCP, i * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, ox, i))
         {
-            DarkCircle_sprite.SetPosition(ox * CFDCP, i * CFDCP);
+            DarkCircle_sprite.SetPosition({ox * CFDCP, i * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -181,14 +181,14 @@ void BacklightOfPossibleRookMovements(AppState& appState, int OpponentColor, int
         {
             if (FIGURE_COLOR(board[oy][i]) == OpponentColor && IsAllowedMF(appState, ox, oy, i, oy))
             {
-                YellowSquare_sprite.SetPosition(i * CFDCP, oy * CFDCP);
+                YellowSquare_sprite.SetPosition({i * CFDCP, oy * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, i, oy))
         {
-            DarkCircle_sprite.SetPosition(i * CFDCP, oy * CFDCP);
+            DarkCircle_sprite.SetPosition({i * CFDCP, oy * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -198,14 +198,14 @@ void BacklightOfPossibleRookMovements(AppState& appState, int OpponentColor, int
         {
             if (FIGURE_COLOR(board[oy][i]) == OpponentColor && IsAllowedMF(appState, ox, oy, i, oy))
             {
-                YellowSquare_sprite.SetPosition(i * CFDCP, oy * CFDCP);
+                YellowSquare_sprite.SetPosition({i * CFDCP, oy * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, i, oy))
         {
-            DarkCircle_sprite.SetPosition(i * CFDCP, oy * CFDCP);
+            DarkCircle_sprite.SetPosition({i * CFDCP, oy * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -226,14 +226,14 @@ void BacklightOfPossibleBishopMovements(AppState& appState, int OpponentColor, i
         {
             if (FIGURE_COLOR(board[j][i]) == OpponentColor && IsAllowedMF(appState, ox, oy, i, j))
             {
-                YellowSquare_sprite.SetPosition(i * CFDCP, j * CFDCP);
+                YellowSquare_sprite.SetPosition({i * CFDCP, j * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, i, j))
         {
-            DarkCircle_sprite.SetPosition(i * CFDCP, j * CFDCP);
+            DarkCircle_sprite.SetPosition({i * CFDCP, j * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -243,14 +243,14 @@ void BacklightOfPossibleBishopMovements(AppState& appState, int OpponentColor, i
         {
             if (FIGURE_COLOR(board[j][i]) == OpponentColor && IsAllowedMF(appState, ox, oy, i, j))
             {
-                YellowSquare_sprite.SetPosition(i * CFDCP, j * CFDCP);
+                YellowSquare_sprite.SetPosition({i * CFDCP, j * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, i, j))
         {
-            DarkCircle_sprite.SetPosition(i * CFDCP, j * CFDCP);
+            DarkCircle_sprite.SetPosition({i * CFDCP, j * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -260,14 +260,14 @@ void BacklightOfPossibleBishopMovements(AppState& appState, int OpponentColor, i
         {
             if (FIGURE_COLOR(board[j][i]) == OpponentColor && IsAllowedMF(appState, ox, oy, i, j))
             {
-                YellowSquare_sprite.SetPosition(i * CFDCP, j * CFDCP);
+                YellowSquare_sprite.SetPosition({i * CFDCP, j * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, i, j))
         {
-            DarkCircle_sprite.SetPosition(i * CFDCP, j * CFDCP);
+            DarkCircle_sprite.SetPosition({i * CFDCP, j * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -277,14 +277,14 @@ void BacklightOfPossibleBishopMovements(AppState& appState, int OpponentColor, i
         {
             if (FIGURE_COLOR(board[j][i]) == OpponentColor && IsAllowedMF(appState, ox, oy, i, j))
             {
-                YellowSquare_sprite.SetPosition(i * CFDCP, j * CFDCP);
+                YellowSquare_sprite.SetPosition({i * CFDCP, j * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             break;
         }
         if (IsAllowedMF(appState, ox, oy, i, j))
         {
-            DarkCircle_sprite.SetPosition(i * CFDCP, j * CFDCP);
+            DarkCircle_sprite.SetPosition({i * CFDCP, j * CFDCP});
             DarkCircle_sprite.Draw(window);
         }
     }
@@ -318,12 +318,12 @@ void BacklightOfPossibleKnightMovements(AppState& appState, int OpponentColor, i
             //if (board[oy + j][ox + i] == 0 && IsAllowedMF(appState, ox, oy, ox + i, oy + j)) Ч правильный, но не рабочий вариант
             if (AreCoordsInsideBoard(BOARD_SIZE, oy + j, ox + i) && board[oy + j][ox + i] == 0 && IsAllowedMF(appState, ox, oy, ox + i, oy + j))
             {
-                DarkCircle_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);
+                DarkCircle_sprite.SetPosition({(ox + i) * CFDCP, (oy + j) * CFDCP});
                 DarkCircle_sprite.Draw(window);
             }
             else if (AreCoordsInsideBoard(BOARD_SIZE, oy + j, ox + i) && board[oy + j][ox + i] > 0 && FIGURE_COLOR(board[oy + j][ox + i]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox + i, oy + j))
             {
-                YellowSquare_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);
+                YellowSquare_sprite.SetPosition({(ox + i) * CFDCP, (oy + j) * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
             i = -i;
@@ -354,12 +354,12 @@ void BacklightOfPossibleKingMovements(AppState& appState, int OpponentColor, int
 
             if (board[oy + j][ox + i] == 0 && IsAllowedMF(appState, ox, oy, ox + i, oy + j))
             {
-                DarkCircle_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);
+                DarkCircle_sprite.SetPosition({(ox + i) * CFDCP, (oy + j) * CFDCP});
                 DarkCircle_sprite.Draw(window);
             }
             else if (board[oy + j][ox + i] > 0 && FIGURE_COLOR(board[oy + j][ox + i]) == OpponentColor && IsAllowedMF(appState, ox, oy, ox + i, oy + j))
             {
-                YellowSquare_sprite.SetPosition((ox + i) * CFDCP, (oy + j) * CFDCP);
+                YellowSquare_sprite.SetPosition({(ox + i) * CFDCP, (oy + j) * CFDCP});
                 YellowSquare_sprite.Draw(window);
             }
         }
@@ -380,7 +380,7 @@ void BacklightOfPossibleKingMovements(AppState& appState, int OpponentColor, int
 , oy, rox, oy);
             if (IsCastlingAllowed)
             {
-                LightCircle_sprite.SetPosition((ox - 2) * CFDCP, oy * CFDCP);
+                LightCircle_sprite.SetPosition({(ox - 2) * CFDCP, oy * CFDCP});
                 LightCircle_sprite.Draw(window);
             }
         }
@@ -398,7 +398,7 @@ void BacklightOfPossibleKingMovements(AppState& appState, int OpponentColor, int
 , oy, rox, oy);
             if (IsCastlingAllowed)
             {
-                LightCircle_sprite.SetPosition((ox + 2) * CFDCP, oy * CFDCP);
+                LightCircle_sprite.SetPosition({(ox + 2) * CFDCP, oy * CFDCP});
                 LightCircle_sprite.Draw(window);
             }
         }
@@ -428,7 +428,7 @@ void BacklightOfKingUnderShah(AppState& appState, int ox, int oy)
 
     if (kingx != 0 && kingy != 0)
     {
-        RedSquare_sprite.SetPosition(kingx * CFDCP, kingy * CFDCP);
+        RedSquare_sprite.SetPosition({kingx * CFDCP, kingy * CFDCP});
         RedSquare_sprite.Draw(window);
     }
 }
