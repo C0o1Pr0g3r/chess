@@ -380,18 +380,18 @@ void CreateChessPieces(AppState& appState)
 
     IntRect BP, BR, BKn, BB, BQ, BKi, WP, WR, WKn, WB, WQ, WKi;
 
-    BP = {400, 0, 80, 80};
-    BR = {320, 0, 80, 80};
-    BKn = {240, 0, 80, 80};
-    BB = {160, 0, 80, 80};
-    BQ = {80, 0, 80, 80};
-    BKi = {0, 0, 80, 80};
-    WP = {400, 80, 80, 80};
-    WR = {320, 80, 80, 80};
-    WKn = {240, 80, 80, 80};
-    WB = {160, 80, 80, 80};
-    WQ = {80, 80, 80, 80};
-    WKi = {0, 80, 80, 80};
+    BP = {{400, 0}, {80, 80}};
+    BR = {{320, 0}, {80, 80}};
+    BKn = {{240, 0}, {80, 80}};
+    BB = {{160, 0}, {80, 80}};
+    BQ = {{80, 0}, {80, 80}};
+    BKi = {{0, 0}, {80, 80}};
+    WP = {{400, 80}, {80, 80}};
+    WR = {{320, 80}, {80, 80}};
+    WKn = {{240, 80}, {80, 80}};
+    WB = {{160, 80}, {80, 80}};
+    WQ = {{80, 80}, {80, 80}};
+    WKi = {{0, 80}, {80, 80}};
 
     ChessPieces_texture.loadFromFile("Images/Chess pieces.png");
 
@@ -427,18 +427,18 @@ void CreateSmallChessPieces(AppState& appState)
 
     IntRect SBP, SBR, SBKn, SBB, SBQ, SBKi, SWP, SWR, SWKn, SWB, SWQ, SWKi;
 
-    SBP = {250, 0, 50, 50};
-    SBR = {200, 0, 50, 50};
-    SBKn = {150, 0, 50, 50};
-    SBB = {100, 0, 50, 50};
-    SBQ = {50, 0, 50, 50};
-    SBKi = {0, 0, 50, 50};
-    SWP = {250, 50, 50, 50};
-    SWR = {200, 50, 50, 50};
-    SWKn = {150, 50, 50, 50};
-    SWB = {100, 50, 50, 50};
-    SWQ = {50, 50, 50, 50};
-    SWKi = {0, 50, 50, 50};
+    SBP = {{250, 0}, {50, 50}};
+    SBR = {{200, 0}, {50, 50}};
+    SBKn = {{150, 0}, {50, 50}};
+    SBB = {{100, 0}, {50, 50}};
+    SBQ = {{50, 0}, {50, 50}};
+    SBKi = {{0, 0}, {50, 50}};
+    SWP = {{250, 50}, {50, 50}};
+    SWR = {{200, 50}, {50, 50}};
+    SWKn = {{150, 50}, {50, 50}};
+    SWB = {{100, 50}, {50, 50}};
+    SWQ = {{50, 50}, {50, 50}};
+    SWKi = {{0, 50}, {50, 50}};
 
     SmallChessPieces_texture.loadFromFile("Images/Small chess pieces.png");
 
@@ -467,11 +467,11 @@ void CreateBacklight(AppState& appState)
 
     IntRect DC, LC, GS, YS, RS;
 
-    DC = {0, 0, 80, 80};
-    LC = {80, 0, 80, 80};
-    GS = {0, 80, 80, 80};
-    YS = {80, 80, 80, 80};
-    RS = {160, 80, 80, 80};
+    DC = {{0, 0}, {80, 80}};
+    LC = {{80, 0}, {80, 80}};
+    GS = {{0, 80}, {80, 80}};
+    YS = {{80, 80}, {80, 80}};
+    RS = {{160, 80}, {80, 80}};
 
     Backlight_texture.loadFromFile("Images/Backlight.png");
 
@@ -490,8 +490,8 @@ void CreateChessboards(AppState& appState)
 
     IntRect OC, IC;
 
-    OC = {0, 0, 800, 800};
-    IC = {800, 0, 800, 800};
+    OC = {{0, 0}, {800, 800}};
+    IC = {{800, 0}, {800, 800}};
 
     Chessboards_texture.loadFromFile("Images/Chessboards.png");
 
@@ -531,7 +531,7 @@ void CreateScreensAndWindows(AppState& appState)
     CreateGameOverWindow(appState);
     CreateGameSaveWindow(appState);
     CreateGamePauseWindow(appState);
-    BackgroundDimmer.Create(BackgroundDimmer_texture, {0, 0, 1274, 800});
+    BackgroundDimmer.Create(BackgroundDimmer_texture, {{0, 0}, {1274, 800}});
 }
 
 void CreateMainMenuScreen(AppState& appState)
@@ -560,15 +560,15 @@ void CreateMainMenuScreen(AppState& appState)
     EFAp = {static_cast<float>(InitialWindowSize.x / 2 - EFAs.x / 2), static_cast<float>(Op.y + EFAs.y + 20)};
     BTGmmp = {static_cast<float>(InitialWindowSize.x / 2 - BTGmms.x / 2), static_cast<float>(NGp.y - BTGmms.y - 20)};
 
-    NGr1 = {0, 0, 368, 84};
-    NGr2 = {0, 84, 368, 84};
-    Or1 = {0, 168, 226, 78};
-    Or2 = {0, 246, 226, 78};
-    EFAr1 = {0, 324, 244, 78};
-    EFAr2 = {0, 402, 244, 78};
-    MMSBr = {0, 0, 1274, 800};
-    BTGmmr1 = {0, 0, 544, 66};
-    BTGmmr2 = {0, 66, 544, 66};
+    NGr1 = {{0, 0}, {368, 84}};
+    NGr2 = {{0, 84}, {368, 84}};
+    Or1 = {{0, 168}, {226, 78}};
+    Or2 = {{0, 246}, {226, 78}};
+    EFAr1 = {{0, 324}, {244, 78}};
+    EFAr2 = {{0, 402}, {244, 78}};
+    MMSBr = {{0, 0}, {1274, 800}};
+    BTGmmr1 = {{0, 0}, {544, 66}};
+    BTGmmr2 = {{0, 66}, {544, 66}};
 
     MainMenu_background.Create(Backgrounds_texture, MMSBr);
     NewGame_button.Create(MainMenuScreen_guiElements_texture, NGr1, NGr2, NGs, NGp);
@@ -606,14 +606,14 @@ void CreateChessGameScreen(AppState& appState)
     WMp = {static_cast<float>((450 / 2 - WMs.x / 2) + CS), static_cast<float>(InitialWindowSize.y / 2 - WMs.y / 2)};
     EFp = {static_cast<float>((450 / 2 - EFs.x / 2) + CS), 440};
 
-    PGr1 = {0, 260, 80, 80};
-    PGr2 = {80, 260, 80, 80};
-    FCr1 = {160, 260, 80, 80};
-    FCr2 = {240, 260, 80, 80};
-    BMr = {0, 0, 380, 70};
-    WMr = {0, 70, 380, 70};
-    EFr = {0, 140, 300, 120};
-    CGSBr = {0, 800, 1274, 800};
+    PGr1 = {{0, 260}, {80, 80}};
+    PGr2 = {{80, 260}, {80, 80}};
+    FCr1 = {{160, 260}, {80, 80}};
+    FCr2 = {{240, 260}, {80, 80}};
+    BMr = {{0, 0}, {380, 70}};
+    WMr = {{0, 70}, {380, 70}};
+    EFr = {{0, 140}, {300, 120}};
+    CGSBr = {{0, 800}, {1274, 800}};
 
     PauseGame_button.Create(ChessGameScreen_guiElements_texture, PGr1, PGr2, PGs, PGp);
     FlipChessboard_button.Create(ChessGameScreen_guiElements_texture, FCr1, FCr2, FCs, FCp);
@@ -656,23 +656,23 @@ void CreatePawnTransformationWindow(AppState& appState)
     WKp = {StartPosition.x + 410, StartPosition.y + 110};
     WRp = {StartPosition.x + 610, StartPosition.y + 110};
 
-    PTWr = {740, 0, 832, 332};
-    BQr1 = {0, 0, 200, 200};
-    BBr1 = {200, 0, 200, 200};
-    BKr1 = {400, 0, 200, 200};
-    BRr1 = {600, 0, 200, 200};
-    WQr1 = {0, 400, 200, 200};
-    WBr1 = {200, 400, 200, 200};
-    WKr1 = {400, 400, 200, 200};
-    WRr1 = {600, 400, 200, 200};
-    BQr2 = {0, 200, 200, 200};
-    BBr2 = {200, 200, 200, 200};
-    BKr2 = {400, 200, 200, 200};
-    BRr2 = {600, 200, 200, 200};
-    WQr2 = {0, 600, 200, 200};
-    WBr2 = {200, 600, 200, 200};
-    WKr2 = {400, 600, 200, 200};
-    WRr2 = {600, 600, 200, 200};
+    PTWr = {{740, 0}, {832, 332}};
+    BQr1 = {{0, 0}, {200, 200}};
+    BBr1 = {{200, 0}, {200, 200}};
+    BKr1 = {{400, 0}, {200, 200}};
+    BRr1 = {{600, 0}, {200, 200}};
+    WQr1 = {{0, 400}, {200, 200}};
+    WBr1 = {{200, 400}, {200, 200}};
+    WKr1 = {{400, 400}, {200, 200}};
+    WRr1 = {{600, 400}, {200, 200}};
+    BQr2 = {{0, 200}, {200, 200}};
+    BBr2 = {{200, 200}, {200, 200}};
+    BKr2 = {{400, 200}, {200, 200}};
+    BRr2 = {{600, 200}, {200, 200}};
+    WQr2 = {{0, 600}, {200, 200}};
+    WBr2 = {{200, 600}, {200, 200}};
+    WKr2 = {{400, 600}, {200, 200}};
+    WRr2 = {{600, 600}, {200, 200}};
 
     PawnTransformation_window.Create(Windows_texture, PTWr, PTWp);
     BlackQueenPT_icon.Create(PawnTransformationWindow_guiElements_texture, BQr1, BQr2, PiecesSize, BQp);
@@ -729,41 +729,41 @@ void CreateOptionsWindow(AppState& appState)
     PCp = {static_cast<float>(InitialWindowSize.x / 2 - PCs.x / 2), OWp.y + 189};
     LODp = {static_cast<float>(InitialWindowSize.x / 2 - LODs.x / 2), OWp.y + 371};
 
-    OWr = {0, 0, 740, 640};
+    OWr = {{0, 0}, {740, 640}};
 
-    PvEr1 = {0, 188, 324, 68};
-    PvEr2 = {0, 256, 324, 68};
-    PvEr3 = {0, 324, 324, 68};
+    PvEr1 = {{0, 188}, {324, 68}};
+    PvEr2 = {{0, 256}, {324, 68}};
+    PvEr3 = {{0, 324}, {324, 68}};
 
-    PvPr1 = {324, 188,324, 68};
-    PvPr2 = {324, 256, 324, 68};
-    PvPr3 = {324, 324, 324, 68};
+    PvPr1 = {{324, 188}, {324, 68}};
+    PvPr2 = {{324, 256}, {324, 68}};
+    PvPr3 = {{324, 324}, {324, 68}};
 
-    Wr1 = {0, 392, 200, 75};
-    Wr2 = {0, 467, 200, 75};
-    Wr3 = {0, 542, 200, 75};
+    Wr1 = {{0, 392}, {200, 75}};
+    Wr2 = {{0, 467}, {200, 75}};
+    Wr3 = {{0, 542}, {200, 75}};
 
-    Br1 = {200, 392, 200, 75};
-    Br2 = {200, 467, 200, 75};
-    Br3 = {200, 542, 200, 75};
+    Br1 = {{200, 392}, {200, 75}};
+    Br2 = {{200, 467}, {200, 75}};
+    Br3 = {{200, 542}, {200, 75}};
 
-    Er1 = {0, 617, 324, 64};
-    Er2 = {0, 681, 324, 64};
-    Er3 = {0, 745, 324, 64};
+    Er1 = {{0, 617}, {324, 64}};
+    Er2 = {{0, 681}, {324, 64}};
+    Er3 = {{0, 745}, {324, 64}};
 
-    Mr1 = {324, 617, 324, 64};
-    Mr2 = {324, 681, 324, 64};
-    Mr3 = {324, 745, 324, 64};
+    Mr1 = {{324, 617}, {324, 64}};
+    Mr2 = {{324, 681}, {324, 64}};
+    Mr3 = {{324, 745}, {324, 64}};
 
-    Dr1 = {0, 809, 324, 64};
-    Dr2 = {324, 809, 324, 64};
-    Dr3 = {0, 873, 324, 64};
+    Dr1 = {{0, 809}, {324, 64}};
+    Dr2 = {{324, 809}, {324, 64}};
+    Dr3 = {{0, 873}, {324, 64}};
 
-    EFOWr1 = {366, 64, 80, 60};
-    EFOWr2 = {446, 64, 80, 60};
-    GMr = {0, 0, 487, 64};
-    PCr = {0, 64, 366, 62};
-    LODr = {0, 126, 626, 62};
+    EFOWr1 = {{366, 64}, {80, 60}};
+    EFOWr2 = {{446, 64}, {80, 60}};
+    GMr = {{0, 0}, {487, 64}};
+    PCr = {{0, 64}, {366, 62}};
+    LODr = {{0, 126}, {626, 62}};
 
     Options_window.Create(Windows_texture, OWr, OWp);
     PvE_radioButton.Create(OptionsWindow_guiElements_texture, PvEr1, PvEr2, PvEr3, PvEs, PvEp, false, NULL, &PvP_radioButton);
@@ -812,16 +812,16 @@ void CreateGameOverWindow(AppState& appState)
     WWp = {GOWs.x / 2 - WWs.x / 2 + GOWp.x, GOWp.y + 90};
     Sp = {GOWs.x / 2 - Ss.x / 2 + GOWp.x, GOWp.y + 90};
 
-    GOWr = {0, 640, 680, 460};
-    BNGr1 = {0, 572, 522, 70};
-    BNGr2 = {0, 642, 522, 70};
-    GTMr1 = {0, 712, 560, 68};
-    GTMr2 = {0, 780, 560, 68};
-    Mr = {0, 0, 170, 74};
-    Pr = {170, 0, 170, 74};
-    BWr = {0, 74, 420, 166};
-    WWr = {0, 240, 420, 166};
-    Sr = {0, 406, 420, 166};
+    GOWr = {{0, 640}, {680, 460}};
+    BNGr1 = {{0, 572}, {522, 70}};
+    BNGr2 = {{0, 642}, {522, 70}};
+    GTMr1 = {{0, 712}, {560, 68}};
+    GTMr2 = {{0, 780}, {560, 68}};
+    Mr = {{0, 0}, {170, 74}};
+    Pr = {{170, 0}, {170, 74}};
+    BWr = {{0, 74}, {420, 166}};
+    WWr = {{0, 240}, {420, 166}};
+    Sr = {{0, 406}, {420, 166}};
 
     GameOver_window.Create(Windows_texture, GOWr, GOWp);
     BeginNewGame_button.Create(GameOverWindow_guiElements_texture, BNGr1, BNGr2, BNGs, BNGp);
@@ -857,12 +857,12 @@ void CreateGameSaveWindow(AppState& appState)
     GSWYp = {((GSWp.x + InitialWindowSize.x / 2) / 2) - GSWYs.x / 2 + 30, GSWp.y + 182};
     GSWNp = {((GSWp.x + GSWs.x + InitialWindowSize.x / 2) / 2) - GSWNs.x / 2 - 30, GSWp.y + 183};
 
-    GSWr = {740, 332, 620, 300};
-    WYLTSGr = {0, 0, 548, 112};
-    GSWYr1 = {0, 112, 146, 68};
-    GSWYr2 = {146, 112, 146, 68};
-    GSWNr1 = {292, 112, 84, 66};
-    GSWNr2 = {376, 112, 84, 66};
+    GSWr = {{740, 332}, {620, 300}};
+    WYLTSGr = {{0, 0}, {548, 112}};
+    GSWYr1 = {{0, 112}, {146, 68}};
+    GSWYr2 = {{146, 112}, {146, 68}};
+    GSWNr1 = {{292, 112}, {84, 66}};
+    GSWNr2 = {{376, 112}, {84, 66}};
 
     GameSave_window.Create(Windows_texture, GSWr, GSWp);
     WouldYouLikeToSaveGame_label.Create(GameSaveWindow_guiElements_texture, WYLTSGr, WYLTSGp);
@@ -894,13 +894,13 @@ void CreateGamePauseWindow(AppState& appState)
     SGp = {GPWs.x / 2 - SGs.x / 2 + GPWp.x, GPWp.y + 143};
     EFCGp = {GPWs.x / 2 - EFCGs.x / 2 + GPWp.x, GPWp.y + 229};
 
-    GPWr = {0, 1100, 670, 340};
-    BTGr1 = {0, 0, 544, 66};
-    BTGr2 = {0, 66, 544, 66};
-    SGr1 = {0, 132, 422, 66};
-    SGr2 = {0, 198, 422, 66};
-    EFCGr1 = {0, 264, 194, 54};
-    EFCGr2 = {0, 318, 194, 54};
+    GPWr = {{0, 1100}, {670, 340}};
+    BTGr1 = {{0, 0}, {544, 66}};
+    BTGr2 = {{0, 66}, {544, 66}};
+    SGr1 = {{0, 132}, {422, 66}};
+    SGr2 = {{0, 198}, {422, 66}};
+    EFCGr1 = {{0, 264}, {194, 54}};
+    EFCGr2 = {{0, 318}, {194, 54}};
 
     GamePause_window.Create(Windows_texture, GPWr, GPWp);
     BackToGame_button.Create(GamePauseWindow_guiElements_texture, BTGr1, BTGr2, BTGs, BTGp);
