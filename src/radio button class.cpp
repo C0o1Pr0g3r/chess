@@ -3,6 +3,12 @@
 
 using namespace sf;
 
+RadioButton::RadioButton(const sf::Texture &texture)
+:
+    Button(texture),
+    ButtonImage3(texture)
+{}
+
 void RadioButton::Create(Texture btnTexture, IntRect rect1, IntRect rect2, IntRect rect3, Vector2u btnSize, Vector2f btnPosition, bool btnChoosed, RadioButton * previousRBtn, RadioButton * nextRBtn)
 {
     ButtonTexture = btnTexture;

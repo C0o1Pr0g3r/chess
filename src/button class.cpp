@@ -3,6 +3,12 @@
 
 using namespace sf;
 
+Button::Button(const sf::Texture &texture)
+:
+    ButtonImage(texture),
+    ButtonImage2(texture)
+{}
+
 void Button::Create(Texture btnTexture, IntRect rect1, IntRect rect2, Vector2u btnSize, Vector2f btnPosition)
 {
     ButtonTexture = btnTexture;

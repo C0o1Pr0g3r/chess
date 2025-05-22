@@ -3,6 +3,11 @@
 
 using namespace sf;
 
+Label::Label(const sf::Texture &texture)
+:
+    InscriptionImage(texture)
+{}
+
 void Label::Create(Texture iTexture, IntRect rect, Vector2f iPosition)
 {
     InscriptionTexture = iTexture;

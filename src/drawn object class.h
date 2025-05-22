@@ -11,6 +11,7 @@ private:
     Texture DrawnObjectTexture;
     Sprite DrawnObjectImage;
 public:
+    DrawnObject(const sf::Texture &texture);
     void Create(Texture doTexture, IntRect rect);
     void Create(Texture doTexture, IntRect rect, Vector2f position);
     void SetPosition(Vector2f position);

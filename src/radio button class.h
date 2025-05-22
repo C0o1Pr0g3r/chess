@@ -13,6 +13,7 @@ private:
     Sprite ButtonImage3;
     bool ButtonChoosed;
 public:
+    RadioButton(const sf::Texture &texture);
     void Create(Texture btnTexture, IntRect rect1, IntRect rect2, IntRect rect3, Vector2u btnSize, Vector2f btnPosition, bool btnChoosed, RadioButton * previousRBtn, RadioButton * nextRBtn);
     void Draw(RenderWindow & window);
     bool IsChoosed(void);

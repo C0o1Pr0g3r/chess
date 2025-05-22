@@ -3,6 +3,11 @@
 
 using namespace sf;
 
+DrawnObject::DrawnObject(const sf::Texture &texture)
+:
+    DrawnObjectImage(texture)
+{}
+
 void DrawnObject::Create(Texture doTexture, IntRect rect)
 {
     DrawnObjectTexture = doTexture;

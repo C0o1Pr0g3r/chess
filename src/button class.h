@@ -14,6 +14,7 @@ protected:
     Vector2f InitialButtonPosition, ButtonPosition;
     bool ButtonEnabled;
 public:
+    Button(const sf::Texture &texture);
     void Create(Texture btnTexture, IntRect rect1, IntRect rect2, Vector2u btnSize, Vector2f btnPosition);
     void Draw(RenderWindow & window);
     bool IsEnabled(void);

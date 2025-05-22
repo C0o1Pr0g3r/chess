@@ -12,6 +12,7 @@ private:
     Sprite InscriptionImage;
     Vector2f InscriptionPosition;
 public:
+    Label(const sf::Texture &texture);
     void Create(Texture iTexture, IntRect rect, Vector2f iPosition);
     void Draw(RenderWindow & window);
 };

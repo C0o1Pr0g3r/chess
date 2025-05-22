@@ -65,30 +65,103 @@ struct AppState {
     MainMenuScreen_guiElements_texture, ChessGameScreen_guiElements_texture, BackgroundDimmer_texture,
     PawnTransformationWindow_guiElements_texture, GameOverWindow_guiElements_texture, GamePauseWindow_guiElements_texture, OptionsWindow_guiElements_texture, GameSaveWindow_guiElements_texture;
 
-    DrawnObject BlackPawn_sprite, BlackRook_sprite, BlackKnight_sprite, BlackBishop_sprite, BlackQueen_sprite, BlackKing_sprite,
-    WhitePawn_sprite, WhiteRook_sprite, WhiteKnight_sprite, WhiteBishop_sprite, WhiteQueen_sprite, WhiteKing_sprite,
-    SmallBlackPawn_sprite, SmallBlackRook_sprite, SmallBlackKnight_sprite, SmallBlackBishop_sprite, SmallBlackQueen_sprite, SmallBlackKing_sprite,
-    SmallWhitePawn_sprite, SmallWhiteRook_sprite, SmallWhiteKnight_sprite, SmallWhiteBishop_sprite, SmallWhiteQueen_sprite, SmallWhiteKing_sprite,
-    DarkCircle_sprite, LightCircle_sprite, GreenSquare_sprite, YellowSquare_sprite, RedSquare_sprite,
-    MainMenu_background, ChessGame_background, BackgroundDimmer,
-    PawnTransformation_window, GameOver_window, GamePause_window, Options_window, GameSave_window,
-    OrdinaryChessboard_sprite, InvertedChessboard_sprite,
-     * pAS, * pRAS;
+    DrawnObject BlackPawn_sprite {Texture()};
+    DrawnObject BlackRook_sprite {Texture()};
+    DrawnObject BlackKnight_sprite {Texture()};
+    DrawnObject BlackBishop_sprite {Texture()};
+    DrawnObject BlackQueen_sprite {Texture()};
+    DrawnObject BlackKing_sprite {Texture()};
 
-    Label BlackMove_label, WhiteMove_label, EatenFigures_label,
-    Mat_label, Pat_label,BlackWin_label, WhiteWin_label, Standoff_label,
-    GameMode_label, PieceColor_label, LevelOfDifficulty_label,
-    WouldYouLikeToSaveGame_label;
+    DrawnObject WhitePawn_sprite {Texture()};
+    DrawnObject WhiteRook_sprite {Texture()};
+    DrawnObject WhiteKnight_sprite {Texture()};
+    DrawnObject WhiteBishop_sprite {Texture()};
+    DrawnObject WhiteQueen_sprite {Texture()};
+    DrawnObject WhiteKing_sprite {Texture()};
 
-    Button NewGame_button, Options_button, ExitFromApp_button, ExitFromOptionsWindow_button,
-    PauseGame_button, FlipChessboard_button,
-    BeginNewGame_button, GoToMenu_button,
-    BackToGame_button, SaveGame_button, ExitFromChessGame_button,
-    GSWYes_button, GSWNo_button,
-    BlackRookPT_icon, BlackKnightPT_icon, BlackBishopPT_icon, BlackQueenPT_icon, WhiteRookPT_icon, WhiteKnightPT_icon, WhiteBishopPT_icon, WhiteQueenPT_icon, BackToGameMM_button,
-    * DQ, * DB, * DK, * DR;
+    DrawnObject SmallBlackPawn_sprite {Texture()};
+    DrawnObject SmallBlackRook_sprite {Texture()};
+    DrawnObject SmallBlackKnight_sprite {Texture()};
+    DrawnObject SmallBlackBishop_sprite {Texture()};
+    DrawnObject SmallBlackQueen_sprite {Texture()};
+    DrawnObject SmallBlackKing_sprite {Texture()};
 
-    RadioButton PvE_radioButton, PvP_radioButton, White_radioButton, Black_radioButton, EasyLvl_radioButton, MediumLvl_radioButton, DifficultLvl_radioButton;
+    DrawnObject SmallWhitePawn_sprite {Texture()};
+    DrawnObject SmallWhiteRook_sprite {Texture()};
+    DrawnObject SmallWhiteKnight_sprite {Texture()};
+    DrawnObject SmallWhiteBishop_sprite {Texture()};
+    DrawnObject SmallWhiteQueen_sprite {Texture()};
+    DrawnObject SmallWhiteKing_sprite {Texture()};
+
+    DrawnObject DarkCircle_sprite {Texture()};
+    DrawnObject LightCircle_sprite {Texture()};
+    DrawnObject GreenSquare_sprite {Texture()};
+    DrawnObject YellowSquare_sprite {Texture()};
+    DrawnObject RedSquare_sprite {Texture()};
+
+    DrawnObject MainMenu_background {Texture()};
+    DrawnObject ChessGame_background {Texture()};
+    DrawnObject BackgroundDimmer {Texture()};
+
+    DrawnObject PawnTransformation_window {Texture()};
+    DrawnObject GameOver_window {Texture()};
+    DrawnObject GamePause_window {Texture()};
+    DrawnObject Options_window {Texture()};
+    DrawnObject GameSave_window {Texture()};
+
+    DrawnObject OrdinaryChessboard_sprite {Texture()};
+    DrawnObject InvertedChessboard_sprite {Texture()};
+
+    DrawnObject *pAS;
+    DrawnObject *pRAS;
+
+    Label BlackMove_label {Texture()};
+    Label WhiteMove_label {Texture()};
+    Label EatenFigures_label {Texture()};
+    Label Mat_label {Texture()};
+    Label Pat_label {Texture()};
+    Label BlackWin_label {Texture()};
+    Label WhiteWin_label {Texture()};
+    Label Standoff_label {Texture()};
+    Label GameMode_label {Texture()};
+    Label PieceColor_label {Texture()};
+    Label LevelOfDifficulty_label {Texture()};
+    Label WouldYouLikeToSaveGame_label {Texture()};
+
+    Button NewGame_button {Texture()};
+    Button Options_button {Texture()};
+    Button ExitFromApp_button {Texture()};
+    Button ExitFromOptionsWindow_button {Texture()};
+    Button PauseGame_button {Texture()};
+    Button FlipChessboard_button {Texture()};
+    Button BeginNewGame_button {Texture()};
+    Button GoToMenu_button {Texture()};
+    Button BackToGame_button {Texture()};
+    Button SaveGame_button {Texture()};
+    Button ExitFromChessGame_button {Texture()};
+    Button GSWYes_button {Texture()};
+    Button GSWNo_button {Texture()};
+    Button BlackRookPT_icon {Texture()};
+    Button BlackKnightPT_icon {Texture()};
+    Button BlackBishopPT_icon {Texture()};
+    Button BlackQueenPT_icon {Texture()};
+    Button WhiteRookPT_icon {Texture()};
+    Button WhiteKnightPT_icon {Texture()};
+    Button WhiteBishopPT_icon {Texture()};
+    Button WhiteQueenPT_icon {Texture()};
+    Button BackToGameMM_button {Texture()};
+    Button * DQ;
+    Button * DB;
+    Button * DK;
+    Button * DR;
+
+    RadioButton PvE_radioButton {Texture()};
+    RadioButton PvP_radioButton {Texture()};
+    RadioButton White_radioButton {Texture()};
+    RadioButton Black_radioButton {Texture()};
+    RadioButton EasyLvl_radioButton {Texture()};
+    RadioButton MediumLvl_radioButton {Texture()};
+    RadioButton DifficultLvl_radioButton {Texture()};
 };
 
 #endif // APP_STATE_H_INCLUDED
