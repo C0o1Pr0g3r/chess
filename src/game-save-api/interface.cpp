@@ -40,6 +40,12 @@ bool SavedGameState::fromJson(const json& j)
     gameState.PawnOnAisleCoordinates.x = j["PawnOnAisleCoordinates"]["x"].template get<int>();
     gameState.PawnOnAisleCoordinates.y = j["PawnOnAisleCoordinates"]["y"].template get<int>();
 
+    if (!j.contains("enPassantTargetSquare")) return false;
+    if (!(j["enPassantTargetSquare"].contains("x") && j["enPassantTargetSquare"]["x"].is_number_integer())) return false;
+    if (!(j["enPassantTargetSquare"].contains("y") && j["enPassantTargetSquare"]["y"].is_number_integer())) return false;
+    gameState.enPassantTargetSquare.x = j["enPassantTargetSquare"]["x"].template get<int>();
+    gameState.enPassantTargetSquare.y = j["enPassantTargetSquare"]["y"].template get<int>();
+
     if (!(j.contains("ChessboardIsInverted") && j["ChessboardIsInverted"].is_boolean())) return false;
     gameState.ChessboardIsInverted = j["ChessboardIsInverted"].template get<bool>();
 
@@ -93,6 +99,7 @@ bool SavedGameState::fromJson(const json& j)
     this->blackKing = gameState.blackKing;
     this->whiteKing = gameState.whiteKing;
     this->PawnOnAisleCoordinates = gameState.PawnOnAisleCoordinates;
+    this->enPassantTargetSquare = gameState.enPassantTargetSquare;
     this->ChessboardIsInverted = gameState.ChessboardIsInverted;
     this->WhoseMove = gameState.WhoseMove;
     this->IsTakingOnAisleActivated = gameState.IsTakingOnAisleActivated;
@@ -138,6 +145,12 @@ json SavedGameState::toJson() const
                 "PawnOnAisleCoordinates", {
                     {"x", PawnOnAisleCoordinates.x},
                     {"y", PawnOnAisleCoordinates.y},
+                }
+            },
+            {
+                "enPassantTargetSquare", {
+                    {"x", enPassantTargetSquare.x},
+                    {"y", enPassantTargetSquare.y},
                 }
             },
             {"ChessboardIsInverted", ChessboardIsInverted},

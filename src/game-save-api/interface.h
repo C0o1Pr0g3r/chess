@@ -17,6 +17,7 @@ struct SavedGameState
     Vector2i blackKing;
     Vector2i whiteKing;
     Vector2i PawnOnAisleCoordinates;
+    Vector2i enPassantTargetSquare;
     bool ChessboardIsInverted;
     bool WhoseMove;
     bool IsTakingOnAisleActivated;

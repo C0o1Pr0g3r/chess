@@ -11,6 +11,7 @@
 #include "animation functions.h"
 #include "connector.hpp"
 #include "app-state.h"
+#include "fen.h"
 #include <nlohmann/json.hpp>
 
 using namespace std;
@@ -1286,6 +1287,7 @@ void RecordChessMove(AppState& appState, std::string chess_note)
     else if (WhoseMove == EnvironmentMove)
         printf("Хід гравця: %s.\n", chess_note.c_str());
 
+    printf("FEN: \"%s\".\n", GetFenNotation(appState).c_str());
 }
 
 void FlipChessboard(AppState& appState)

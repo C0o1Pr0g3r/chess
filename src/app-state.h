@@ -27,7 +27,7 @@ struct AppState {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
     };
 
-    Vector2i blackKing, whiteKing, GroupOfFigures[8];
+    Vector2i blackKing, whiteKing, GroupOfFigures[8], enPassantTargetSquare;
 
     int EatenFigures[NUMBER_OF_EATEN_FIGURES];
 
@@ -170,6 +170,7 @@ struct AppState {
         gameState.blackKing = this->blackKing;
         gameState.whiteKing = this->whiteKing;
         gameState.PawnOnAisleCoordinates = this->PawnOnAisleCoordinates;
+        gameState.enPassantTargetSquare = this->enPassantTargetSquare;
         gameState.ChessboardIsInverted = this->ChessboardIsInverted;
         gameState.WhoseMove = this->WhoseMove;
         gameState.IsTakingOnAisleActivated = this->IsTakingOnAisleActivated;
@@ -199,6 +200,7 @@ struct AppState {
         this->blackKing = gameState.blackKing;
         this->whiteKing = gameState.whiteKing;
         this->PawnOnAisleCoordinates = gameState.PawnOnAisleCoordinates;
+        this->enPassantTargetSquare = gameState.enPassantTargetSquare;
         this->ChessboardIsInverted = gameState.ChessboardIsInverted;
         this->WhoseMove = gameState.WhoseMove;
         this->IsTakingOnAisleActivated = gameState.IsTakingOnAisleActivated;

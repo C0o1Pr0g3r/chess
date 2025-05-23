@@ -274,6 +274,7 @@ bool movePawn(AppState& appState, int ox, int oy, int nx, int ny)
 
     bool FigureHasMoved = false;
     int step1, step2;
+    bool pawnMadeFirstMoveOn2Cells = false;
 
     switch(FIGURE_COLOR(board[oy][ox]))
     {
@@ -310,6 +311,7 @@ bool movePawn(AppState& appState, int ox, int oy, int nx, int ny)
 
         if (ny == oy + step2)
         {
+            pawnMadeFirstMoveOn2Cells = true;
             if (IsTherePawnToActivateTakingOnAisle(appState, nx, ny))
             {
                 IsTakingOnAisleActivated = true;
@@ -333,6 +335,15 @@ bool movePawn(AppState& appState, int ox, int oy, int nx, int ny)
         PieceIsChoose = false;
         FigureHasMoved = true;
         IsTakingOnAisleUsed = true;
+    }
+
+    if (pawnMadeFirstMoveOn2Cells)
+    {
+        appState.enPassantTargetSquare = {nx, ny - (step2 / 2)};
+    }
+    else
+    {
+        appState.enPassantTargetSquare = {0, 0};
     }
 
     return FigureHasMoved;

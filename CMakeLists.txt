@@ -27,6 +27,7 @@ add_executable(
     "src/coordinate processing functions.cpp"
     "src/drawing functions.cpp"
     "src/drawn object class.cpp"
+    "src/fen.cpp"
     "src/handling functions.cpp"
     "src/label class.cpp"
     "src/main.cpp"
