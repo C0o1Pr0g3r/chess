@@ -26,7 +26,7 @@ struct SavedGameState
     int LevelOfDifficulty;
     int board[BOARD_SIZE][BOARD_SIZE];
     int EatenFigures[NUMBER_OF_EATEN_FIGURES];
-    string AllMovesInGame;
+    vector<string> AllMovesInGame;
 
     bool fromJson(const json& j);
     json toJson() const;

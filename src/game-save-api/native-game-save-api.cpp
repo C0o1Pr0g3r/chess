@@ -88,7 +88,16 @@ tuple<bool, SavedGameState> NativeGameSaveApi::restore()
             printf("%2d", gameState.EatenFigures[i]);
         putchar('\n');
 
-        printf("Всі ходи у грі: \"%s\".\n", gameState.AllMovesInGame.c_str());
+        string moves = "";
+        for (size_t i = 0; i < gameState.AllMovesInGame.size(); ++i)
+        {
+            moves.append(gameState.AllMovesInGame[i]);
+            if (i < gameState.AllMovesInGame.size() - 1)
+            {
+                moves.append(" ");
+            }
+        }
+        printf("Всі ходи у грі: \"%s\".\n", moves.c_str());
     }
 
     return make_tuple(true, gameState);

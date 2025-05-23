@@ -1142,7 +1142,10 @@ std::string RewriteChessNotation(AppState& appState)
         case QUEEN : figure_letter = "q"; break;
     }
 
-    AllMovesInGame += figure_letter;
+    if (!AllMovesInGame.empty())
+    {
+        AllMovesInGame.back() += figure_letter;
+    }
 
     return figure_letter;
 }
@@ -1255,7 +1258,7 @@ string GetNextEnvironmentMove(AppState& appState, int * ox, int * oy, int * nx, 
 
     do
     {
-        NEM = getNextMove(AllMovesInGame);
+        NEM = getNextMove("");
     } while (NEM == "error");
 
     OP = toCoord(appState, NEM[0], NEM[1]);
@@ -1276,7 +1279,7 @@ void RecordChessMove(AppState& appState, std::string chess_note)
     auto& PlayerMove = appState.PlayerMove;
     auto& EnvironmentMove = appState.EnvironmentMove;
 
-    AllMovesInGame += " " + chess_note;
+    AllMovesInGame.push_back(chess_note);
 
     if (WhoseMove == PlayerMove)
         printf("Хід комп'ютера: %s.\n", chess_note.c_str());
@@ -1401,7 +1404,7 @@ void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
     WhoseMove = false;
     IsTakingOnAisleActivated = false;
     IsTakingOnAisleUsed = false;
-    AllMovesInGame = "";
+    AllMovesInGame.clear();
 }
 
 void ChangeGameSettings(AppState& appState)

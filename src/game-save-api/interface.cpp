@@ -80,8 +80,15 @@ bool SavedGameState::fromJson(const json& j)
         gameState.EatenFigures[i] = j["EatenFigures"][i].template get<int>();
     }
 
-    if (!(j.contains("AllMovesInGame") && j["AllMovesInGame"].is_string())) return false;
-    gameState.AllMovesInGame = j["AllMovesInGame"].template get<string>();
+    vector<string> tempAllMovesInGame;
+    if (!(j.contains("AllMovesInGame") && j["AllMovesInGame"].is_array())) return false;
+    for (size_t i = 0; i < j["AllMovesInGame"].size(); ++i)
+    {
+        if (!j["AllMovesInGame"][i].is_string()) return false;
+
+        tempAllMovesInGame.push_back(j["AllMovesInGame"][i].template get<string>());
+    }
+    gameState.AllMovesInGame = tempAllMovesInGame;
 
     this->blackKing = gameState.blackKing;
     this->whiteKing = gameState.whiteKing;

@@ -56,7 +56,8 @@ struct AppState {
     bool IsTakingOnAisleActivated, IsTakingOnAisleUsed, WhoHasMoved;
     Vector2i PawnOnAisleCoordinates, AnimatedRookStartingPosition, AnimatedRookFinalPosition, pNC;
 
-    string AllMovesInGame, NextEnvironmentMove, CurrentChessNote;
+    string NextEnvironmentMove, CurrentChessNote;
+    vector<string> AllMovesInGame;
 
     Texture Chessboards_texture, ChessPieces_texture, SmallChessPieces_texture, Backlight_texture, Backgrounds_texture, Windows_texture,
     MainMenuScreen_guiElements_texture, ChessGameScreen_guiElements_texture, BackgroundDimmer_texture,
