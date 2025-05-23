@@ -1291,6 +1291,7 @@ void FlipChessboard(AppState& appState)
     auto& ChessboardIsInverted = appState.ChessboardIsInverted;
     auto& blackKing = appState.blackKing;
     auto& whiteKing = appState.whiteKing;
+    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
     auto& PieceIsChoose = appState.PieceIsChoose;
     auto& OCC = appState.OCC;
     auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
@@ -1310,6 +1311,7 @@ void FlipChessboard(AppState& appState)
 
     blackKing = {LENGTH - 1 - blackKing.x, LENGTH - 1 - blackKing.y};
     whiteKing = {LENGTH - 1 - whiteKing.x, LENGTH - 1 - whiteKing.y};
+    PawnOnAisleCoordinates = {LENGTH - 1 - PawnOnAisleCoordinates.x, LENGTH - 1 - PawnOnAisleCoordinates.y};
 
     if (PieceIsChoose)
         FigureSelection(appState, LENGTH - 1 - OCC.x, LENGTH - 1 - OCC.y);
