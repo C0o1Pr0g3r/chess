@@ -12,6 +12,9 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 add_executable(
     main
     "src/animation functions.cpp"
@@ -31,6 +34,6 @@ add_executable(
     "src/secondary functions.cpp"
 )
 target_compile_features(main PRIVATE cxx_std_17)
-target_link_libraries(main PRIVATE SFML::Graphics)
+target_link_libraries(main PRIVATE SFML::Graphics nlohmann_json::nlohmann_json)
 
 set(CMAKE_CXX_FLAGS "-fsanitize=address")

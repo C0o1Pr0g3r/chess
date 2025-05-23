@@ -11,9 +11,11 @@
 #include "animation functions.h"
 #include "connector.hpp"
 #include "app-state.h"
+#include <nlohmann/json.hpp>
 
 using namespace std;
 using namespace sf;
+using json = nlohmann::json;
 
 void PrintErrorAboutLoadingTexture(const char* filePath)
 {
@@ -1445,7 +1447,7 @@ void SetLevelOfDifficulty(AppState& appState, int level_of_difficulty)
     }
 }
 
-auto PATH_TO_FILE_WITH_SAVING = "saved data.txt";
+auto PATH_TO_FILE_WITH_SAVING = "saved data.json";
 
 bool WriteDataToFile(AppState& appState)
 {
@@ -1465,58 +1467,59 @@ bool WriteDataToFile(AppState& appState)
     auto& EatenFigures = appState.EatenFigures;
     auto& AllMovesInGame = appState.AllMovesInGame;
 
-    ofstream out;
-    int i, j;
-    bool status = true;
-
-    out.open(PATH_TO_FILE_WITH_SAVING);
-
-    if (out.is_open())
+    if (IsThereSavedGame)
     {
-        if (IsThereSavedGame)
+        ofstream out(PATH_TO_FILE_WITH_SAVING);
+        bool status = true;
+
+        if (out.is_open())
         {
-            out << 1 << endl;
-            out << blackKing.x << " " << blackKing.y << endl;
-            out << whiteKing.x << " " << whiteKing.y << endl;
-            out << PawnOnAisleCoordinates.x << " " << PawnOnAisleCoordinates.y << endl;
-            out << ChessboardIsInverted << endl;
-            out << WhoseMove << endl;
-            out << IsTakingOnAisleActivated << endl;
-            out << IsTakingOnAisleUsed << endl;
-            out << WhoHasMoved << endl;
-            out << CurrentGameMode << endl;
-            out << PlayerColor << endl;
-            out << LevelOfDifficulty << endl;
-
-            out << endl;
-            for (i = 0; i < LENGTH; i++)
-            {
-                for (j = 0; j < LENGTH; j++)
+            json j = {
                 {
-                    out << board[i][j] << " ";
+                    {
+                        "blackKing", {
+                            {"x", blackKing.x},
+                            {"y", blackKing.y},
+                        }
+                    },
+                    {
+                        "whiteKing", {
+                            {"x", whiteKing.x},
+                            {"y", whiteKing.y},
+                        }
+                    },
+                    {
+                        "PawnOnAisleCoordinates", {
+                            {"x", PawnOnAisleCoordinates.x},
+                            {"y", PawnOnAisleCoordinates.y},
+                        }
+                    },
+                    {"ChessboardIsInverted", ChessboardIsInverted},
+                    {"WhoseMove", WhoseMove},
+                    {"IsTakingOnAisleActivated", IsTakingOnAisleActivated},
+                    {"IsTakingOnAisleUsed", IsTakingOnAisleUsed},
+                    {"WhoHasMoved", WhoHasMoved},
+                    {"CurrentGameMode", CurrentGameMode},
+                    {"PlayerColor", PlayerColor},
+                    {"LevelOfDifficulty", LevelOfDifficulty},
+                    {"board", board},
+                    {"EatenFigures", EatenFigures},
+                    {"AllMovesInGame", AllMovesInGame},
                 }
-                out << endl;
-            }
+            };
 
-            out << endl;
-            for (i = 0; i < 10; i++)
-                out << EatenFigures[i] << " ";
-            out << endl << endl;
+            out << j[0] << endl;
+            out.close();
 
-            out << AllMovesInGame << endl;
+            return true;
         }
         else
         {
-            out << 0 << "\r\n";
+            fprintf(stderr, "Не вдалося відкрити файл для збереження даних гри.\n");
         }
-        out << EOF;
     }
-    else
-        status = false;
 
-    out.close();
-
-    return status;
+    return false;
 }
 
 bool ReadDataFromFile(AppState& appState)
@@ -1551,11 +1554,12 @@ bool ReadDataFromFile(AppState& appState)
     int chessboard_is_inverted, piece_is_choose, whose_move, is_taking_on_aisle_activated, is_taking_on_aisle_used, who_has_moved, current_game_mode, player_color;
     int level_of_difficulty;
     int arrangement_of_figures_on_board[LENGTH][LENGTH], eaten_figures[10];
-    char all_moves_in_game[4096], * pt;
-    int all_moves_length;
+    string all_moves_in_game;
     bool status = true;
 
-    if ((fp = fopen(PATH_TO_FILE_WITH_SAVING, "rb+")) == NULL)
+    ifstream in(PATH_TO_FILE_WITH_SAVING);
+
+    if (!in.is_open())
     {
         fprintf(stderr, "Не вдалося відкрити файл, у якому збережено налаштування та стан гри.");
         SetGameMode(appState, PlayerVersusPlayer);
@@ -1565,35 +1569,100 @@ bool ReadDataFromFile(AppState& appState)
     }
     else
     {
-        rewind(fp);
+        json j = json::parse(in);
 
-        fscanf(fp, "%c", &is_there_saved_game);
-        if (is_there_saved_game == '1')
+        if (j.is_object())
         {
+            if (j.contains("blackKing"))
+            {
+                if (j["blackKing"].contains("x") && j["blackKing"]["x"].is_number_integer())
+                {
+                    black_king_pos.x = j["blackKing"]["x"].template get<int>();
+                }
+                if (j["blackKing"].contains("y") && j["blackKing"]["y"].is_number_integer())
+                {
+                    black_king_pos.y = j["blackKing"]["y"].template get<int>();
+                }
+            }
+            if (j.contains("whiteKing"))
+            {
+                if (j["whiteKing"].contains("x") && j["whiteKing"]["x"].is_number_integer())
+                {
+                    white_king_pos.x = j["whiteKing"]["x"].template get<int>();
+                }
+                if (j["whiteKing"].contains("y") && j["whiteKing"]["y"].is_number_integer())
+                {
+                    white_king_pos.y = j["whiteKing"]["y"].template get<int>();
+                }
+            }
+            if (j.contains("PawnOnAisleCoordinates"))
+            {
+                if (j["PawnOnAisleCoordinates"].contains("x") && j["PawnOnAisleCoordinates"]["x"].is_number_integer())
+                {
+                    pawn_on_aisle_coordinates.x = j["PawnOnAisleCoordinates"]["x"].template get<int>();
+                }
+                if (j["PawnOnAisleCoordinates"].contains("y") && j["PawnOnAisleCoordinates"]["y"].is_number_integer())
+                {
+                    pawn_on_aisle_coordinates.y = j["PawnOnAisleCoordinates"]["y"].template get<int>();
+                }
+            }
+            if (j.contains("ChessboardIsInverted") && j["ChessboardIsInverted"].is_boolean())
+            {
+                chessboard_is_inverted = j["ChessboardIsInverted"].template get<bool>();
+            }
+            if (j.contains("WhoseMove") && j["WhoseMove"].is_boolean())
+            {
+                whose_move = j["WhoseMove"].template get<bool>();
+            }
+            if (j.contains("IsTakingOnAisleActivated") && j["IsTakingOnAisleActivated"].is_boolean())
+            {
+                is_taking_on_aisle_activated = j["IsTakingOnAisleActivated"].template get<bool>();
+            }
+            if (j.contains("IsTakingOnAisleUsed") && j["IsTakingOnAisleUsed"].is_boolean())
+            {
+                is_taking_on_aisle_used = j["IsTakingOnAisleUsed"].template get<bool>();
+            }
+            if (j.contains("WhoHasMoved") && j["WhoHasMoved"].is_boolean())
+            {
+                who_has_moved = j["WhoHasMoved"].template get<bool>();
+            }
+            if (j.contains("CurrentGameMode") && j["CurrentGameMode"].is_number_integer())
+            {
+                current_game_mode = j["CurrentGameMode"].template get<GameModes>();
+            }
+            if (j.contains("PlayerColor") && j["PlayerColor"].is_number_integer())
+            {
+                player_color = j["PlayerColor"].template get<int>();
+            }
+            if (j.contains("LevelOfDifficulty") && j["LevelOfDifficulty"].is_number_integer())
+            {
+                level_of_difficulty = j["LevelOfDifficulty"].template get<int>();
+            }
+            if (j.contains("board") && j["board"].is_array())
+            {
+                vector<vector<int>> tempBoard = j["board"].template get<vector<vector<int>>>();
+                for (size_t i = 0; i < tempBoard.size() && i < BOARD_SIZE; ++i)
+                {
+                    for (size_t j = 0; j < tempBoard[i].size() && j < BOARD_SIZE; ++j)
+                    {
+                        arrangement_of_figures_on_board[i][j] = tempBoard[i][j];
+                    }
+                }
+            }
+            if (j.contains("EatenFigures") && j["EatenFigures"].is_array())
+            {
+                vector<int> tempEatenFigures = j["EatenFigures"].template get<vector<int>>();
+                for (size_t i = 0; i < tempEatenFigures.size() && i < sizeof(EatenFigures) / sizeof(EatenFigures[0]); ++i)
+                {
+                    eaten_figures[i] = tempEatenFigures[i];
+                }
+            }
+            if (j.contains("AllMovesInGame") && j["AllMovesInGame"].is_string())
+            {
+                all_moves_in_game = j["AllMovesInGame"].template get<string>();
+            }
+
             puts("Файл збереження містить дані про збережену гру.");
-            fscanf(fp, "%d %d", &black_king_pos.x, &black_king_pos.y);
-            fscanf(fp, "%d %d", &white_king_pos.x, &white_king_pos.y);
-            fscanf(fp, "%d %d", &pawn_on_aisle_coordinates.x, &pawn_on_aisle_coordinates.y);
-            fscanf(fp, "%d", &chessboard_is_inverted);
-            fscanf(fp, "%d", &whose_move);
-            fscanf(fp, "%d", &is_taking_on_aisle_activated);
-            fscanf(fp, "%d", &is_taking_on_aisle_used);
-            fscanf(fp, "%d", &who_has_moved);
-            fscanf(fp, "%d", &current_game_mode);
-            fscanf(fp, "%d", &player_color);
-            fscanf(fp, "%d", &level_of_difficulty);
-
-            for (i = 0; i < LENGTH; i++)
-                for (j = 0; j < LENGTH; j++)
-                    fscanf(fp, "%d", &arrangement_of_figures_on_board[i][j]);
-
-            for (i = 0; i < 10; i++)
-                fscanf(fp, "%d", &eaten_figures[i]);
-
-            fseek(fp, 5, SEEK_CUR);
-            fgets(all_moves_in_game, 4096, fp);
-            all_moves_length = strlen(all_moves_in_game);
-
             printf("Збережена гра: %c.\n", is_there_saved_game);
             printf("Координати чорного короля: (%d; %d).\n", black_king_pos.x, black_king_pos.y);
             printf("Координати білого короля: (%d; %d).\n", white_king_pos.x, white_king_pos.y);
@@ -1608,18 +1677,19 @@ bool ReadDataFromFile(AppState& appState)
             printf("Рівень складності: %d.\n", level_of_difficulty);
             puts("Шахова дошка:");
 
-            for (i = 0; i < LENGTH; i++)
+            for (int i = 0; i < LENGTH; i++)
             {
-                for (j = 0; j < LENGTH; j++)
+                for (int j = 0; j < LENGTH; j++)
                     printf("%4d ", arrangement_of_figures_on_board[i][j]);
                 putchar('\n');
             }
+
             puts("З'їдені фігури:");
-            for (i = 0; i < LENGTH; i++)
+            for (int i = 0; i < LENGTH; i++)
                 printf("%2d", eaten_figures[i]);
             putchar('\n');
 
-            printf("Всі ходи у грі: \"%s\".\n", all_moves_in_game);
+            printf("Всі ходи у грі: \"%s\".\n", all_moves_in_game.c_str());
         }
         else
         {
@@ -1666,19 +1736,14 @@ bool ReadDataFromFile(AppState& appState)
                 ChangeOptionsButtonsAvailability(appState, false);
             }
 
-            for (i = 0; i < LENGTH; i++)
-                for (j = 0; j < LENGTH; j++)
+            for (int i = 0; i < LENGTH; i++)
+                for (int j = 0; j < LENGTH; j++)
                     board[i][j] = arrangement_of_figures_on_board[i][j];
 
-            for (i = 0; i < LENGTH; i++)
+            for (int i = 0; i < LENGTH; i++)
                 EatenFigures[i] = eaten_figures[i];
 
-            for (i = 0; i < all_moves_length; i++)
-            {
-                if (all_moves_in_game[i] == '\n')
-                    break;
-                AllMovesInGame += all_moves_in_game[i];
-            }
+            AllMovesInGame = all_moves_in_game;
         }
         else
         {
@@ -1686,13 +1751,8 @@ bool ReadDataFromFile(AppState& appState)
             PvP_radioButton.SetChoosed(true);
             ChangeOptionsButtonsAvailability(appState, false);
         }
-    }
 
-
-    if (fp != NULL && fclose(fp))
-    {
-        fprintf(stderr, "При закритті файлу, в якому збережено налаштування та стан гри, виникли помилки.");
-        status = false;
+        in.close();
     }
 
     return status;
