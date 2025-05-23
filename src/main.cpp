@@ -17,13 +17,14 @@
 #include "connector.hpp"
 #include "app-state.h"
 #include "game-save-api/native-game-save-api.h"
+#include "get-next-move-api/stockfish-online-get-next-move-api.h"
 
 using namespace std;
 using namespace sf;
 
 int main()
 {
-    AppState appState(new NativeGameSaveApi());
+    AppState appState(new NativeGameSaveApi(), new StockfishOnlineGetNextMoveApi());
     auto& window = appState.window;
 
     CreationOfObjects(appState);

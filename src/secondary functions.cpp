@@ -1253,14 +1253,15 @@ Vector2i toCoord(AppState& appState, char a, char b)
 string GetNextEnvironmentMove(AppState& appState, int * ox, int * oy, int * nx, int * ny)
 {
     auto& AllMovesInGame = appState.AllMovesInGame;
+    auto& getNextMoveApi = appState.getNextMoveApi;
 
-    string NEM;
+    string NEM = getNextMoveApi->get(GetFenNotation(appState), appState.LevelOfDifficulty);;
     Vector2i OP, NP;
 
-    do
+    if (NEM == "error")
     {
-        NEM = getNextMove("");
-    } while (NEM == "error");
+        puts("Комп'ютеру не вдалося знайти наступний найкращий хід.");
+    }
 
     OP = toCoord(appState, NEM[0], NEM[1]);
     NP = toCoord(appState, NEM[2], NEM[3]);

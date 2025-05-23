@@ -8,6 +8,7 @@
 #include "label class.h"
 #include "radio button class.h"
 #include "game-save-api/interface.h"
+#include "get-next-move-api/interface.h"
 
 using namespace std;
 using namespace sf;
@@ -162,6 +163,7 @@ struct AppState {
     RadioButton DifficultLvl_radioButton {Texture()};
 
     GameSaveApi* gameSaveApi;
+    GetNextMoveApi* getNextMoveApi;
 
     SavedGameState getGameStateToStore()
     {
@@ -223,14 +225,16 @@ struct AppState {
         }
     }
 
-    AppState(GameSaveApi* gameSaveApi)
+    AppState(GameSaveApi* gameSaveApi, GetNextMoveApi* getNextMoveApi)
     :
-        gameSaveApi(gameSaveApi)
+        gameSaveApi(gameSaveApi),
+        getNextMoveApi(getNextMoveApi)
     {}
 
     ~AppState()
     {
         delete this->gameSaveApi;
+        delete this->getNextMoveApi;
     }
 };
 

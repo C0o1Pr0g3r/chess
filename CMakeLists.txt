@@ -15,10 +15,15 @@ FetchContent_MakeAvailable(SFML)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
+FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
+                         GIT_TAG 1.11.2)
+FetchContent_MakeAvailable(cpr)
+
 add_executable(
     main
     "src/game-save-api/interface.cpp"
     "src/game-save-api/native-game-save-api.cpp"
+    "src/get-next-move-api/stockfish-online-get-next-move-api.cpp"
     "src/animation functions.cpp"
     "src/backlight functions.cpp"
     "src/button class.cpp"
@@ -37,6 +42,6 @@ add_executable(
     "src/secondary functions.cpp"
 )
 target_compile_features(main PRIVATE cxx_std_17)
-target_link_libraries(main PRIVATE SFML::Graphics nlohmann_json::nlohmann_json)
+target_link_libraries(main PRIVATE SFML::Graphics nlohmann_json::nlohmann_json cpr::cpr)
 
 set(CMAKE_CXX_FLAGS "-fsanitize=address")
