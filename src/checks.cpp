@@ -380,7 +380,10 @@ void EventChecking(AppState& appState)
     {
         if (event->is<Event::Closed>())
         {
-            WriteDataToFile(appState);
+            if (!appState.gameSaveApi->save(appState.getGameStateToStore()))
+            {
+                puts("Не вдалося зберегти дані гри.");
+            }
             window.close();
         }
         else if (const auto* resizedEvent = event->getIf<Event::Resized>())

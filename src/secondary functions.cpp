@@ -1382,6 +1382,7 @@ void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
     auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
     auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
     auto& AllMovesInGame = appState.AllMovesInGame;
+    auto& PvP_radioButton = appState.PvP_radioButton;
 
     SetChessPiecesToTheirOriginalPosition(appState);
     ClearEatenFiguresArray(appState);
@@ -1399,6 +1400,42 @@ void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
     IsTakingOnAisleActivated = false;
     IsTakingOnAisleUsed = false;
     AllMovesInGame = "";
+}
+
+void ChangeGameSettings(AppState& appState)
+{
+    auto& PvE_radioButton = appState.PvE_radioButton;
+    auto& PvP_radioButton = appState.PvP_radioButton;
+    auto& Black_radioButton = appState.Black_radioButton;
+    auto& White_radioButton = appState.White_radioButton;
+    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
+    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
+    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
+
+    auto gameMode = appState.CurrentGameMode;
+    auto playerColor = appState.PlayerColor;
+    auto levelOfDifficulty = appState.LevelOfDifficulty;
+
+    SetGameMode(appState, static_cast<GameModes>(gameMode));
+    SetPiecesColorOfPlayer(appState, playerColor);
+    SetLevelOfDifficulty(appState, levelOfDifficulty);
+    switch (gameMode)
+    {
+        case PlayerVersusEnvironment : PvE_radioButton.SetChoosed(true); PvE_radioButton.ChangeRadioGroupChoosed(); break;
+        case PlayerVersusPlayer : PvP_radioButton.SetChoosed(true); PvP_radioButton.ChangeRadioGroupChoosed(); break;
+    }
+    switch (playerColor)
+    {
+        case BLACK : Black_radioButton.SetChoosed(true); Black_radioButton.ChangeRadioGroupChoosed(); break;
+        case WHITE : White_radioButton.SetChoosed(true); White_radioButton.ChangeRadioGroupChoosed(); break;
+    }
+    switch (levelOfDifficulty)
+    {
+        case 0 : EasyLvl_radioButton.SetChoosed(true); EasyLvl_radioButton.ChangeRadioGroupChoosed(); break;
+        case 1 : MediumLvl_radioButton.SetChoosed(true); MediumLvl_radioButton.ChangeRadioGroupChoosed(); break;
+        case 2 : DifficultLvl_radioButton.SetChoosed(true); DifficultLvl_radioButton.ChangeRadioGroupChoosed(); break;
+    }
+    ChangeOptionsButtonsAvailability(appState, gameMode == PlayerVersusEnvironment);
 }
 
 void SetGameMode(AppState& appState, GameModes gamemode)
@@ -1445,317 +1482,6 @@ void SetLevelOfDifficulty(AppState& appState, int level_of_difficulty)
         case 1 : SetEngineSkillLevel("5"); break;
         case 2 : SetEngineSkillLevel("10"); break;
     }
-}
-
-auto PATH_TO_FILE_WITH_SAVING = "saved data.json";
-
-bool WriteDataToFile(AppState& appState)
-{
-    auto& IsThereSavedGame = appState.IsThereSavedGame;
-    auto& blackKing = appState.blackKing;
-    auto& whiteKing = appState.whiteKing;
-    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
-    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
-    auto& WhoseMove = appState.WhoseMove;
-    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
-    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
-    auto& WhoHasMoved = appState.WhoHasMoved;
-    auto& CurrentGameMode = appState.CurrentGameMode;
-    auto& PlayerColor = appState.PlayerColor;
-    auto& LevelOfDifficulty = appState.LevelOfDifficulty;
-    auto& board = appState.board;
-    auto& EatenFigures = appState.EatenFigures;
-    auto& AllMovesInGame = appState.AllMovesInGame;
-
-    if (IsThereSavedGame)
-    {
-        ofstream out(PATH_TO_FILE_WITH_SAVING);
-        bool status = true;
-
-        if (out.is_open())
-        {
-            json j = {
-                {
-                    {
-                        "blackKing", {
-                            {"x", blackKing.x},
-                            {"y", blackKing.y},
-                        }
-                    },
-                    {
-                        "whiteKing", {
-                            {"x", whiteKing.x},
-                            {"y", whiteKing.y},
-                        }
-                    },
-                    {
-                        "PawnOnAisleCoordinates", {
-                            {"x", PawnOnAisleCoordinates.x},
-                            {"y", PawnOnAisleCoordinates.y},
-                        }
-                    },
-                    {"ChessboardIsInverted", ChessboardIsInverted},
-                    {"WhoseMove", WhoseMove},
-                    {"IsTakingOnAisleActivated", IsTakingOnAisleActivated},
-                    {"IsTakingOnAisleUsed", IsTakingOnAisleUsed},
-                    {"WhoHasMoved", WhoHasMoved},
-                    {"CurrentGameMode", CurrentGameMode},
-                    {"PlayerColor", PlayerColor},
-                    {"LevelOfDifficulty", LevelOfDifficulty},
-                    {"board", board},
-                    {"EatenFigures", EatenFigures},
-                    {"AllMovesInGame", AllMovesInGame},
-                }
-            };
-
-            out << j[0] << endl;
-            out.close();
-
-            return true;
-        }
-        else
-        {
-            fprintf(stderr, "Не вдалося відкрити файл для збереження даних гри.\n");
-        }
-    }
-
-    return false;
-}
-
-bool ReadDataFromFile(AppState& appState)
-{
-    auto& PvP_radioButton = appState.PvP_radioButton;
-    auto& IsThereSavedGame = appState.IsThereSavedGame;
-    auto& blackKing = appState.blackKing;
-    auto& whiteKing = appState.whiteKing;
-    auto& PawnOnAisleCoordinates = appState.PawnOnAisleCoordinates;
-    auto& ChessboardIsInverted = appState.ChessboardIsInverted;
-    auto& WhoseMove = appState.WhoseMove;
-    auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
-    auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
-    auto& WhoHasMoved = appState.WhoHasMoved;
-    auto& CurrentGameMode = appState.CurrentGameMode;
-    auto& PvE_radioButton = appState.PvE_radioButton;
-    auto& PlayerColor = appState.PlayerColor;
-    auto& Black_radioButton = appState.Black_radioButton;
-    auto& White_radioButton = appState.White_radioButton;
-    auto& LevelOfDifficulty = appState.LevelOfDifficulty;
-    auto& EasyLvl_radioButton = appState.EasyLvl_radioButton;
-    auto& MediumLvl_radioButton = appState.MediumLvl_radioButton;
-    auto& DifficultLvl_radioButton = appState.DifficultLvl_radioButton;
-    auto& board = appState.board;
-    auto& EatenFigures = appState.EatenFigures;
-    auto& AllMovesInGame = appState.AllMovesInGame;
-
-    FILE * fp;
-    int i, j;
-    char is_there_saved_game;
-    Vector2i black_king_pos, white_king_pos, pawn_on_aisle_coordinates;
-    int chessboard_is_inverted, piece_is_choose, whose_move, is_taking_on_aisle_activated, is_taking_on_aisle_used, who_has_moved, current_game_mode, player_color;
-    int level_of_difficulty;
-    int arrangement_of_figures_on_board[LENGTH][LENGTH], eaten_figures[10];
-    string all_moves_in_game;
-    bool status = true;
-
-    ifstream in(PATH_TO_FILE_WITH_SAVING);
-
-    if (!in.is_open())
-    {
-        fprintf(stderr, "Не вдалося відкрити файл, у якому збережено налаштування та стан гри.");
-        SetGameMode(appState, PlayerVersusPlayer);
-        PvP_radioButton.SetChoosed(true);
-        ChangeOptionsButtonsAvailability(appState, false);
-        status = false;
-    }
-    else
-    {
-        json j = json::parse(in);
-
-        if (j.is_object())
-        {
-            if (j.contains("blackKing"))
-            {
-                if (j["blackKing"].contains("x") && j["blackKing"]["x"].is_number_integer())
-                {
-                    black_king_pos.x = j["blackKing"]["x"].template get<int>();
-                }
-                if (j["blackKing"].contains("y") && j["blackKing"]["y"].is_number_integer())
-                {
-                    black_king_pos.y = j["blackKing"]["y"].template get<int>();
-                }
-            }
-            if (j.contains("whiteKing"))
-            {
-                if (j["whiteKing"].contains("x") && j["whiteKing"]["x"].is_number_integer())
-                {
-                    white_king_pos.x = j["whiteKing"]["x"].template get<int>();
-                }
-                if (j["whiteKing"].contains("y") && j["whiteKing"]["y"].is_number_integer())
-                {
-                    white_king_pos.y = j["whiteKing"]["y"].template get<int>();
-                }
-            }
-            if (j.contains("PawnOnAisleCoordinates"))
-            {
-                if (j["PawnOnAisleCoordinates"].contains("x") && j["PawnOnAisleCoordinates"]["x"].is_number_integer())
-                {
-                    pawn_on_aisle_coordinates.x = j["PawnOnAisleCoordinates"]["x"].template get<int>();
-                }
-                if (j["PawnOnAisleCoordinates"].contains("y") && j["PawnOnAisleCoordinates"]["y"].is_number_integer())
-                {
-                    pawn_on_aisle_coordinates.y = j["PawnOnAisleCoordinates"]["y"].template get<int>();
-                }
-            }
-            if (j.contains("ChessboardIsInverted") && j["ChessboardIsInverted"].is_boolean())
-            {
-                chessboard_is_inverted = j["ChessboardIsInverted"].template get<bool>();
-            }
-            if (j.contains("WhoseMove") && j["WhoseMove"].is_boolean())
-            {
-                whose_move = j["WhoseMove"].template get<bool>();
-            }
-            if (j.contains("IsTakingOnAisleActivated") && j["IsTakingOnAisleActivated"].is_boolean())
-            {
-                is_taking_on_aisle_activated = j["IsTakingOnAisleActivated"].template get<bool>();
-            }
-            if (j.contains("IsTakingOnAisleUsed") && j["IsTakingOnAisleUsed"].is_boolean())
-            {
-                is_taking_on_aisle_used = j["IsTakingOnAisleUsed"].template get<bool>();
-            }
-            if (j.contains("WhoHasMoved") && j["WhoHasMoved"].is_boolean())
-            {
-                who_has_moved = j["WhoHasMoved"].template get<bool>();
-            }
-            if (j.contains("CurrentGameMode") && j["CurrentGameMode"].is_number_integer())
-            {
-                current_game_mode = j["CurrentGameMode"].template get<GameModes>();
-            }
-            if (j.contains("PlayerColor") && j["PlayerColor"].is_number_integer())
-            {
-                player_color = j["PlayerColor"].template get<int>();
-            }
-            if (j.contains("LevelOfDifficulty") && j["LevelOfDifficulty"].is_number_integer())
-            {
-                level_of_difficulty = j["LevelOfDifficulty"].template get<int>();
-            }
-            if (j.contains("board") && j["board"].is_array())
-            {
-                vector<vector<int>> tempBoard = j["board"].template get<vector<vector<int>>>();
-                for (size_t i = 0; i < tempBoard.size() && i < BOARD_SIZE; ++i)
-                {
-                    for (size_t j = 0; j < tempBoard[i].size() && j < BOARD_SIZE; ++j)
-                    {
-                        arrangement_of_figures_on_board[i][j] = tempBoard[i][j];
-                    }
-                }
-            }
-            if (j.contains("EatenFigures") && j["EatenFigures"].is_array())
-            {
-                vector<int> tempEatenFigures = j["EatenFigures"].template get<vector<int>>();
-                for (size_t i = 0; i < tempEatenFigures.size() && i < sizeof(EatenFigures) / sizeof(EatenFigures[0]); ++i)
-                {
-                    eaten_figures[i] = tempEatenFigures[i];
-                }
-            }
-            if (j.contains("AllMovesInGame") && j["AllMovesInGame"].is_string())
-            {
-                all_moves_in_game = j["AllMovesInGame"].template get<string>();
-            }
-
-            puts("Файл збереження містить дані про збережену гру.");
-            printf("Збережена гра: %c.\n", is_there_saved_game);
-            printf("Координати чорного короля: (%d; %d).\n", black_king_pos.x, black_king_pos.y);
-            printf("Координати білого короля: (%d; %d).\n", white_king_pos.x, white_king_pos.y);
-            printf("Координати пішака на проході: (%d; %d).\n", pawn_on_aisle_coordinates.x, pawn_on_aisle_coordinates.y);
-            printf("Дошку перевернуто: %d.\n", chessboard_is_inverted);
-            printf("Чия черга робити хід: %d.\n", whose_move);
-            printf("Взяття на проході активоване: %d.\n",is_taking_on_aisle_activated );
-            printf("Взяття на проході використане: %d.\n", is_taking_on_aisle_used);
-            printf("Хто ходив: %d.\n", who_has_moved);
-            printf("Режим гри: %d.\n", current_game_mode);
-            printf("Колір фігур гравця: %d.\n", player_color);
-            printf("Рівень складності: %d.\n", level_of_difficulty);
-            puts("Шахова дошка:");
-
-            for (int i = 0; i < LENGTH; i++)
-            {
-                for (int j = 0; j < LENGTH; j++)
-                    printf("%4d ", arrangement_of_figures_on_board[i][j]);
-                putchar('\n');
-            }
-
-            puts("З'їдені фігури:");
-            for (int i = 0; i < LENGTH; i++)
-                printf("%2d", eaten_figures[i]);
-            putchar('\n');
-
-            printf("Всі ходи у грі: \"%s\".\n", all_moves_in_game.c_str());
-        }
-        else
-        {
-            puts("У файлі збереження відсутні дані про збережену гру.");
-            status = false;
-        }
-
-        if (status)
-        {
-            IsThereSavedGame = true;
-            blackKing = black_king_pos;
-            whiteKing = white_king_pos;
-            PawnOnAisleCoordinates = pawn_on_aisle_coordinates;
-            ChessboardIsInverted = chessboard_is_inverted;
-            WhoseMove = whose_move;
-            IsTakingOnAisleActivated = is_taking_on_aisle_activated;
-            IsTakingOnAisleUsed = is_taking_on_aisle_used;
-            WhoHasMoved = who_has_moved;
-            SetGameMode(appState, (GameModes) current_game_mode);
-            if (CurrentGameMode == PlayerVersusEnvironment)
-            {
-                SetPiecesColorOfPlayer(appState, player_color);
-                SetLevelOfDifficulty(appState, level_of_difficulty);
-                switch (CurrentGameMode)
-                {
-                    case PlayerVersusEnvironment : PvE_radioButton.SetChoosed(true); PvE_radioButton.ChangeRadioGroupChoosed(); break;
-                    case PlayerVersusPlayer : PvP_radioButton.SetChoosed(true); PvP_radioButton.ChangeRadioGroupChoosed(); break;
-                }
-                switch (PlayerColor)
-                {
-                    case BLACK : Black_radioButton.SetChoosed(true); Black_radioButton.ChangeRadioGroupChoosed(); break;
-                    case WHITE : White_radioButton.SetChoosed(true); White_radioButton.ChangeRadioGroupChoosed(); break;
-                }
-                switch (LevelOfDifficulty)
-                {
-                    case 0 : EasyLvl_radioButton.SetChoosed(true); EasyLvl_radioButton.ChangeRadioGroupChoosed(); break;
-                    case 1 : MediumLvl_radioButton.SetChoosed(true); MediumLvl_radioButton.ChangeRadioGroupChoosed(); break;
-                    case 2 : DifficultLvl_radioButton.SetChoosed(true); DifficultLvl_radioButton.ChangeRadioGroupChoosed(); break;
-                }
-            }
-            else
-            {
-                PvP_radioButton.SetChoosed(true);
-                ChangeOptionsButtonsAvailability(appState, false);
-            }
-
-            for (int i = 0; i < LENGTH; i++)
-                for (int j = 0; j < LENGTH; j++)
-                    board[i][j] = arrangement_of_figures_on_board[i][j];
-
-            for (int i = 0; i < LENGTH; i++)
-                EatenFigures[i] = eaten_figures[i];
-
-            AllMovesInGame = all_moves_in_game;
-        }
-        else
-        {
-            SetGameMode(appState, PlayerVersusPlayer);
-            PvP_radioButton.SetChoosed(true);
-            ChangeOptionsButtonsAvailability(appState, false);
-        }
-
-        in.close();
-    }
-
-    return status;
 }
 
 char * s_gets(char * st, int n)

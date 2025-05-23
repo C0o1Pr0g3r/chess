@@ -61,12 +61,10 @@ void ChangeOptionsButtonsAvailability(AppState& appState, bool status);
 void DeselectOptionsButtons(AppState& appState);
 
 void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch);
+void ChangeGameSettings(AppState& appState);
 void SetGameMode(AppState& appState, GameModes gamemode);
 void SetPiecesColorOfPlayer(AppState& appState, int pieces_color);
 void SetLevelOfDifficulty(AppState& appState, int level_of_difficulty);
-
-bool WriteDataToFile(AppState& appState);
-bool ReadDataFromFile(AppState& appState);
 
 char * s_gets(char * st, int n);
 

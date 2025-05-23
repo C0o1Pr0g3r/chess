@@ -16,13 +16,14 @@
 #include "handling functions.h"
 #include "connector.hpp"
 #include "app-state.h"
+#include "game-save-api/native-game-save-api.h"
 
 using namespace std;
 using namespace sf;
 
 int main()
 {
-    AppState appState;
+    AppState appState(new NativeGameSaveApi());
     auto& window = appState.window;
 
     CreationOfObjects(appState);
@@ -31,7 +32,15 @@ int main()
     ConnectToEngine(chessEngine);
 
     SetDefaultGameSettings(appState, true);
-    ReadDataFromFile(appState);
+
+    auto savedGameState = appState.gameSaveApi->restore();
+    if (get<0>(savedGameState))
+    {
+        appState.IsThereSavedGame = true;
+        appState.WhoHasMoved = !appState.WhoseMove;
+        appState.setStoredGameState(get<1>(savedGameState));
+        ChangeGameSettings(appState);
+    }
 
     puts("Ініціалізація програми завершена.");
 

@@ -60,7 +60,10 @@ void HandleMainMenuScreen(AppState& appState)
         {
             if (HaveThereBeenChangesSinceTheLastSave)
             {
-                WriteDataToFile(appState);
+                if (!appState.gameSaveApi->save(appState.getGameStateToStore()))
+                {
+                    puts("Не вдалося зберегти дані гри.");
+                }
                 window.close();
             }
             else
@@ -412,7 +415,10 @@ void HandleGameSaveWindow(AppState& appState)
         {
             CurrentWindow = MissingWindow;
             ChangeButtonsAvailability(appState, MainMenuScreen, true);
-            WriteDataToFile(appState);
+            if (!appState.gameSaveApi->save(appState.getGameStateToStore()))
+            {
+                puts("Не вдалося зберегти дані гри.");
+            }
             window.close();
         }
     }

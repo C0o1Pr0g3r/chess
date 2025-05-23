@@ -7,6 +7,7 @@
 #include "button class.h"
 #include "label class.h"
 #include "radio button class.h"
+#include "game-save-api/interface.h"
 
 using namespace std;
 using namespace sf;
@@ -28,7 +29,7 @@ struct AppState {
 
     Vector2i blackKing, whiteKing, GroupOfFigures[8];
 
-    int EatenFigures[10];
+    int EatenFigures[NUMBER_OF_EATEN_FIGURES];
 
     RenderWindow window;
     Vector2u InitialWindowSize = {1274, 800};
@@ -158,6 +159,76 @@ struct AppState {
     RadioButton EasyLvl_radioButton {Texture()};
     RadioButton MediumLvl_radioButton {Texture()};
     RadioButton DifficultLvl_radioButton {Texture()};
+
+    GameSaveApi* gameSaveApi;
+
+    SavedGameState getGameStateToStore()
+    {
+        SavedGameState gameState;
+
+        gameState.blackKing = this->blackKing;
+        gameState.whiteKing = this->whiteKing;
+        gameState.PawnOnAisleCoordinates = this->PawnOnAisleCoordinates;
+        gameState.ChessboardIsInverted = this->ChessboardIsInverted;
+        gameState.WhoseMove = this->WhoseMove;
+        gameState.IsTakingOnAisleActivated = this->IsTakingOnAisleActivated;
+        gameState.IsTakingOnAisleUsed = this->IsTakingOnAisleUsed;
+        gameState.CurrentGameMode = this->CurrentGameMode;
+        gameState.PlayerColor = this->PlayerColor;
+        gameState.LevelOfDifficulty = this->LevelOfDifficulty;
+        gameState.AllMovesInGame = this->AllMovesInGame;
+
+        for (int i = 0; i < BOARD_SIZE; ++i)
+        {
+            for (int j = 0; j < BOARD_SIZE; ++j){
+                gameState.board[i][j] = this->board[i][j];
+            }
+        }
+
+        for (int i = 0; i < NUMBER_OF_EATEN_FIGURES; ++i)
+        {
+            gameState.EatenFigures[i] = this->EatenFigures[i];
+        }
+
+        return gameState;
+    }
+
+    void setStoredGameState(const SavedGameState& gameState)
+    {
+        this->blackKing = gameState.blackKing;
+        this->whiteKing = gameState.whiteKing;
+        this->PawnOnAisleCoordinates = gameState.PawnOnAisleCoordinates;
+        this->ChessboardIsInverted = gameState.ChessboardIsInverted;
+        this->WhoseMove = gameState.WhoseMove;
+        this->IsTakingOnAisleActivated = gameState.IsTakingOnAisleActivated;
+        this->IsTakingOnAisleUsed = gameState.IsTakingOnAisleUsed;
+        this->CurrentGameMode = gameState.CurrentGameMode;
+        this->PlayerColor = gameState.PlayerColor;
+        this->LevelOfDifficulty = gameState.LevelOfDifficulty;
+        this->AllMovesInGame = gameState.AllMovesInGame;
+
+        for (int i = 0; i < BOARD_SIZE; ++i)
+        {
+            for (int j = 0; j < BOARD_SIZE; ++j){
+                this->board[i][j] = gameState.board[i][j];
+            }
+        }
+
+        for (int i = 0; i < NUMBER_OF_EATEN_FIGURES; ++i)
+        {
+            this->EatenFigures[i] = gameState.EatenFigures[i];
+        }
+    }
+
+    AppState(GameSaveApi* gameSaveApi)
+    :
+        gameSaveApi(gameSaveApi)
+    {}
+
+    ~AppState()
+    {
+        delete this->gameSaveApi;
+    }
 };
 
 #endif // APP_STATE_H_INCLUDED

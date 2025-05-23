@@ -17,6 +17,8 @@ FetchContent_MakeAvailable(json)
 
 add_executable(
     main
+    "src/game-save-api/interface.cpp"
+    "src/game-save-api/native-game-save-api.cpp"
     "src/animation functions.cpp"
     "src/backlight functions.cpp"
     "src/button class.cpp"
