@@ -58,6 +58,10 @@ int main(int argc, char *argv[])
 
     puts("Ініціалізація програми завершена.");
 
+#ifdef __EMSCRIPTEN__
+    appState.ExitFromApp_button.SetEnabled(false);
+#endif // __EMSCRIPTEN__
+
     while (window.isOpen())
     {
         EventChecking(appState);

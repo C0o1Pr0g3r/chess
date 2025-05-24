@@ -651,10 +651,17 @@ void CreateMainMenuScreen(AppState& appState)
     EFAs = {244, 78};
     BTGmms = {544, 66};
 
+
+#if defined(__EMSCRIPTEN__)
+    NGp = {static_cast<float>(InitialWindowSize.x / 2 - NGs.x / 2), static_cast<float>(InitialWindowSize.y / 2 - NGs.y / 2)};
+    Op = {static_cast<float>(InitialWindowSize.x / 2 - Os.x / 2), static_cast<float>(NGp.y + Os.y + 20)};
+    BTGmmp = {static_cast<float>(InitialWindowSize.x / 2 - BTGmms.x / 2), static_cast<float>(NGp.y - BTGmms.y - 20)};
+#else
     Op = {static_cast<float>(InitialWindowSize.x / 2 - Os.x / 2), static_cast<float>(InitialWindowSize.y / 2 - Os.y / 2)};
     NGp = {static_cast<float>(InitialWindowSize.x / 2 - NGs.x / 2), static_cast<float>(Op.y - NGs.y - 20)};
     EFAp = {static_cast<float>(InitialWindowSize.x / 2 - EFAs.x / 2), static_cast<float>(Op.y + EFAs.y + 20)};
     BTGmmp = {static_cast<float>(InitialWindowSize.x / 2 - BTGmms.x / 2), static_cast<float>(NGp.y - BTGmms.y - 20)};
+#endif // __EMSCRIPTEN__
 
     NGr1 = {{0, 0}, {368, 84}};
     NGr2 = {{0, 84}, {368, 84}};

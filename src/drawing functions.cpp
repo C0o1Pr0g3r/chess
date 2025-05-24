@@ -37,7 +37,9 @@ void DrawMainMenuScreen(AppState& appState)
     MainMenu_background.Draw(window);
     NewGame_button.Draw(window);
     Options_button.Draw(window);
+#ifndef __EMSCRIPTEN__
     ExitFromApp_button.Draw(window);
+#endif // __EMSCRIPTEN__
     if (IsThereSavedGame)
         BackToGameMM_button.Draw(window);
     DrawOptionsWindow(appState);
