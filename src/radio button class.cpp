@@ -31,7 +31,7 @@ void RadioButton::Create(Texture btnTexture, IntRect rect1, IntRect rect2, IntRe
 
 void RadioButton::Draw(RenderWindow & window)
 {
-    if (IsChoosed())
+    if (IsChoosed() && IsEnabled())
         window.draw(ButtonImage3);
     else if (MouseEntered(window) && IsEnabled())
         window.draw(ButtonImage2);

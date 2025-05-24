@@ -28,6 +28,7 @@ int main()
 
     CreationOfObjects(appState);
 
+    SetDefaultOptions(appState);
     SetDefaultGameSettings(appState, true);
 
     auto savedGameState = appState.gameSaveApi->restore();

@@ -1375,6 +1375,15 @@ void DeselectOptionsButtons(AppState& appState)
     DifficultLvl_radioButton.SetChoosed(false);
 }
 
+void SetDefaultOptions(AppState& appState)
+{
+    auto& PvP_radioButton = appState.PvP_radioButton;
+
+    SetGameMode(appState, PlayerVersusPlayer);
+    PvP_radioButton.SetChoosed(true);
+    ChangeOptionsButtonsAvailability(appState, false);
+}
+
 void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
 {
     auto& CurrentWindow = appState.CurrentWindow;
@@ -1389,7 +1398,6 @@ void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
     auto& IsTakingOnAisleActivated = appState.IsTakingOnAisleActivated;
     auto& IsTakingOnAisleUsed = appState.IsTakingOnAisleUsed;
     auto& AllMovesInGame = appState.AllMovesInGame;
-    auto& PvP_radioButton = appState.PvP_radioButton;
 
     SetChessPiecesToTheirOriginalPosition(appState);
     ClearEatenFiguresArray(appState);

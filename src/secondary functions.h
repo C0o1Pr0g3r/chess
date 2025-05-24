@@ -60,6 +60,7 @@ void ChangeButtonsAvailability(AppState& appState, AppScreens screen, bool statu
 void ChangeOptionsButtonsAvailability(AppState& appState, bool status);
 void DeselectOptionsButtons(AppState& appState);
 
+void SetDefaultOptions(AppState& appState);
 void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch);
 void ChangeGameSettings(AppState& appState);
 void SetGameMode(AppState& appState, GameModes gamemode);
