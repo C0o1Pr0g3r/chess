@@ -17,12 +17,7 @@
 #include "handling functions.h"
 #include "app-state.h"
 #include "game-save-api/native-game-save-api.h"
-
-#if defined(__EMSCRIPTEN__)
-#include "get-next-move-api/fetch-get-next-move-api.h"
-#else
 #include "get-next-move-api/stockfish-online-get-next-move-api.h"
-#endif // __EMSCRIPTEN__
 
 using namespace std;
 namespace fs = filesystem;
@@ -31,14 +26,12 @@ using namespace sf;
 int main(int argc, char *argv[])
 {
     fs::path appRootDir;
-#if defined(__EMSCRIPTEN__)
-    GetNextMoveApi* getNextMoveApi = new FetchGetNextMoveApi();
-#else
+#ifndef __EMSCRIPTEN__
     appRootDir /= argv[0];
     appRootDir = fs::absolute(appRootDir).parent_path();
-    GetNextMoveApi* getNextMoveApi = new StockfishOnlineGetNextMoveApi();
 #endif // __EMSCRIPTEN__
 
+    GetNextMoveApi* getNextMoveApi = new StockfishOnlineGetNextMoveApi();
     AppState appState(appRootDir, new NativeGameSaveApi(), getNextMoveApi);
     auto& window = appState.window;
 
