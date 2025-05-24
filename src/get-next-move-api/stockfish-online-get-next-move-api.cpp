@@ -1,3 +1,5 @@
+#ifndef __EMSCRIPTEN__
+
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 #include "stockfish-online-get-next-move-api.h"
@@ -34,3 +36,5 @@ string StockfishOnlineGetNextMoveApi::get(const string& fen, int levelOfDifficul
         return bestmove.substr(9, 4);
     }
 }
+
+#endif // __EMSCRIPTEN__

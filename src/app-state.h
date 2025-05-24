@@ -2,6 +2,7 @@
 #define APP_STATE_H_INCLUDED
 
 #include <SFML/Graphics.hpp>
+#include <filesystem>
 #include "global constants.h"
 #include "drawn object class.h"
 #include "button class.h"
@@ -11,9 +12,11 @@
 #include "get-next-move-api/interface.h"
 
 using namespace std;
+namespace fs = filesystem;
 using namespace sf;
 
 struct AppState {
+    fs::path appRootDir;
     int board[BOARD_SIZE][BOARD_SIZE] =
     {
         -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -225,8 +228,9 @@ struct AppState {
         }
     }
 
-    AppState(GameSaveApi* gameSaveApi, GetNextMoveApi* getNextMoveApi)
+    AppState(const fs::path& appRootDir, GameSaveApi* gameSaveApi, GetNextMoveApi* getNextMoveApi)
     :
+        appRootDir(appRootDir),
         gameSaveApi(gameSaveApi),
         getNextMoveApi(getNextMoveApi)
     {}

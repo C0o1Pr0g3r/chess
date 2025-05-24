@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
 #include <string>
+#include <filesystem>
 // #include <windows.h>
 #include "global constants.h"
 #include "move functions.h"
@@ -16,14 +17,29 @@
 #include "handling functions.h"
 #include "app-state.h"
 #include "game-save-api/native-game-save-api.h"
+
+#if defined(__EMSCRIPTEN__)
+#include "get-next-move-api/fetch-get-next-move-api.h"
+#else
 #include "get-next-move-api/stockfish-online-get-next-move-api.h"
+#endif // __EMSCRIPTEN__
 
 using namespace std;
+namespace fs = filesystem;
 using namespace sf;
 
-int main()
+int main(int argc, char *argv[])
 {
-    AppState appState(new NativeGameSaveApi(), new StockfishOnlineGetNextMoveApi());
+    fs::path appRootDir;
+#if defined(__EMSCRIPTEN__)
+    GetNextMoveApi* getNextMoveApi = new FetchGetNextMoveApi();
+#else
+    appRootDir /= argv[0];
+    appRootDir = fs::absolute(appRootDir).parent_path();
+    GetNextMoveApi* getNextMoveApi = new StockfishOnlineGetNextMoveApi();
+#endif // __EMSCRIPTEN__
+
+    AppState appState(appRootDir, new NativeGameSaveApi(), getNextMoveApi);
     auto& window = appState.window;
 
     CreationOfObjects(appState);

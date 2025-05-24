@@ -1,4 +1,4 @@
-#ifndef __EMSCRIPTEN__
+#ifdef __EMSCRIPTEN__
 
 #ifndef STOCKFISH_ONLINE_GET_NEXT_MOVE_API_H_INCLUDED
 #define STOCKFISH_ONLINE_GET_NEXT_MOVE_API_H_INCLUDED
@@ -8,12 +8,12 @@
 
 using namespace std;
 
-class StockfishOnlineGetNextMoveApi: public GetNextMoveApi
+class FetchGetNextMoveApi: public GetNextMoveApi
 {
 public:
     string get(const string& fen, int levelOfDifficulty) override;
 
-    virtual ~StockfishOnlineGetNextMoveApi() {}
+    virtual ~FetchGetNextMoveApi() {}
 };
 
 #endif // STOCKFISH_ONLINE_GET_NEXT_MOVE_API_H_INCLUDED

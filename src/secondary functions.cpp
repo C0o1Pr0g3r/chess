@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <filesystem>
 #include <fstream>
 #include <cstring>
 #include <string>
@@ -14,12 +15,19 @@
 #include <nlohmann/json.hpp>
 
 using namespace std;
+namespace fs = filesystem;
 using namespace sf;
 using json = nlohmann::json;
 
-void PrintErrorAboutLoadingTexture(const char* filePath)
+string getFilePath(AppState& appState, const string& filePath)
 {
-    fprintf(stderr, "Виникла помилка при спробі завантажити текстуру з файлу \"%s\".", filePath);
+    const auto appRootDir = appState.appRootDir;
+    return (appRootDir / filePath).string();
+}
+
+void PrintErrorAboutLoadingTexture(const string& filePath)
+{
+    fprintf(stderr, "Виникла помилка при спробі завантажити текстуру з файлу \"%s\".", filePath.c_str());
 }
 
 bool AreCoordsInsideBoard(int boardSize, int y, int x) {
@@ -416,7 +424,7 @@ void CreateChessPieces(AppState& appState)
     WQ = {{80, 80}, {80, 80}};
     WKi = {{0, 80}, {80, 80}};
 
-    auto FILE_PATH = "Images/Chess pieces.png";
+    auto FILE_PATH = getFilePath(appState, "Chess pieces.png");
     if (!ChessPieces_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
@@ -467,7 +475,7 @@ void CreateSmallChessPieces(AppState& appState)
     SWQ = {{50, 50}, {50, 50}};
     SWKi = {{0, 50}, {50, 50}};
 
-    auto FILE_PATH = "Images/Small chess pieces.png";
+    auto FILE_PATH = getFilePath(appState, "Small chess pieces.png");
     if (!SmallChessPieces_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
@@ -504,7 +512,7 @@ void CreateBacklight(AppState& appState)
     YS = {{80, 80}, {80, 80}};
     RS = {{160, 80}, {80, 80}};
 
-    auto FILE_PATH = "Images/Backlight.png";
+    auto FILE_PATH = getFilePath(appState, "Backlight.png");
     if (!Backlight_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
@@ -528,7 +536,7 @@ void CreateChessboards(AppState& appState)
     OC = {{0, 0}, {800, 800}};
     IC = {{800, 0}, {800, 800}};
 
-    auto FILE_PATH = "Images/Chessboards.png";
+    auto FILE_PATH = getFilePath(appState, "Chessboards.png");
     if (!Chessboards_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
@@ -552,61 +560,61 @@ void CreateScreensAndWindows(AppState& appState)
     auto& BackgroundDimmer_texture = appState.BackgroundDimmer_texture;
     auto& BackgroundDimmer = appState.BackgroundDimmer;
 
-    auto FILE_PATH = "Images/Backgrounds.jpg";
+    auto FILE_PATH = getFilePath(appState, "Backgrounds.jpg");
     if (!Backgrounds_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/Windows.png";
+    FILE_PATH = getFilePath(appState, "Windows.png");
     if (!Windows_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/MainMenuScreen_guiElements.png";
+    FILE_PATH = getFilePath(appState, "MainMenuScreen_guiElements.png");
     if (!MainMenuScreen_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/ChessGameScreen_guiElements.png";
+    FILE_PATH = getFilePath(appState, "ChessGameScreen_guiElements.png");
     if (!ChessGameScreen_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/PawnTransformationWindow_guiElements.png";
+    FILE_PATH = getFilePath(appState, "PawnTransformationWindow_guiElements.png");
     if (!PawnTransformationWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/GameOverWindow_guiElements.png";
+    FILE_PATH = getFilePath(appState, "GameOverWindow_guiElements.png");
     if (!GameOverWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/GamePauseWindow_guiElements.png";
+    FILE_PATH = getFilePath(appState, "GamePauseWindow_guiElements.png");
     if (!GamePauseWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/OptionsWindow_guiElements.png";
+    FILE_PATH = getFilePath(appState, "OptionsWindow_guiElements.png");
     if (!OptionsWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/GameSaveWindow_guiElements.png";
+    FILE_PATH = getFilePath(appState, "GameSaveWindow_guiElements.png");
     if (!GameSaveWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
 
-    FILE_PATH = "Images/Background dimmer.png";
+    FILE_PATH = getFilePath(appState, "Background dimmer.png");
     if (!BackgroundDimmer_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
