@@ -22,6 +22,7 @@ struct SavedGameState
     bool WhoseMove;
     bool IsTakingOnAisleActivated;
     bool IsTakingOnAisleUsed;
+    bool WhoHasMoved;
     GameModes CurrentGameMode;
     int PlayerColor;
     int LevelOfDifficulty;

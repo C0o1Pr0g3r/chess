@@ -51,7 +51,6 @@ int main(int argc, char *argv[])
     if (get<0>(savedGameState))
     {
         appState.IsThereSavedGame = true;
-        appState.WhoHasMoved = !appState.WhoseMove;
         appState.setStoredGameState(get<1>(savedGameState));
         ChangeGameSettings(appState);
     }

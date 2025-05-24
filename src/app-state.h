@@ -179,6 +179,7 @@ struct AppState {
         gameState.ChessboardIsInverted = this->ChessboardIsInverted;
         gameState.WhoseMove = this->WhoseMove;
         gameState.IsTakingOnAisleActivated = this->IsTakingOnAisleActivated;
+        gameState.WhoHasMoved = this->WhoHasMoved;
         gameState.IsTakingOnAisleUsed = this->IsTakingOnAisleUsed;
         gameState.CurrentGameMode = this->CurrentGameMode;
         gameState.PlayerColor = this->PlayerColor;
@@ -210,6 +211,7 @@ struct AppState {
         this->WhoseMove = gameState.WhoseMove;
         this->IsTakingOnAisleActivated = gameState.IsTakingOnAisleActivated;
         this->IsTakingOnAisleUsed = gameState.IsTakingOnAisleUsed;
+        this->WhoHasMoved = gameState.WhoHasMoved;
         this->CurrentGameMode = gameState.CurrentGameMode;
         this->PlayerColor = gameState.PlayerColor;
         this->LevelOfDifficulty = gameState.LevelOfDifficulty;

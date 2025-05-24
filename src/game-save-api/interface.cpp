@@ -58,6 +58,9 @@ bool SavedGameState::fromJson(const json& j)
     if (!(j.contains("IsTakingOnAisleUsed") && j["IsTakingOnAisleUsed"].is_boolean())) return false;
     gameState.IsTakingOnAisleUsed = j["IsTakingOnAisleUsed"].template get<bool>();
 
+    if (!(j.contains("WhoHasMoved") && j["WhoHasMoved"].is_boolean())) return false;
+    gameState.WhoHasMoved = j["WhoHasMoved"].template get<bool>();
+
 
     if (!(j.contains("CurrentGameMode") && j["CurrentGameMode"].is_number_integer())) return false;
     gameState.CurrentGameMode = j["CurrentGameMode"].template get<GameModes>();
@@ -104,6 +107,7 @@ bool SavedGameState::fromJson(const json& j)
     this->WhoseMove = gameState.WhoseMove;
     this->IsTakingOnAisleActivated = gameState.IsTakingOnAisleActivated;
     this->IsTakingOnAisleUsed = gameState.IsTakingOnAisleUsed;
+    this->WhoHasMoved = gameState.WhoHasMoved;
     this->CurrentGameMode = gameState.CurrentGameMode;
     this->PlayerColor = gameState.PlayerColor;
     this->LevelOfDifficulty = gameState.LevelOfDifficulty;
@@ -157,6 +161,7 @@ json SavedGameState::toJson() const
             {"WhoseMove", WhoseMove},
             {"IsTakingOnAisleActivated", IsTakingOnAisleActivated},
             {"IsTakingOnAisleUsed", IsTakingOnAisleUsed},
+            {"WhoHasMoved", WhoHasMoved},
             {"CurrentGameMode", CurrentGameMode},
             {"PlayerColor", PlayerColor},
             {"LevelOfDifficulty", LevelOfDifficulty},
