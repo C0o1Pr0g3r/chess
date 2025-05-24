@@ -2,41 +2,47 @@
 #include <nlohmann/json.hpp>
 #include "native-game-save-api.h"
 
+
 using json = nlohmann::json;
+
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+
+EM_JS(char*, extractFromLocalStorage, (), {
+    return stringToNewUTF8(window.localStorage.getItem("save") ?? "{}");
+});
+
+EM_JS(void, saveToLocalStorage, (const char* data), {
+    window.localStorage.setItem("save", UTF8ToString(data));
+});
+#endif // __EMSCRIPTEN__
 
 auto FILE_PATH = "save.json";
 
 bool NativeGameSaveApi::save(const SavedGameState& gameState)
 {
-    auto& blackKing = gameState.blackKing;
-    auto& whiteKing = gameState.whiteKing;
-    auto& PawnOnAisleCoordinates = gameState.PawnOnAisleCoordinates;
-    auto& ChessboardIsInverted = gameState.ChessboardIsInverted;
-    auto& WhoseMove = gameState.WhoseMove;
-    auto& IsTakingOnAisleActivated = gameState.IsTakingOnAisleActivated;
-    auto& IsTakingOnAisleUsed = gameState.IsTakingOnAisleUsed;
-    auto& CurrentGameMode = gameState.CurrentGameMode;
-    auto& PlayerColor = gameState.PlayerColor;
-    auto& LevelOfDifficulty = gameState.LevelOfDifficulty;
-    auto& board = gameState.board;
-    auto& EatenFigures = gameState.EatenFigures;
-    auto& AllMovesInGame = gameState.AllMovesInGame;
+    auto dataStr = gameState.toJson().dump();
 
+#if defined(__EMSCRIPTEN__)
+    saveToLocalStorage(dataStr.c_str());
+#else
     ofstream out(FILE_PATH);
 
     if (out.is_open())
     {
-        out << gameState.toJson().dump() << endl;
+        out << dataStr << endl;
         out.close();
 
-        return true;
+
     }
     else
     {
         fprintf(stderr, "Не вдалося відкрити файл для збереження даних гри.\n");
+        return false;
     }
+#endif // __EMSCRIPTEN__
 
-    return false;
+    return true;
 }
 
 tuple<bool, SavedGameState> NativeGameSaveApi::restore()
@@ -44,6 +50,12 @@ tuple<bool, SavedGameState> NativeGameSaveApi::restore()
     SavedGameState gameState;
     auto noGameState = make_tuple(false, gameState);
 
+
+#if defined(__EMSCRIPTEN__)
+    auto data = extractFromLocalStorage();
+    auto doesGameStateExist = gameState.fromJson(getJsonFromString(data));
+    free(data);
+#else
     ifstream in(FILE_PATH);
 
     if (!in.is_open())
@@ -51,9 +63,10 @@ tuple<bool, SavedGameState> NativeGameSaveApi::restore()
         fprintf(stderr, "Не вдалося відкрити файл, у якому збережено налаштування та стан гри.\n");
         return noGameState;
     }
-
     auto doesGameStateExist = gameState.fromJson(getJsonFromFile(in));
     in.close();
+#endif // __EMSCRIPTEN__
+
 
     if (!doesGameStateExist)
     {
