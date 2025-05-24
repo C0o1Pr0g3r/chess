@@ -1275,6 +1275,8 @@ string GetNextEnvironmentMove(AppState& appState, int * ox, int * oy, int * nx, 
     if (NEM == "error")
     {
         puts("Комп'ютеру не вдалося знайти наступний найкращий хід.");
+        appState.gameSaveApi->save(appState.getGameStateToStore());
+        exit(1);
     }
 
     OP = toCoord(appState, NEM[0], NEM[1]);
