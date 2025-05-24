@@ -401,6 +401,7 @@ void EventChecking(AppState& appState)
             {
                 case Mouse::Button::Left : LeftMouseButtonIsPressed = true; break;
                 case Mouse::Button::Right : RightMouseButtonIsPressed = true; break;
+                default: ;
             }
         }
         else if (const auto* keyPressed = event->getIf<Event::KeyPressed>())

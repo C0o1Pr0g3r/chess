@@ -1096,7 +1096,6 @@ void AdditionalActionsAfterMovingFigure(AppState& appState, int ox, int oy, int 
     auto& FigureByNewCoordinates = appState.FigureByNewCoordinates;
     auto& WhoseMove = appState.WhoseMove;
 
-    int EatenFigure;
     string current_chess_move;
     Vector2i o, n;
 
@@ -1107,7 +1106,8 @@ void AdditionalActionsAfterMovingFigure(AppState& appState, int ox, int oy, int 
         current_chess_move += toChessNote(appState, Vector2i(nx, ny));
         RecordChessMove(appState, current_chess_move);
 
-        if (EatenFigure = HasFigureBeenEaten(appState))
+        int EatenFigure = HasFigureBeenEaten(appState);
+        if (EatenFigure)
             AddFigureToEatenFigures(appState, EatenFigure);
 
         if (IsTakingOnAisleUsed)
