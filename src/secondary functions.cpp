@@ -9,7 +9,6 @@
 #include "checks.h"
 #include "secondary functions.h"
 #include "animation functions.h"
-#include "connector.hpp"
 #include "app-state.h"
 #include "fen.h"
 #include <nlohmann/json.hpp>
@@ -1483,13 +1482,6 @@ void SetLevelOfDifficulty(AppState& appState, int level_of_difficulty)
     auto& LevelOfDifficulty = appState.LevelOfDifficulty;
 
     LevelOfDifficulty = level_of_difficulty;
-
-    switch (LevelOfDifficulty)
-    {
-        case 0 : SetEngineSkillLevel("0"); break;
-        case 1 : SetEngineSkillLevel("5"); break;
-        case 2 : SetEngineSkillLevel("10"); break;
-    }
 }
 
 char * s_gets(char * st, int n)

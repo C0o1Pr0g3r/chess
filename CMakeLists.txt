@@ -28,7 +28,6 @@ add_executable(
     "src/backlight functions.cpp"
     "src/button class.cpp"
     "src/checks.cpp"
-    "src/connector.cpp"
     "src/coordinate processing functions.cpp"
     "src/drawing functions.cpp"
     "src/drawn object class.cpp"

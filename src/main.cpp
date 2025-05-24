@@ -14,7 +14,6 @@
 #include "drawn object class.h"
 #include "label class.h"
 #include "handling functions.h"
-#include "connector.hpp"
 #include "app-state.h"
 #include "game-save-api/native-game-save-api.h"
 #include "get-next-move-api/stockfish-online-get-next-move-api.h"
@@ -28,9 +27,6 @@ int main()
     auto& window = appState.window;
 
     CreationOfObjects(appState);
-
-    char chessEngine[29] = "stockfish_20011801_32bit.exe";
-    ConnectToEngine(chessEngine);
 
     SetDefaultGameSettings(appState, true);
 
@@ -52,7 +48,6 @@ int main()
         DrawApp(appState);
     }
 
-    CloseConnection();
 
     return 0;
 }

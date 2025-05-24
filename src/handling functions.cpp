@@ -7,7 +7,6 @@
 #include "move functions.h"
 #include "coordinate processing functions.h"
 #include "handling functions.h"
-#include "connector.hpp"
 #include "button class.h"
 #include "app-state.h"
 
