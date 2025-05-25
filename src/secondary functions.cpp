@@ -422,6 +422,7 @@ void CreateChessPieces(AppState& appState)
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    ChessPieces_texture.setSmooth(true);
 
     BlackPawn_sprite.Create(ChessPieces_texture, BP);
     BlackRook_sprite.Create(ChessPieces_texture, BR);
@@ -473,6 +474,7 @@ void CreateSmallChessPieces(AppState& appState)
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    SmallChessPieces_texture.setSmooth(true);
 
     SmallBlackPawn_sprite.Create(SmallChessPieces_texture, SBP);
     SmallBlackRook_sprite.Create(SmallChessPieces_texture, SBR);
@@ -510,6 +512,7 @@ void CreateBacklight(AppState& appState)
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    Backlight_texture.setSmooth(true);
 
     DarkCircle_sprite.Create(Backlight_texture, DC);
     LightCircle_sprite.Create(Backlight_texture, LC);
@@ -534,6 +537,7 @@ void CreateChessboards(AppState& appState)
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    Chessboards_texture.setSmooth(true);
 
     OrdinaryChessboard_sprite.Create(Chessboards_texture, OC);
     InvertedChessboard_sprite.Create(Chessboards_texture, IC);
@@ -558,60 +562,70 @@ void CreateScreensAndWindows(AppState& appState)
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    Backgrounds_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "Windows.png");
     if (!Windows_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    Windows_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "MainMenuScreen_guiElements.png");
     if (!MainMenuScreen_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    MainMenuScreen_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "ChessGameScreen_guiElements.png");
     if (!ChessGameScreen_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    ChessGameScreen_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "PawnTransformationWindow_guiElements.png");
     if (!PawnTransformationWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    PawnTransformationWindow_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "GameOverWindow_guiElements.png");
     if (!GameOverWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    GameOverWindow_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "GamePauseWindow_guiElements.png");
     if (!GamePauseWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    GamePauseWindow_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "OptionsWindow_guiElements.png");
     if (!OptionsWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    OptionsWindow_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "GameSaveWindow_guiElements.png");
     if (!GameSaveWindow_guiElements_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    GameSaveWindow_guiElements_texture.setSmooth(true);
 
     FILE_PATH = getFilePath(appState.appRootDir, "Background dimmer.png");
     if (!BackgroundDimmer_texture.loadFromFile(FILE_PATH))
     {
         PrintErrorAboutLoadingTexture(FILE_PATH);
     }
+    BackgroundDimmer_texture.setSmooth(true);
 
     CreateMainMenuScreen(appState);
     CreateChessGameScreen(appState);
