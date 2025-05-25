@@ -22,7 +22,9 @@ EM_ASYNC_JS(char*, getBestMoveWithStockfishOnline, (const char* url, const char*
 
     console.log("Запит успішно виконано. Результат:", JSON.stringify(data));
 
-    return stringToNewUTF8(bestmove.substring(9, 13));
+    const move = bestmove.substring(9, 14);
+
+    return stringToNewUTF8(move.at(-1) === " " ? move.slice(0, -1) : move);
 });
 
 EM_ASYNC_JS(char*, getBestMoveWithChessApi, (const char* url, const char* fen, int depth), {
@@ -83,7 +85,12 @@ string getWithStockfishOnline(const string& fen, const string& depth)
 
         printf("Запит успішно виконано. Результат: \"%s\".\n", r.text.c_str());
 
-        return bestmove.substr(9, 4);
+        auto move = bestmove.substr(9, 5);
+        if (move[move.length() - 1] == (' '))
+        {
+            move.pop_back();
+        }
+        return move;
     }
 #endif // __EMSCRIPTEN__
 }
