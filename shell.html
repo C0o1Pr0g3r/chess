@@ -3,8 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Project</title>
+    <title>Шахи</title>
     <style>
+      html,
+      body,
+      #root {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
       .emscripten {
         padding-right: 0;
         margin-left: auto;
@@ -22,11 +34,9 @@
         text-align: center;
       }
 
-      div.emscripten_border {
-        border: 1px solid black;
-      }
       /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
       canvas.emscripten {
+        margin: auto;
         border: 0px none;
         background-color: black;
       }
@@ -34,18 +44,23 @@
   </head>
   <body style="background-color: black">
     <div class="emscripten" id="status" style="color: white">
-      Downloading...
+      Завантаження ігрових файлів.
     </div>
-    <div class="emscripten_border">
-      <canvas
-        class="emscripten"
-        id="canvas"
-        oncontextmenu="event.preventDefault()"
-        tabindex="-1"
-      ></canvas>
-    </div>
+    <canvas
+      class="emscripten"
+      id="canvas"
+      oncontextmenu="event.preventDefault()"
+      tabindex="-1"
+    ></canvas>
     <script type="text/javascript">
       var statusElement = document.getElementById("status");
+
+      const GAME_LOADING_MESSAGE = "Завантаження ігрових файлів.";
+      const GAME_LOADING_COMPLETE_MESSAGE = "Усі ігрові файли завантажені.";
+      const ERROR_MESSAGE =
+        "Виникла помилка. Щоб дізнатися більше, відкрийте консоль JavaScript.";
+      const WEB_GL_CONTEXT_LOSS_MESSAGE =
+        "Контекст WebGL втрачено. Вам потрібно перезавантажити сторінку.";
 
       var Module = {
         print: (function () {
@@ -74,7 +89,7 @@
           canvas.addEventListener(
             "webglcontextlost",
             (e) => {
-              alert("WebGL context lost. You will need to reload the page.");
+              alert(WEB_GL_CONTEXT_LOSS_MESSAGE);
               e.preventDefault();
             },
             false
@@ -98,12 +113,14 @@
         totalDependencies: 0,
         monitorRunDependencies: (left) => {
           this.totalDependencies = Math.max(this.totalDependencies, left);
-          Module.setStatus(left ? "Preparing..." : "All downloads complete.");
+          Module.setStatus(
+            left ? GAME_LOADING_MESSAGE : GAME_LOADING_COMPLETE_MESSAGE
+          );
         },
       };
-      Module.setStatus("Downloading...");
+      Module.setStatus(GAME_LOADING_MESSAGE);
       window.onerror = () => {
-        Module.setStatus("Exception thrown, see JavaScript console");
+        Module.setStatus(ERROR_MESSAGE);
         Module.setStatus = (text) => {
           if (text) console.error("[post-exception status] " + text);
         };
