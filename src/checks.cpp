@@ -380,7 +380,7 @@ void EventChecking(AppState& appState)
     {
         if (event->is<Event::Closed>())
         {
-            if (!appState.gameSaveApi->save(appState.getGameStateToStore()))
+            if (!appState.gameSaveApi->save(appState.appRootDir, appState.getGameStateToStore()))
             {
                 puts("Не вдалося зберегти дані гри.");
             }

@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     SetDefaultOptions(appState);
     SetDefaultGameSettings(appState, true);
 
-    auto savedGameState = appState.gameSaveApi->restore();
+    auto savedGameState = appState.gameSaveApi->restore(appState.appRootDir);
     if (get<0>(savedGameState))
     {
         appState.IsThereSavedGame = true;

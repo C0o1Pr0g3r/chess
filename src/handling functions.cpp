@@ -59,7 +59,7 @@ void HandleMainMenuScreen(AppState& appState)
         {
             if (HaveThereBeenChangesSinceTheLastSave)
             {
-                if (!appState.gameSaveApi->save(appState.getGameStateToStore()))
+                if (!appState.gameSaveApi->save(appState.appRootDir, appState.getGameStateToStore()))
                 {
                     puts("Не вдалося зберегти дані гри.");
                 }
@@ -282,7 +282,7 @@ void HandleGameOnPauseWindow(AppState& appState)
     else if (SaveGame_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
 #ifdef __EMSCRIPTEN__
-        appState.gameSaveApi->save(appState.getGameStateToStore());
+        appState.gameSaveApi->save(appState.appRootDir, appState.getGameStateToStore());
 #endif // __EMSCRIPTEN__
         puts("Гра збережена.");
         IsThereSavedGame = HaveThereBeenChangesSinceTheLastSave = true;
@@ -389,7 +389,7 @@ void HandleGameSaveWindow(AppState& appState)
     if (GSWYes_button.IsPressed(window, LeftMouseButtonIsPressed))
     {
 #ifdef __EMSCRIPTEN__
-        appState.gameSaveApi->save(appState.getGameStateToStore());
+        appState.gameSaveApi->save(appState.appRootDir, appState.getGameStateToStore());
 #endif // __EMSCRIPTEN__
         puts("Гра збережена.");
         status = true;
@@ -420,7 +420,7 @@ void HandleGameSaveWindow(AppState& appState)
         {
             CurrentWindow = MissingWindow;
             ChangeButtonsAvailability(appState, MainMenuScreen, true);
-            if (!appState.gameSaveApi->save(appState.getGameStateToStore()))
+            if (!appState.gameSaveApi->save(appState.appRootDir, appState.getGameStateToStore()))
             {
                 puts("Не вдалося зберегти дані гри.");
             }

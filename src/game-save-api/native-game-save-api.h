@@ -13,8 +13,8 @@ class NativeGameSaveApi: public GameSaveApi
 public:
     NativeGameSaveApi() {}
 
-    bool save(const SavedGameState& gameState) override;
-    tuple<bool, SavedGameState> restore() override;
+    bool save(const fs::path& appRootDir, const SavedGameState& gameState) override;
+    tuple<bool, SavedGameState> restore(const fs::path& appRootDir) override;
 
     virtual ~NativeGameSaveApi() {}
 };

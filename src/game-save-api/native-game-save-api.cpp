@@ -1,7 +1,7 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include "native-game-save-api.h"
-
+#include "../fs.h"
 
 using json = nlohmann::json;
 
@@ -19,14 +19,14 @@ EM_JS(void, saveToLocalStorage, (const char* data), {
 
 auto FILE_PATH = "save.json";
 
-bool NativeGameSaveApi::save(const SavedGameState& gameState)
+bool NativeGameSaveApi::save(const fs::path& appRootDir, const SavedGameState& gameState)
 {
     auto dataStr = gameState.toJson().dump();
 
 #if defined(__EMSCRIPTEN__)
     saveToLocalStorage(dataStr.c_str());
 #else
-    ofstream out(FILE_PATH);
+    ofstream out(getFilePath(appRootDir, FILE_PATH));
 
     if (out.is_open())
     {
@@ -45,7 +45,7 @@ bool NativeGameSaveApi::save(const SavedGameState& gameState)
     return true;
 }
 
-tuple<bool, SavedGameState> NativeGameSaveApi::restore()
+tuple<bool, SavedGameState> NativeGameSaveApi::restore(const fs::path& appRootDir)
 {
     SavedGameState gameState;
     auto noGameState = make_tuple(false, gameState);
@@ -56,7 +56,7 @@ tuple<bool, SavedGameState> NativeGameSaveApi::restore()
     auto doesGameStateExist = gameState.fromJson(getJsonFromString(data));
     free(data);
 #else
-    ifstream in(FILE_PATH);
+    ifstream in(getFilePath(appRootDir, FILE_PATH));
 
     if (!in.is_open())
     {
