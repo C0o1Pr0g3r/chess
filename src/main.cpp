@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string>
 #include <filesystem>
+#include <thread>
 // #include <windows.h>
 #include "global constants.h"
 #include "move functions.h"
@@ -54,11 +55,23 @@ int main(int argc, char *argv[])
     appState.ExitFromApp_button.SetEnabled(false);
 #endif // __EMSCRIPTEN__
 
+    const auto MILLISECONDS_PER_SECOND = 1000.0;
+    const auto MAX_FPS = 60;
+    Clock clock;
+
     while (window.isOpen())
     {
         EventChecking(appState);
         HandleApp(appState);
         DrawApp(appState);
+
+        auto elapsedTime = clock.getElapsedTime();
+        auto sleepTime = MILLISECONDS_PER_SECOND / MAX_FPS - elapsedTime.asMilliseconds();
+        if (sleepTime > 0)
+        {
+            this_thread::sleep_for(std::chrono::duration<double, std::milli>(sleepTime));
+        }
+        clock.restart();
     }
 
 
