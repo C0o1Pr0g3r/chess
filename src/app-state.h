@@ -45,6 +45,7 @@ struct AppState {
     GameModes CurrentGameMode;
 
     int GameIsOver;
+    bool IsFirstIterationAfterEndOfGame = true;
     bool HaveThereBeenChangesSinceTheLastSave;
     bool IsThereSavedGame;
     bool ChessboardIsInverted;

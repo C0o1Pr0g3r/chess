@@ -1400,6 +1400,7 @@ void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
     auto& blackKing = appState.blackKing;
     auto& whiteKing = appState.whiteKing;
     auto& GameIsOver = appState.GameIsOver;
+    auto& IsFirstIterationAfterEndOfGame = appState.IsFirstIterationAfterEndOfGame;
     auto& HaveThereBeenChangesSinceTheLastSave = appState.HaveThereBeenChangesSinceTheLastSave;
     auto& ChessboardIsInverted = appState.ChessboardIsInverted;
     auto& PawnReachedLastHorizontal = appState.PawnReachedLastHorizontal;
@@ -1417,6 +1418,7 @@ void SetDefaultGameSettings(AppState& appState, bool is_this_first_launch)
     whiteKing = {LEFT_EXTREME_COORDINATE + 4, BOTTOM_EXTREME_COORDINATE};
 
     GameIsOver = 0;
+    IsFirstIterationAfterEndOfGame = true;
     HaveThereBeenChangesSinceTheLastSave = true;
     ChessboardIsInverted = false;
     PawnReachedLastHorizontal = false;

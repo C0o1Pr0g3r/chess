@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
 #include <iostream>
+#include <thread>
 #include "global constants.h"
 #include "secondary functions.h"
 #include "checks.h"
@@ -85,6 +86,7 @@ void HandleMainMenuScreen(AppState& appState)
 void HandleChessGameScreen(AppState& appState)
 {
     auto& GameIsOver = appState.GameIsOver;
+    auto& IsFirstIterationAfterEndOfGame = appState.IsFirstIterationAfterEndOfGame;
     auto& PauseGame_button = appState.PauseGame_button;
     auto& window = appState.window;
     auto& LeftMouseButtonIsPressed = appState.LeftMouseButtonIsPressed;
@@ -155,6 +157,11 @@ void HandleChessGameScreen(AppState& appState)
     }
     else
     {
+        if (IsFirstIterationAfterEndOfGame)
+        {
+            this_thread::sleep_for(1s);
+            IsFirstIterationAfterEndOfGame = false;
+        }
         ChangeButtonsAvailability(appState, ChessGameScreen, false);
         HandleGameOverWindow(appState);
     }
