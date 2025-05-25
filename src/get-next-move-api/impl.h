@@ -6,12 +6,20 @@
 
 using namespace std;
 
-class StockfishOnlineGetNextMoveApi: public GetNextMoveApi
+class GetNextMoveApiImpl: public GetNextMoveApi
 {
+private:
+    bool currentProvider;
 public:
     string get(const string& fen, int levelOfDifficulty) override;
+    void toggleProvider() override;
 
-    virtual ~StockfishOnlineGetNextMoveApi() {}
+    GetNextMoveApiImpl()
+    :
+        currentProvider(false)
+    {}
+
+    virtual ~GetNextMoveApiImpl() {}
 };
 
 #endif // STOCKFISH_ONLINE_GET_NEXT_MOVE_API_H_INCLUDED

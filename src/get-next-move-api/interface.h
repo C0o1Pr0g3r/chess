@@ -9,6 +9,7 @@ class GetNextMoveApi
 {
 public:
     virtual string get(const string& fen, int levelOfDifficulty) = 0;
+    virtual void toggleProvider() = 0;
 
     virtual ~GetNextMoveApi() {}
 };

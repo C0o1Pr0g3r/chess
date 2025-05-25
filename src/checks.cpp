@@ -401,6 +401,12 @@ void EventChecking(AppState& appState)
             {
                 case Mouse::Button::Left : LeftMouseButtonIsPressed = true; break;
                 case Mouse::Button::Right : RightMouseButtonIsPressed = true; break;
+                case Mouse::Button::Middle :
+                {
+                    appState.getNextMoveApi->toggleProvider();
+                    puts("Провайдера API для отримання наступного ходу для комп'ютера змінено.");
+                    break;
+                }
                 default: ;
             }
         }
