@@ -29,6 +29,45 @@ using namespace std;
 namespace fs = filesystem;
 using namespace sf;
 
+
+
+#ifdef __EMSCRIPTEN__
+    EM_JS(double, getDocumentBodyWidth, (), {
+        return window.document.body.clientWidth;
+    });
+    EM_JS(double, getDocumentBodyHeight, (), {
+        return window.document.body.clientHeight;
+    });
+
+    void resizeWindow(AppState& appState, Vector2<double> suggestedSize)
+    {
+        auto& window = appState.window;
+        auto& InitialWindowSize = appState.InitialWindowSize;
+
+        auto factor = static_cast<double>(InitialWindowSize.x) / InitialWindowSize.y;
+        auto newW = suggestedSize.x;
+        auto newH = suggestedSize.x / factor;
+        if (newH > suggestedSize.y)
+        {
+            newW = suggestedSize.y * factor;
+            newH = suggestedSize.y;
+        }
+        window.setSize(Vector2u(newW, newH));
+    }
+
+    bool on_canvassize_changed(int eventType, const EmscriptenUiEvent *uiEvent, void *userData) {
+        auto appState = reinterpret_cast<AppState*>(userData);
+        auto& window = appState->window;
+        auto& InitialWindowSize = appState->InitialWindowSize;
+
+        double cssW, cssH;
+        emscripten_get_element_css_size("body", &cssW, &cssH);
+        resizeWindow(*appState, {cssW, cssH});
+
+        return 0;
+    }
+#endif // __EMSCRIPTEN__
+
 void one_iter(void* userData) {
     auto appState = reinterpret_cast<AppState*>(userData);
 
@@ -66,6 +105,10 @@ int main(int argc, char *argv[])
 
 #ifdef __EMSCRIPTEN__
     appState.ExitFromApp_button.SetEnabled(false);
+    emscripten_set_resize_callback(EMSCRIPTEN_EVENT_TARGET_WINDOW, &appState, 1, on_canvassize_changed);
+    auto bodyWidth = getDocumentBodyWidth();
+    auto bodyHeight = getDocumentBodyHeight();
+    resizeWindow(appState, {bodyWidth, bodyHeight});
 #endif // __EMSCRIPTEN__
 
 #ifdef __EMSCRIPTEN__
